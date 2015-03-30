@@ -2,11 +2,14 @@ Rails.application.routes.draw do
   get 'ideas/index', to: 'ideas#index'
   get '/ideas/delete'
 
+  # Never need an get route, as we will never directly naviage to the add page. 
   post 'ideas/add', to: 'ideas#add', :as => :add
 
-  # get 'ideas/delete', to: 'ideas#delete'
+  # Do not need a get route, as we will never directly navigate to the delete page. 
   post 'ideas/delete', to: 'ideas#delete', :as => :delete
+  # This is the old way of doing things, use get/post as opposed to match. 
   # match 'ideas/delete', :to => 'ideas#delete', :via => [:get, :post], :as=> :delete
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
