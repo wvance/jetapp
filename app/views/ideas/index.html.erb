@@ -1,17 +1,9 @@
 <!-- This file is the view action for the ideas controller: other actions (add, delete, etc) will get routed to here -->
 <title>Shared Ideas App</title>
 <h1>Ideas App</h1>
-<h3>All your ideas here</h3>
 <hr> 
-<!-- Form For is a rails specific keyword, allowing use of forms in the view that link to the controller -->
-<!-- As you can see this form is linked to the add 'action', which can be found in ideas_controller file. -->
-<%= form_for @new_idea, :url=> {:action => "add"} do |f| %> 
-	<%= f.text_field :name %> 
-	<%= f.submit "Add Idea", class: "btn btn-primary"%>
-<% end %>
-
+<h3>All my ideas here:</h3>
 <!-- Flashes are used to show the errors on the screen. These are linked with the ideas_controller as well-->
-
 <% if flash[:success] %>
 	<div class="alert alert-success">
 		<button type="button" class="close" data-dismiss="alert">x</button>
@@ -35,7 +27,13 @@
 	</ul>
 <% end %>
 
-<br/>
+<!-- Form For is a rails specific keyword, allowing use of forms in the view that link to the controller -->
+<!-- As you can see this form is linked to the add 'action', which can be found in ideas_controller file. -->
+
+<%= form_for @new_idea, :url=> {:action => "add"} do |f| %> 
+	<%= f.text_field :name %> 
+	<%= f.submit "Add Idea", class: "btn btn-primary"%>
+<% end %>
 
 <!-- Rails way of adding a button:  -->
 <%= button_to "Delete Last Item", delete_path, :class=> "btn btn-danger"%>
