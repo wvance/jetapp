@@ -1,28 +1,20 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is our CSCE 431 Application. It's purpose is to improve students ideas, before they get involved with 3DayStartup.
 
-Things you may want to cover:
+To view this application on your own machine follow these steps:
 
-* Ruby version
+* git clone https://github.com/wvance/jetapp
 
-* System dependencies
+* cd jetapp
 
-* Configuration
+* bundle install
 
-* Database creation
+* rake db:migrate
 
-* Database initialization
+* rails server
 
-* How to run the test suite
+* Open a browser and navigate to localhost:3000
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
+You should now be able to see our application in your browser.
 <tt>rake doc:app</tt>.
