@@ -17,4 +17,3 @@ To view this application on your own machine follow these steps:
 * Open a browser and navigate to localhost:3000
 
 You should now be able to see our application in your browser.
-<tt>rake doc:app</tt>.
