@@ -12,7 +12,7 @@ class IdeasController < ApplicationController
   	redirect_to :action => 'index'
   end
   def add 
-  	idea = Idea.create(:name => params[:idea][:name], :description => params[:idea][:description])
+  	idea = Idea.create(:name => params[:idea][:name], :description => params[:idea][:description], :picture =>params[:idea][:picture])
   	unless idea.valid?  
    		  flash[:error] = idea.errors.full_messages.join("<br>").html_safe
    	  else 

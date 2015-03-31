@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Idea.create!(name: 'grocery shopping')
-Idea.create!(name: 'wash the car')
-Idea.create!(name: 'register kids for school')
-Idea.create!(name: 'check engine light')
-Idea.create!(name: 'dog groomers')
+Idea.create!(name: 'grocery shopping', description: "Test description1")
+Idea.create!(name: 'wash the car', description: "Test description2")
+Idea.create!(name: 'register kids for school', description: "Test description3")
+Idea.create!(name: 'check engine light', description: "Test description4")
+Idea.create!(name: 'dog groomers', description: "Test description5")

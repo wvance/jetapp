@@ -22,6 +22,7 @@
 <% @idea_item.each do |ideaItem| %>
 	<ul>
 		<li> 
+			<%= image_tag(ideaItem.picture_url, :width => 300) if ideaItem.picture.present? %>
 			<h4><%= ideaItem.name %></h4>
 			<h6><%= ideaItem.description %> </h6>
 		</li> 
@@ -35,6 +36,8 @@
 	<%= f.text_field :name %> 
 	<%= f.label :description %>:
 	<%= f.text_field :description %>
+	<%= f.label :Upload %>:
+	<%= f.file_field :picture %>
 	<%= f.submit "Add Idea", class: "btn btn-primary"%>
 <% end %>
 
