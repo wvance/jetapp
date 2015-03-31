@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20150331010934) do
 
   create_table "ideas", force: :cascade do |t|
     t.string   "name"
+    t.string   "author"
     t.text     "description"
     t.string   "picture"
     t.datetime "created_at",  null: false

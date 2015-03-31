@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'ideas/index', to: 'ideas#index'
+  get 'ideas/show', to: 'ideas#show'
   get '/ideas/delete'
 
   # Never need an get route, as we will never directly naviage to the add page. 
@@ -16,9 +16,9 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # ideas controller with the index action 
+  # ideas controller with the show action 
   # ROOT IS ALSO NEEDED FOR DEVISE
-  root 'ideas#index'
+  root 'ideas#show'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
