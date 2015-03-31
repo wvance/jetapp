@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'ideas/index', to: 'ideas#index'
   get '/ideas/delete'
 
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # ideas controller with the index action 
+  # ROOT IS ALSO NEEDED FOR DEVISE
   root 'ideas#index'
 
   # Example of regular route:

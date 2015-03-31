@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 #FOR WINDOWS
 gem 'tzinfo-data'
+#FOR USER ACCOUNTS 
+gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
