@@ -5,7 +5,7 @@ gem 'tzinfo-data'
 #FOR USER ACCOUNTS 
 gem 'devise'
 
-# ADDED GRAVATAR 
+# ADDED GRAVATAR: PROFILE PICTURE
 gem 'gravtastic'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -5,5 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   # USED FOR PROFILE PICTURE: LIBRARY
   include Gravtastic
-	gravtastic
+	gravtastic :size => 50,
+						 :default => 'mm'
 end
