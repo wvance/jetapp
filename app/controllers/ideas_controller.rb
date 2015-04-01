@@ -7,12 +7,20 @@ class IdeasController < ApplicationController
     # This is how we display all the Idea(s) in the index view
   	@all_ideas = Idea.all
   end
+
   def delete
-    # NEED TO CHANGE THIS TO DELETE ONLY WHERE IDEA IS USER
-  	Idea.last.delete
-    # This will redirect the add action to the index action, which then routes to the index view.
-  	redirect_to :action => 'showAuthorIdea'
+    # http://stackoverflow.com/questions/18682914/passing-id-to-controller-through-link-to-in-railsner
+    Idea.find(params[:user_id]).destroy
+    redirect_to :action => 'showAuthorIdea'
   end
+
+  def deleteLast
+    # NEED TO CHANGE THIS TO DELETE ONLY WHERE IDEA IS USER
+    Idea.last.delete
+    # This will redirect the add action to the index action, which then routes to the index view.
+    redirect_to :action => 'showAuthorIdea'
+  end
+
   def add 
   	idea = Idea.create(:name => params[:idea][:name], :author => current_user.email, :description => params[:idea][:description], :picture =>params[:idea][:picture])
   	unless idea.valid?  

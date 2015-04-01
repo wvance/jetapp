@@ -25,10 +25,14 @@
 		<li> 
 			<%= image_tag(ideaItem.picture_url, :width => 300) if ideaItem.picture.present? %>
 			<h4><%= ideaItem.name %></h4>
+			<h6><%= ideaItem.id %> </h6>
 			<h6><%= ideaItem.description %> </h6>
 			<h6><%= ideaItem.author %> </h6>
 		</li> 
 	</ul>
+	<!-- THIS IS HOW YOU DELETE AN INDIVIDUAL IDEA USING delete_path(found in routes), this passes user_id to the controller -->
+	<!-- http://stackoverflow.com/questions/18682914/passing-id-to-controller-through-link-to-in-railsner -->
+	<%= button_to 'Delete Item', delete_path(:user_id => ideaItem.id), data: { confirm: 'Are you sure?' }, :class=>"btn btn-danger" %>
 <% end %>
 <br>
 

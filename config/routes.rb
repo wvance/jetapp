@@ -2,13 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   get 'ideas/showAll', to: 'ideas#showAll'
   get 'ideas/showAuthorIdea', to: 'ideas#showAuthorIdea'
-
   get 'ideas/delete'
-
   # Never need an get route, as we will never directly naviage to the add page. 
   post 'ideas/add', to: 'ideas#add', :as => :add
-
   # Do not need a get route, as we will never directly navigate to the delete page. 
+  post 'ideas/deleteLast', to: 'ideas#deleteLast', :as => :deleteLast
+  
   post 'ideas/delete', to: 'ideas#delete', :as => :delete
   # This is the old way of doing things, use get/post as opposed to match. 
   # match 'ideas/delete', :to => 'ideas#delete', :via => [:get, :post], :as=> :delete
