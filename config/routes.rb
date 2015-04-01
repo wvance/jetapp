@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :comments
+
   devise_for :users
   get 'ideas/showAll', to: 'ideas#showAll'
   get 'ideas/showAuthorIdea', to: 'ideas#showAuthorIdea'

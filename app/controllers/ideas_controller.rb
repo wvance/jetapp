@@ -15,6 +15,8 @@ class IdeasController < ApplicationController
 
   def showIdea
     @idea = Idea.find(params[:id])
+		@comments = @idea.comments.all
+		@comment = @idea.comments.build
   end
 
   def delete
