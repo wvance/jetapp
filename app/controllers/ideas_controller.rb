@@ -2,19 +2,16 @@ class IdeasController < ApplicationController
   # Each 'def' is an action, inside the ideas_controller. 
   # INDEX IS THE SAME A SHOW
   # CRUD ACTIONS HERE: Create = add, Read = show 
-  def show
+  def showAll
     # These are instance variables, which can be used in the views
     # This is how we display all the Idea(s) in the index view
   	@all_ideas = Idea.all
-  	@new_idea = Idea.new
-
-    # GETS THE IDEAS FOR THE CURRENT USER
-    @user_idea = Idea.where(:author => current_user.email)
   end
   def delete
+    # NEED TO CHANGE THIS TO DELETE ONLY WHERE IDEA IS USER
   	Idea.last.delete
     # This will redirect the add action to the index action, which then routes to the index view.
-  	redirect_to :action => 'show'
+  	redirect_to :action => 'showAuthorIdea'
   end
   def add 
   	idea = Idea.create(:name => params[:idea][:name], :author => current_user.email, :description => params[:idea][:description], :picture =>params[:idea][:picture])
@@ -24,9 +21,16 @@ class IdeasController < ApplicationController
    		  flash[:success] = "Idea Added!"
     end  
     # This will redirect the add action to the index action, which then routes to the index view.
- 		redirect_to :action => 'show'
+ 		redirect_to :action => 'showAuthorIdea'
   end
 
   def update
   end
+
+  def showAuthorIdea
+    # GETS THE IDEAS FOR THE CURRENT USER
+    @user_idea = Idea.where(:author => current_user.email)
+    @new_idea = Idea.new
+  end 
+
 end

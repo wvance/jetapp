@@ -1,0 +1,35 @@
+<!-- This file is the view action for the ideas controller: other actions (add, delete, etc) will get routed to here -->
+<title>Shared Ideas App</title>
+
+<!-- Flashes are used to show the errors on the screen. These are linked with the ideas_controller as well-->
+<% if flash[:success] %>
+	<div class="alert alert-success">
+		<button type="button" class="close" data-dismiss="alert">x</button>
+		<strong> <%= flash[:success]%> </strong>
+	</div>
+<% end %>
+
+<% if flash[:error] %>
+	<div class="alert alert-danger">
+		<button type="button" class="close" data-dismiss="alert">x</button>
+		<strong> <%= flash[:error]%> </strong>
+	</div>
+<% end %>
+
+<!-- This is rails way of doing a for each loop. This goes throguh each item in idea_item and displays its 'name' column -->
+<!-- THIS IS FOR ALL USERS (NOT LOGGED IN USER) -->
+<!-- ALL_IDEA IS DEFINED IN ideas_controller -->
+<h3>All Ideas:</h3>
+<% @all_ideas.each do |ideaItem| %>
+	<ul>
+		<li> 
+			<%= image_tag(ideaItem.picture_url, :width => 300) if ideaItem.picture.present? %>
+			<h4><%= ideaItem.name %></h4>
+			<h6><%= ideaItem.description %> </h6>
+			<h6><%= ideaItem.author %> </h6>
+		</li> 
+	</ul>
+<% end %>
+<br>
+
+<!-- <a href="/ideas/delete"> <button class="btn btn-danger">Delete</button></a>

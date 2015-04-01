@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'ideas/show', to: 'ideas#show'
-  get '/ideas/delete'
+  get 'ideas/showAll', to: 'ideas#showAll'
+  get 'ideas/showAuthorIdea', to: 'ideas#showAuthorIdea'
+
+  get 'ideas/delete'
 
   # Never need an get route, as we will never directly naviage to the add page. 
   post 'ideas/add', to: 'ideas#add', :as => :add
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # ideas controller with the show action 
   # ROOT IS ALSO NEEDED FOR DEVISE
-  root 'ideas#show'
+  root 'ideas#showAll'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

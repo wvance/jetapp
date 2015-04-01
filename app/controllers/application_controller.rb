@@ -5,4 +5,7 @@ class ApplicationController < ActionController::Base
 
   #FORCES USER TO SIGN UP BEFORE GOING TO SITE
   before_action :authenticate_user!
+
+  def index
+  end
 end
