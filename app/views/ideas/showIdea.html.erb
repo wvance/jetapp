@@ -1,0 +1,6 @@
+<h2><strong>Idea: </strong><%= @idea.name %></h2>
+<%= image_tag(@idea.picture_url, :width => 300) if @idea.picture.present? %>
+<hr>
+<h3><strong>ID: </strong><%= @idea.id %></h3>
+<h3><strong>Author: </strong><%= @idea.author %></h3>
+<h3><strong>Description: </strong><%= @idea.description %></h3>

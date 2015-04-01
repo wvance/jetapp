@@ -24,7 +24,7 @@
 	<ul>
 		<li> 
 			<%= image_tag(ideaItem.picture_url, :width => 300) if ideaItem.picture.present? %>
-			<h4><%= ideaItem.name %></h4>
+			<h4><%= link_to ideaItem.name, showIdea_path(ideaItem.id) %></h4>
 			<h6><%= ideaItem.id %> </h6>
 			<h6><%= ideaItem.description %> </h6>
 			<h6><%= ideaItem.author %> </h6>

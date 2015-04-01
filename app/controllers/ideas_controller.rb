@@ -7,6 +7,15 @@ class IdeasController < ApplicationController
     # This is how we display all the Idea(s) in the index view
   	@all_ideas = Idea.all
   end
+  def showAuthorIdea
+    # GETS THE IDEAS FOR THE CURRENT USER
+    @user_idea = Idea.where(:author => current_user.email)
+    @new_idea = Idea.new
+  end 
+
+  def showIdea
+    @idea = Idea.find(params[:id])
+  end
 
   def delete
     # http://stackoverflow.com/questions/18682914/passing-id-to-controller-through-link-to-in-railsner
@@ -34,11 +43,5 @@ class IdeasController < ApplicationController
 
   def update
   end
-
-  def showAuthorIdea
-    # GETS THE IDEAS FOR THE CURRENT USER
-    @user_idea = Idea.where(:author => current_user.email)
-    @new_idea = Idea.new
-  end 
 
 end
