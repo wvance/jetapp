@@ -32,7 +32,10 @@
 	</ul>
 	<!-- THIS IS HOW YOU DELETE AN INDIVIDUAL IDEA USING delete_path(found in routes), this passes user_id to the controller -->
 	<!-- http://stackoverflow.com/questions/18682914/passing-id-to-controller-through-link-to-in-railsner -->
-	<%= button_to 'Delete Item', delete_path(:user_id => ideaItem.id), data: { confirm: 'Are you sure?' }, :class=>"btn btn-danger" %>
+	<!-- if statement prevents users from deleting others posts -->
+	<% if current_user.email == ideaItem.author %>
+		<%= button_to 'Delete Item', delete_path(:user_id => ideaItem.id), data: { confirm: 'Are you sure?' }, :class=>"btn btn-danger" %>
+	<% end %>
 <% end %>
 <br>
 
