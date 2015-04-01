@@ -18,6 +18,7 @@
 
 # Ignore IDE files
 /.idea
-/jetapp.imlpublic/uploads
+/jetapp.iml
+/public/uploads
 tmp
 logs
