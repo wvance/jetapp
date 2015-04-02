@@ -6,8 +6,12 @@
 <h3><strong>Description: </strong><%= @idea.description %></h3>
 <h3><strong>Comments</strong></h3>
 <% @comments.each do |comment| %>
+	<!-- TODO: move this into a dedicated view -->
 	<div>
-		<p><%= comment.body %></p>
+		<p>
+			UID <%= comment.user_id %> says:
+			<%= comment.body %>
+		</p>
 	</div>
 <% end %>
 <%= render 'comments/form' %>
