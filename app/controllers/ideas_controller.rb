@@ -53,4 +53,8 @@ class IdeasController < ApplicationController
   def current_page(path)
     "active" if current_page?(path)
   end
+
+  def trancate(string, length = 200)
+  string.size > length+5 ? [string[0,length],string[-5,5]].join("...") : string
+end
 end

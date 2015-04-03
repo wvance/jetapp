@@ -10,13 +10,12 @@
 	        <h3><%= link_to ideaItem.name, showIdea_path(ideaItem.id) %> : <%= ideaItem.id %></h3>
 	        <h5><%= ideaItem.author %></h5>
 	        <p><%= ideaItem.description %></p>
-	        <div class="editIdea"> 
-						<% if current_user.email == ideaItem.author %>
-							<%= link_to 'Delete Item', delete_path(:user_id => ideaItem.id), data: { confirm: 'Are you sure?' }, :class=>"btn btn-danger" %>
-						<% end %>
-					</div>
 	      </div>
 	    </div>
+	    <!-- DELETE X: STYLE IS CRAP -->
+			<% if current_user.email == ideaItem.author %>
+				<%= link_to 'x', delete_path(:user_id => ideaItem.id), data: { confirm: 'Are you sure?' }, :class=>"close deleteButton" %>
+			<% end %>
 	  </div>
 	<% end %>
 

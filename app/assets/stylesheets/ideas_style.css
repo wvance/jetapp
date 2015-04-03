@@ -7,13 +7,25 @@ body {
 	margin-left: 50px;
 	margin-right:50px;
 }
+.thumbnail{
+	height:400px;
+	width:100%;
+	overflow: hidden;
+}
+.deleteItem{
+	margin-top: -15px;
+}
+.deleteButton{
+	margin-top: -45px;
+	margin-right: 5px;
+}
 .thumbnail img { 
-	max-height:250px; 
+	max-height:200px; 
 	height:100%; 
 	min-width: 125px;
 }
 .idea-thumbail-img{
-
+	height:250px;
 }
 .addIdeaBtn{
 }
