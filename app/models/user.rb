@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
   include Gravtastic
 	gravtastic :size => 50,
 						 :default => 'mm'
+
+	has_many :comments
 end

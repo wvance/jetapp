@@ -4,3 +4,15 @@
 <h3><strong>ID: </strong><%= @idea.id %></h3>
 <h3><strong>Author: </strong><%= @idea.author %></h3>
 <h3><strong>Description: </strong><%= @idea.description %></h3>
+<h3><strong>Comments</strong></h3>
+<% @comments.each do |comment| %>
+	<!-- TODO: move this into a dedicated view -->
+	<div>
+		<p>
+			<!-- TODO: get the actual username/email via users table -->
+			UID <%= comment.user_id %> says:
+			<%= comment.body %>
+		</p>
+	</div>
+<% end %>
+<%= render 'comments/form' %>
