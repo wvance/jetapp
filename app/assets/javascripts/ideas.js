@@ -1,3 +1,4 @@
 $(function () {
-  $('#myTab a:last').tab('show')
+	e.preventDefault()
+  $('#myTab a:first').tab('show')
 })

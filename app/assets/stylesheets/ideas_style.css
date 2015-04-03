@@ -34,5 +34,9 @@ nav{
 footer{
 	text-align: center;
 }
-.ideaFormWrapper{
+.noPicDisplay{
+	text-align: center;
+}
+.noDocDisplay{
+	text-align: center;
 }

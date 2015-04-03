@@ -18,25 +18,36 @@
 
 	<div class="col-xs-12 col-sm-4 col-md-6 pull-right">
 		<!-- PUT AUTHOR PROFILE PIC HERE -->
-		<%= image_tag(@idea.picture_url, :class=>"ideaImage pull-right") if @idea.picture.present? %>
+		<% if @idea.picture.present? %>
+			<%= image_tag(@idea.picture_url, :class=>"ideaImage pull-right")%>
+			<% else %>
+			<div class="noPicDisplay">
+				<h3> This Idea has no picture</h3>
+				<h4> Upload one here!</h4>
+				<!-- <%= simple_form_for(@new_idea,:url=>{:action => "add"} , html: { class: 'form-horizontal' }) do |f| %>
+					<%= f.file_field :picture %>
+					<%= f.submit "Add picture", class: "btn btn-primary addIdeaBtn"%>
+				<% end %> -->
+			</div>
+		<% end %>
 	</div>
 	<div class="col-sm-8 col-md-6">
 		<ul class="nav nav-tabs" role="tablist" id="myTab">
-		  <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
-		  <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Customer Segment</a></li>
-		  <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Vision</a></li>
+		  <li role="presentation" class="active"><a href="#ideaDescrition" aria-controls="ideaDescrition" role="tab" data-toggle="tab">Description</a></li>
+		  <li role="presentation"><a href="#ideaCustomerSegment" aria-controls="ideaCustomerSegment" role="tab" data-toggle="tab">Customer Segment</a></li>
+		  <li role="presentation"><a href="#ideaVision" aria-controls="ideaVision" role="tab" data-toggle="tab">Vision</a></li>
 		</ul>
 		<div class="tab-content">
-		  <div role="tabpanel" class="tab-pane fade in active" id="home">
+		  <div role="tabpanel" class="tab-pane fade in active" id="ideaDescrition">
 		 		<div class="descriptionWrapper">
 		  		<h5><%= @idea.description %></h5>
 		  	</div>
 		  </div>
-		  <div role="tabpanel" class="tab-pane fade in" id="profile">
-		  	.b.
+		  <div role="tabpanel" class="tab-pane fade in" id="ideaCustomerSegment">
+		  	<h5><%=@idea.customerSegment%></h5>
 		  </div>
-		  <div role="tabpanel" class="tab-pane fade in " id="messages">
-		  	.c.
+		  <div role="tabpanel" class="tab-pane fade in " id="ideaVision">
+		  	<h5><%=@idea.vision%></h5>
 		  </div>		
 		</div>
 	</div>
@@ -70,10 +81,21 @@
 <div class="row">
 	<div class="col-md-6 addComment">
 		<h3><strong>Add Comment</strong></h3>
-
 		<%= render 'comments/form' %>
 	</div>
 	<div class="col-md-6 documents">
 		<h3><strong>Documents</strong></h3>
+<!-- 		<% if @idea.picture.present? %>
+			<%= image_tag(@idea.picture_url, :class=>"ideaImage pull-right")%>
+			<% else %> -->
+			<div class="noDocDisplay">
+				<h3> This Idea has no documents</h3>
+				<h4> Upload one here!</h4>
+				<!-- <%= simple_form_for(@new_idea,:url=>{:action => "add"} , html: { class: 'form-horizontal' }) do |f| %>
+					<%= f.file_field :picture %>
+					<%= f.submit "Add picture", class: "btn btn-primary addIdeaBtn"%>
+				<% end %> -->
+			</div>
+		<!-- <% end %> -->
 	</div>
 </div>

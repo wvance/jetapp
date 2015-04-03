@@ -14,6 +14,7 @@ class IdeasController < ApplicationController
   end 
 
   def showIdea
+    @new_idea = Idea.new
     @idea = Idea.find(params[:id])
 		@comments = @idea.comments.all
 		@comment = @idea.comments.build
@@ -37,7 +38,7 @@ class IdeasController < ApplicationController
   end
 
   def add 
-  	idea = Idea.create(:name => params[:idea][:name], :author => current_user.email, :valueProposition => params[:idea][:valueProposition], :description => params[:idea][:description], :picture =>params[:idea][:picture])
+  	idea = Idea.create(:name => params[:idea][:name], :author => current_user.email, :valueProposition => params[:idea][:valueProposition], :customerSegment => params[:idea][:customerSegment], :marketSize => params[:idea][:marketSize], :resources => params[:idea][:resources], :stage => params[:idea][:stage], :vision => params[:idea][:vision], :sector => params[:idea][:sector], :description => params[:idea][:description], :picture =>params[:idea][:picture])
   	unless idea.valid?  
    		  flash[:error] = idea.errors.full_messages.join("<br>").html_safe
    	  else 
@@ -46,7 +47,6 @@ class IdeasController < ApplicationController
     # This will redirect the add action to the index action, which then routes to the index view.
  		redirect_to :action => 'newIdea'
   end
-
   def update
   end
 
