@@ -26,6 +26,9 @@ end
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 
+# USED FOR BETTER CUSTOMIZED FORMS
+gem 'simple_form'
+
 # USED FOR CUSTOM LOGIN/ API'S
 # gem 'omniauth'
 # gem 'omniauth-facebook'

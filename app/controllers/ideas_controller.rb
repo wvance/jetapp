@@ -44,7 +44,7 @@ class IdeasController < ApplicationController
    		  flash[:success] = "Idea Added!"
     end  
     # This will redirect the add action to the index action, which then routes to the index view.
- 		redirect_to :action => 'showAuthorIdea'
+ 		redirect_to :action => 'newIdea'
   end
 
   def update

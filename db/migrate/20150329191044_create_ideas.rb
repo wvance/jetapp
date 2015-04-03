@@ -4,6 +4,13 @@ class CreateIdeas < ActiveRecord::Migration
       t.string :name
       t.string :author
       t.text :description
+      t.text :valueProposition
+      t.text :customerSegment
+      t.integer :marketSize
+      t.text :resources
+      t.string :stage
+      t.text :vision
+      t.string :sector
       t.string :picture
       t.timestamps null: false
     end
