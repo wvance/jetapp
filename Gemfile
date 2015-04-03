@@ -22,6 +22,10 @@ group :production do
   gem 'rails_12factor'
 end
 
+# USED FOR CUSTOM LOGIN/ API'S
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 # PICTURE UPLOADS
 gem 'carrierwave'
 
