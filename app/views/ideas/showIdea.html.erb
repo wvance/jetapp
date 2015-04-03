@@ -20,8 +20,9 @@
 				<h4>
 					<!-- TODO: get the actual username/email via users table -->
 					<strong>UID <%= comment.user_id %> says:</strong>
-					<%= comment.body %> | 
+					<%= comment.body %> 
 					<% if current_user.id == comment.user_id %>
+							| 
 							<%= link_to 'Edit', edit_comment_path(comment), :class =>"commentForm btn btn-xs btn-warning"%> 
 							<%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"commentForm btn btn-xs btn-danger" %>
 					<% end %>
