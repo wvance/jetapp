@@ -9,7 +9,7 @@ class IdeasController < ApplicationController
   end
   def showAuthorIdea
     # GETS THE IDEAS FOR THE CURRENT USER
-    @user_idea = Idea.where(:author => current_user.email)
+    @user_idea = Idea.where(:author => current_user.email).page(params[:page]).per(15)
     @new_idea = Idea.new
   end 
 
@@ -17,6 +17,10 @@ class IdeasController < ApplicationController
     @idea = Idea.find(params[:id])
 		@comments = @idea.comments.all
 		@comment = @idea.comments.build
+  end
+
+  def newIdea
+    @new_idea = Idea.new
   end
 
   def delete
@@ -46,4 +50,7 @@ class IdeasController < ApplicationController
   def update
   end
 
+  def current_page(path)
+    "active" if current_page?(path)
+  end
 end

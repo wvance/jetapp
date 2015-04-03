@@ -26,10 +26,13 @@ body {
 .childElement{
 	margin-top: -7px;
 	margin-left: 20px;
+	padding-bottom: 15px;
 }
 nav{
 	margin-top: -1px;
 }
 footer{
 	text-align: center;
+}
+.ideaFormWrapper{
 }

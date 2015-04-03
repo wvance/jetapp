@@ -1,12 +1,32 @@
 <div class="row">
 	<div class="col-xs-12 col-sm-4 col-md-6 pull-right">
+		<!-- PUT AUTHOR PROFILE PIC HERE -->
 		<%= image_tag(@idea.picture_url, :class=>"ideaImage pull-right") if @idea.picture.present? %>
 	</div>
 	<div class="col-sm-8 col-md-6">
-		<h2><strong><%= @idea.name %> : <%= @idea.id %></strong></h2>
-		<h5 class="childElement">-<%= @idea.author %></h5>
-		<h3><strong>Description</strong></h3>
-		<h5 class="childElement"><%= @idea.description %></h5>
+		<h2>
+			<%= @idea.name %> 
+		</h2>
+		<h6 class="childElement"><%= @idea.author %></h6>
+		
+		<ul class="nav nav-tabs" role="tablist" id="myTab">
+		  <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
+		  <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Customer Segment</a></li>
+		  <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Vision</a></li>
+		</ul>
+		<div class="tab-content">
+		  <div role="tabpanel" class="tab-pane fade in active" id="home">
+		 		<div class="descriptionWrapper">
+		  		<h5><%= @idea.description %></h5>
+		  	</div>
+		  </div>
+		  <div role="tabpanel" class="tab-pane fade in" id="profile">
+		  	.b.
+		  </div>
+		  <div role="tabpanel" class="tab-pane fade in " id="messages">
+		  	.c.
+		  </div>		
+		</div>
 	</div>
 </div>
 
