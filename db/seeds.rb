@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Idea.create!(name: 'grocery shopping', description: "Test description1")
-Idea.create!(name: 'wash the car', description: "Test description2")
-Idea.create!(name: 'register kids for school', description: "Test description3")
-Idea.create!(name: 'check engine light', description: "Test description4")
-Idea.create!(name: 'dog groomers', description: "Test description5")
+(1..100).each do |i|
+  Idea.create!(name: "Lipsum Post #{i}", description: %{
+      Nullam hendrerit iaculis sodales. Curabitur varius nibh arcu, id molestie nibh fermentum vitae. Cras quis semper dui. Cras porttitor urna sit amet risus vehicula tempor. Maecenas quis tempor ligula. Donec et nibh eu leo volutpat placerat. Fusce vulputate elit in nisi pretium, vel fermentum mi fermentum. Mauris scelerisque, lectus non luctus ultricies, urna eros tincidunt risus, at varius sapien diam id erat.
+  })
+end

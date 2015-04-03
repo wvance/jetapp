@@ -5,7 +5,7 @@ class IdeasController < ApplicationController
   def showAll
     # These are instance variables, which can be used in the views
     # This is how we display all the Idea(s) in the index view
-  	@all_ideas = Idea.all
+  	@all_ideas = Idea.all.page(params[:page]).per(15)
   end
   def showAuthorIdea
     # GETS THE IDEAS FOR THE CURRENT USER

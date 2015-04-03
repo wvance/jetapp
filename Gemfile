@@ -22,9 +22,13 @@ group :production do
   gem 'rails_12factor'
 end
 
+# PAGINATION GEM & STYLE
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
+
 # USED FOR CUSTOM LOGIN/ API'S
-gem 'omniauth'
-gem 'omniauth-facebook'
+# gem 'omniauth'
+# gem 'omniauth-facebook'
 
 # PICTURE UPLOADS
 gem 'carrierwave'

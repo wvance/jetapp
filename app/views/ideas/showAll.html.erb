@@ -31,3 +31,15 @@
 	  </div>
 	<% end %>
 </div>
+
+
+<div class="row">
+ 	<div class="col-md-12 text-center">
+		<div class="pagination_links">
+	    <%= paginate @all_ideas, :theme => 'twitter-bootstrap-3', :pagination_class => "pagination-small pagination-centered", :container => false %>
+	  </div>
+	  <!-- <div class="page_info" style="text-align: center">
+	    <%= page_entries_info @all_ideas %>
+	  </div> -->
+ 	</div>
+</div>
