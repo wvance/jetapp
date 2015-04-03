@@ -10,24 +10,24 @@
 	</div>
 </div>
 
-<div class="row col-md-12">
+<div class="col-md-12">
 <hr>
 	<h3><strong>Comments</strong></h3>
 	<div class="childElement">
-	<% @comments.each do |comment| %>
-		<!-- TODO: move this into a dedicated view -->
-		<div>
-			<h4>
-				<!-- TODO: get the actual username/email via users table -->
-				<strong>UID <%= comment.user_id %> says:</strong>
-				<%= comment.body %> | 
-				<% if current_user.id == comment.user_id %>
-						<%= link_to 'Edit', edit_comment_path(comment), :class =>"commentForm btn btn-xs btn-warning"%> 
-						<%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"commentForm btn btn-xs btn-danger" %>
-				<% end %>
-			</h4>
-		</div>
-	<% end %>
+		<% @comments.each do |comment| %>
+			<!-- TODO: move this into a dedicated view -->
+			<div>
+				<h4>
+					<!-- TODO: get the actual username/email via users table -->
+					<strong>UID <%= comment.user_id %> says:</strong>
+					<%= comment.body %> | 
+					<% if current_user.id == comment.user_id %>
+							<%= link_to 'Edit', edit_comment_path(comment), :class =>"commentForm btn btn-xs btn-warning"%> 
+							<%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"commentForm btn btn-xs btn-danger" %>
+					<% end %>
+				</h4>
+			</div>
+		<% end %>
 	</div>
 </div>
 
