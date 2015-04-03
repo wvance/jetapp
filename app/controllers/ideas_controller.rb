@@ -37,7 +37,7 @@ class IdeasController < ApplicationController
   end
 
   def add 
-  	idea = Idea.create(:name => params[:idea][:name], :author => current_user.email, :description => params[:idea][:description], :picture =>params[:idea][:picture])
+  	idea = Idea.create(:name => params[:idea][:name], :author => current_user.email, :valueProposition => params[:idea][:valueProposition], :description => params[:idea][:description], :picture =>params[:idea][:picture])
   	unless idea.valid?  
    		  flash[:error] = idea.errors.full_messages.join("<br>").html_safe
    	  else 
