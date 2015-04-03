@@ -10,3 +10,15 @@
 .idea-thumbail-img{
 
 }
+.addIdeaBtn{
+}
+.ideaImage{
+	padding-top: 25px;
+	padding-bottom: 10px;
+	width:100%;
+	min-height: 150px;
+}
+.childElement{
+	margin-top: -7px;
+	margin-left: 20px;
+}
