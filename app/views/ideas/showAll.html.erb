@@ -1,26 +1,10 @@
 <!-- This file is the view action for the ideas controller: other actions (add, delete, etc) will get routed to here -->
 <title>Shared Ideas App</title>
 
-<!-- Flashes are used to show the errors on the screen. These are linked with the ideas_controller as well-->
-<% if flash[:success] %>
-	<div class="alert alert-success">
-		<button type="button" class="close" data-dismiss="alert">x</button>
-		<strong> <%= flash[:success]%> </strong>
-	</div>
-<% end %>
-
-<% if flash[:error] %>
-	<div class="alert alert-danger">
-		<button type="button" class="close" data-dismiss="alert">x</button>
-		<strong> <%= flash[:error]%> </strong>
-	</div>
-<% end %>
-
 <!-- This is rails way of doing a for each loop. This goes throguh each item in idea_item and displays its 'name' column -->
 <!-- THIS IS FOR ALL USERS (NOT LOGGED IN USER) -->
 <!-- ALL_IDEA IS DEFINED IN ideas_controller -->
-<h3>All Ideas:</h3>
-<% @all_ideas.each do |ideaItem| %>
+<!-- <% @all_ideas.each do |ideaItem| %>
 	<ul>
 		<li> 
 			<%= image_tag(ideaItem.picture_url, :width => 300) if ideaItem.picture.present? %>
@@ -30,13 +14,19 @@
 			<h6><%= ideaItem.author %> </h6>
 		</li> 
 	</ul>
-	<!-- THIS IS HOW YOU DELETE AN INDIVIDUAL IDEA USING delete_path(found in routes), this passes user_id to the controller -->
-	<!-- http://stackoverflow.com/questions/18682914/passing-id-to-controller-through-link-to-in-railsner -->
-	<!-- if statement prevents users from deleting others posts -->
-	<% if current_user.email == ideaItem.author %>
-		<%= button_to 'Delete Item', delete_path(:user_id => ideaItem.id), data: { confirm: 'Are you sure?' }, :class=>"btn btn-danger" %>
+<% end %> -->
+<div class="row">
+	<% @all_ideas.each do |ideaItem| %>
+	  <div class="col-sm-6 col-md-4 col-lg-3">
+	    <div class="thumbnail">
+	      <%= image_tag(ideaItem.picture_url, :class => "idea-thumbail-img",) if ideaItem.picture.present? %>
+	      <div class="caption">
+	        <h3><%= link_to ideaItem.name, showIdea_path(ideaItem.id) %> : <%= ideaItem.id %></h3>
+	        <h5><%= ideaItem.author %></h5>
+	        <p><%= ideaItem.description %></p>
+	        <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
+	      </div>
+	    </div>
+	  </div>
 	<% end %>
-<% end %>
-<br>
-
-<!-- <a href="/ideas/delete"> <button class="btn btn-danger">Delete</button></a>
+</div>
