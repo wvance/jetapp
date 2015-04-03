@@ -21,9 +21,3 @@
 
 en:
   hello: "Hello world"
-
-en:
-  devise:
-    authentications:
-      user:
-        failure: User authentication failure
