@@ -4,17 +4,6 @@
 <!-- This is rails way of doing a for each loop. This goes throguh each item in idea_item and displays its 'name' column -->
 <!-- THIS IS FOR ALL USERS (NOT LOGGED IN USER) -->
 <!-- ALL_IDEA IS DEFINED IN ideas_controller -->
-<!-- <% @all_ideas.each do |ideaItem| %>
-	<ul>
-		<li> 
-			<%= image_tag(ideaItem.picture_url, :width => 300) if ideaItem.picture.present? %>
-			<h4><%= link_to ideaItem.name, showIdea_path(ideaItem.id) %></h4>
-			<h6><%= ideaItem.id %> </h6>
-			<h6><%= ideaItem.description %> </h6>
-			<h6><%= ideaItem.author %> </h6>
-		</li> 
-	</ul>
-<% end %> -->
 <h3>All Ideas:</h3>
 <div class="row">
 	<% @all_ideas.each do |ideaItem| %>
@@ -33,6 +22,7 @@
 </div>
 
 
+<!-- FROM THE kaminari GEM -->
 <div class="row">
  	<div class="col-md-12 text-center">
 		<div class="pagination_links">
