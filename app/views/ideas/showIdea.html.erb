@@ -13,7 +13,7 @@
 <div class="row col-md-12">
 <hr>
 	<h3><strong>Comments</strong></h3>
-
+	<div class="childElement">
 	<% @comments.each do |comment| %>
 		<!-- TODO: move this into a dedicated view -->
 		<div>
@@ -28,8 +28,9 @@
 			</h4>
 		</div>
 	<% end %>
+	</div>
 </div>
 
-<div class="row col-md-12">
+<div class="row col-md-6 addComment">
 	<%= render 'comments/form' %>
 </div>

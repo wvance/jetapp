@@ -25,7 +25,7 @@
 	        <p><%= ideaItem.description %></p>
 	        <div class="editIdea"> 
 						<% if current_user.email == ideaItem.author %>
-							<%= button_to 'Delete Item', delete_path(:user_id => ideaItem.id), data: { confirm: 'Are you sure?' }, :class=>"btn btn-danger" %>
+							<%= link_to 'Delete Item', delete_path(:user_id => ideaItem.id), data: { confirm: 'Are you sure?' }, :class=>"btn btn-danger" %>
 						<% end %>
 					</div>
 	      </div>
