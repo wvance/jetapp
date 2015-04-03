@@ -17,6 +17,10 @@
 	        <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
 	      </div>
 	    </div>
+	    <!-- DELETE X: STYLE IS CRAP -->
+			<% if current_user.email == ideaItem.author %>
+				<%= link_to 'x', delete_path(:user_id => ideaItem.id), data: { confirm: 'Are you sure?' }, :class=>"close deleteButton" %>
+			<% end %>
 	  </div>
 	<% end %>
 </div>
