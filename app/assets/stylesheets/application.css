@@ -14,6 +14,7 @@
  *= require bootstrap-theme.min.css
  *= require bootstrap-flat.css
  *= require bootstrap-flat-extras.css
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */

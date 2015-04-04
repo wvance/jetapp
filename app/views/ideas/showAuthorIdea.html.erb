@@ -13,9 +13,9 @@
 	      </div>
 	    </div>
 	    <!-- DELETE X: STYLE IS CRAP -->
-			<% if current_user.email == ideaItem.author %>
-				<%= link_to 'x', delete_path(:user_id => ideaItem.id), data: { confirm: 'Are you sure?' }, :class=>"close deleteButton" %>
-			<% end %>
+			<%= link_to delete_path(:user_id => ideaItem.id), data: { confirm: 'Are you sure?' }, :class=>"close deleteButton" do %>
+				<i class="fa fa-times"></i>
+			<%end %>
 	  </div>
 	<% end %>
 

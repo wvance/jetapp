@@ -49,9 +49,15 @@ nav{
 footer{
 	text-align: center;
 }
-.noPicDisplay{
+.noPicUpload{
+	text-align: center;
+}
+.noPicUpload{
 	text-align: center;
 }
 .noDocDisplay{
 	text-align: center;
+}
+.bigIcon{
+	font-size: 200px;
 }

@@ -9,7 +9,7 @@
 		<% if @idea.valueProposition != nil%>
 			<div class="col-sm-12 ideaValueProp">
 				<h3 class="childElement">
-					"<%=@idea.valueProposition%>"
+					<i class="fa fa-quote-left"></i><%=@idea.valueProposition%><i class="fa fa-quote-right"></i>
 				</h3>
 			</div>
 		<% end %>
@@ -21,13 +21,8 @@
 		<% if @idea.picture.present? %>
 			<%= image_tag(@idea.picture_url, :class=>"ideaImage pull-right")%>
 			<% else %>
-			<div class="noPicDisplay">
-				<h3> This Idea has no picture</h3>
-				<h4> Upload one here!</h4>
-				<!-- <%= simple_form_for(@new_idea,:url=>{:action => "add"} , html: { class: 'form-horizontal' }) do |f| %>
-					<%= f.file_field :picture %>
-					<%= f.submit "Add picture", class: "btn btn-primary addIdeaBtn"%>
-				<% end %> -->
+			<div class="noPicUpload">
+				<i class="fa fa-picture-o fa-5x bigIcon"></i>
 			</div>
 		<% end %>
 	</div>
@@ -57,7 +52,7 @@
 <div class="row">
 	<div class="col-md-12">
 	<hr>
-		<h3><strong>Comments</strong></h3>
+		<h3><strong> <i class="fa fa-comment"></i> Comments</strong></h3>
 		<div class="childElement">
 			<% @comments.each do |comment| %>
 				<!-- TODO: move this into a dedicated view -->
@@ -67,9 +62,13 @@
 						<strong>UID <%= comment.user_id %> says:</strong>
 						<%= comment.body %> 
 						<% if current_user.id == comment.user_id %>
-								| 
-								<%= link_to 'Edit', edit_comment_path(comment), :class =>"commentForm btn btn-xs btn-warning"%> 
-								<%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"commentForm btn btn-xs btn-danger" %>
+							| 
+							<%= link_to edit_comment_path(:comment => params[:comment]), :class =>"commentForm" do%>
+								<i class="fa fa-pencil-square-o"></i>
+							<%end%>
+							<%= link_to comment, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"commentForm" do%>
+								<i class="fa fa-times"></i>
+							<% end %>
 						<% end %>
 					</h4>
 				</div>
@@ -80,7 +79,7 @@
 <% end %>
 <div class="row">
 	<div class="col-md-6 addComment">
-		<h3><strong>Add Comment</strong></h3>
+		<h3><strong><i class="fa fa-plus-square-o"></i> Add Comment</strong></h3>
 		<%= render 'comments/form' %>
 	</div>
 	<div class="col-md-6 documents">
@@ -90,7 +89,7 @@
 			<% else %> -->
 			<div class="noDocDisplay">
 				<h3> This Idea has no documents</h3>
-				<h4> Upload one here!</h4>
+				<i class="fa fa-upload"></i> <h4> Upload one here!</h4>
 				<!-- <%= simple_form_for(@new_idea,:url=>{:action => "add"} , html: { class: 'form-horizontal' }) do |f| %>
 					<%= f.file_field :picture %>
 					<%= f.submit "Add picture", class: "btn btn-primary addIdeaBtn"%>
