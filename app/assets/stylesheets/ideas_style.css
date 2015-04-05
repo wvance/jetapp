@@ -3,7 +3,7 @@ body {
 }
 .wrapper{
 	/*USED TO OFFSET NAVBAR*/
-	margin-top: 70px;
+	/*margin-top: 70px;*/
 	margin-left: 50px;
 	margin-right:50px;
 }
