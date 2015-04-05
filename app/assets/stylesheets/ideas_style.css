@@ -85,4 +85,6 @@ footer{
 .showHide:hover .showOnHover {
   display: inline;
 }
-
+.profilePic{
+	height:60px;
+}

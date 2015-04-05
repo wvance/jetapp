@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'bundler', '>= 1.8.4'
 #FOR WINDOWS
 gem 'tzinfo-data'
 #FOR USER ACCOUNTS 
@@ -29,10 +29,12 @@ gem 'bootstrap-kaminari-views'
 # STYLE FOR MATERIAL: NEEDED
 # https://github.com/FezVrasta/bootstrap-material-design
 # https://github.com/Aufree/bootstrap-material-design
-gem 'bootstrap-material-design'
+# https://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html
+gem 'bootstrap-material-design', '~> 0.1.7'
 
 # USED FOR BETTER CUSTOMIZED FORMS
 gem 'simple_form'
+
 
 # USED FOR CUSTOM LOGIN/ API'S
 # gem 'omniauth'
@@ -83,4 +85,9 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap-material-design'
+end
+
 
