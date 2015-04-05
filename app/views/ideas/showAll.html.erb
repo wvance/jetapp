@@ -4,20 +4,17 @@
 <!-- This is rails way of doing a for each loop. This goes throguh each item in idea_item and displays its 'name' column -->
 <!-- THIS IS FOR ALL USERS (NOT LOGGED IN USER) -->
 <!-- ALL_IDEA IS DEFINED IN ideas_controller -->
-<h3>All Ideas:</h3>
-<div class="row">
+<!-- <div class="row showAllWrapper">
 	<% @all_ideas.each do |ideaItem| %>
-	  <div class="col-sm-6 col-md-4 col-lg-3 showHide">
-	    <div class="thumbnail">
+	  <div class="col-sm-6 col-md-4 col-lg-3 thumbnailWrapper showHide">
+	    <div class="thumbnail card">
 	      <%= image_tag(ideaItem.picture_url, :class => "idea-thumbail-img",) if ideaItem.picture.present? %>
 	      <div class="caption">
 	        <h3><%= link_to ideaItem.name, showIdea_path(ideaItem.id) %> : <%= ideaItem.id %></h3>
 	        <h5><%= ideaItem.author %></h5>
 	        <p><%=ideaItem.description%></p>
-	        <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
 	      </div>
 	    </div>
-	    <!-- DELETE X: STYLE IS CRAP -->
 			<% if current_user.email == ideaItem.author %>
 				<%= link_to delete_path(:user_id => ideaItem.id), data: { confirm: 'Are you sure?' }, :class=>"close deleteButton" do %>
 					<i class="fa fa-times showOnHover"></i>
@@ -25,7 +22,43 @@
 			<% end %>
 	  </div>
 	<% end %>
+</div> -->
+
+<div class="row">
+  <% @all_ideas.each do |ideaItem| %>
+  <div class="col-sm-6 col-md-4 col-lg-3 cardWrapper showHide">
+  	<div class="card">
+    	<div class="card-height-indicator"></div>
+    	<div class="card-content">
+    		<% if ideaItem.picture.present? %>
+		      <div class="card-image">
+	          <%= image_tag(ideaItem.picture_url, :class => "idea-thumbail-img",) %>
+		      </div>
+        <% end %>
+
+	      <div class="card-body">
+	      	<h3><%= link_to ideaItem.name, showIdea_path(ideaItem.id) %> : <%= ideaItem.id %></h3>
+	        <h5><%= ideaItem.author %></h5>
+	        <p><%=ideaItem.description%></p>
+	      </div>
+
+	      <footer class="card-footer">
+	      	<%= link_to delete_path(:user_id => ideaItem.id), data: { confirm: 'Are you sure?' }, :class=>"btn btn-flat showOnHover" do %>
+						Learn More
+					<%end %>
+		      <% if current_user.email == ideaItem.author %>
+						<%= link_to delete_path(:user_id => ideaItem.id), data: { confirm: 'Are you sure?' }, :class=>"btn btn-flat btn-warning showOnHover" do %>
+							Delete
+						<%end %>
+					<% end %>
+	      </footer>
+	 
+    	</div>
+		</div>
+  </div>
+  <% end %>
 </div>
+
 
 
 <!-- FROM THE kaminari GEM -->

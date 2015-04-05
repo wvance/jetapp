@@ -26,6 +26,11 @@ end
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 
+# STYLE FOR MATERIAL: NEEDED
+# https://github.com/FezVrasta/bootstrap-material-design
+# https://github.com/Aufree/bootstrap-material-design
+gem 'bootstrap-material-design'
+
 # USED FOR BETTER CUSTOMIZED FORMS
 gem 'simple_form'
 

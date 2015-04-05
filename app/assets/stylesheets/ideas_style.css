@@ -1,16 +1,27 @@
 body {
-	background: url(http://subtlepatterns.com/patterns/scribble_light.png) ;
+	/*background: url(http://subtlepatterns.com/patterns/scribble_light.png) ;*/
 }
 .wrapper{
 	/*USED TO OFFSET NAVBAR*/
 	/*margin-top: 70px;*/
-	margin-left: 50px;
-	margin-right:50px;
+}
+.bodyWrapper{
+	margin-top: -10px;
+}
+.cardWrapper{
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.card-footer{
+	position: absolute;
+  bottom: 15px;
 }
 .caption{
 	margin-top: -5px;
 }
-.thumbnail{
+.card{
 	height:350px;
 	width:100%;
 	overflow: hidden;
