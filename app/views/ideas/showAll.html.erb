@@ -37,13 +37,13 @@
 	        <% end %>
 
 		      <div class="card-body">
-		      	<h3><%= link_to ideaItem.name, showIdea_path(ideaItem.id) %> : <%= ideaItem.id %></h3>
+		      	<h3><%= link_to ideaItem.name, showIdea_path(ideaItem.id) %></h3>
 		        <h5><%= ideaItem.author %></h5>
 		        <p><%=ideaItem.description%></p>
 		      </div>
 
 		      <footer class="card-footer">
-		      	<%= link_to delete_path(:user_id => ideaItem.id), data: { confirm: 'Are you sure?' }, :class=>"btn btn-flat showOnHover" do %>
+		      	<%= link_to showIdea_path(ideaItem.id), :class=>"btn btn-flat showOnHover" do %>
 							Learn More
 						<%end %>
 			      <% if current_user.email == ideaItem.author %>
