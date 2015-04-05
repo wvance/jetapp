@@ -3,7 +3,7 @@
 
 <div class="row">
 	<% @user_idea.each do |ideaItem| %>
-	  <div class="col-sm-6 col-md-4 col-lg-3">
+	  <div class="col-sm-6 col-md-4 col-lg-3 showHide">
 	    <div class="thumbnail">
 	      <%= image_tag(ideaItem.picture_url, :class => "idea-thumbail-img",) if ideaItem.picture.present? %>
 	      <div class="caption">
@@ -12,9 +12,9 @@
 	        <p><%= ideaItem.description %></p>
 	      </div>
 	    </div>
-	    <!-- DELETE X: STYLE IS CRAP -->
+	    
 			<%= link_to delete_path(:user_id => ideaItem.id), data: { confirm: 'Are you sure?' }, :class=>"close deleteButton" do %>
-				<i class="fa fa-times"></i>
+				<i class="fa fa-times showOnHover"></i>
 			<%end %>
 	  </div>
 	<% end %>

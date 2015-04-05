@@ -37,6 +37,8 @@ body {
 	padding-bottom: 10px;
 	width:100%;
 	min-height: 150px;
+	max-width: 500px;
+	max-height: 400px;
 }
 .childElement{
 	margin-top: -7px;
@@ -61,3 +63,15 @@ footer{
 .bigIcon{
 	font-size: 200px;
 }
+.fa-sm{
+	font-size: 18px;
+}
+/*NEED TO FIX FOR MOBILE*/
+/*HIDE AND SHOW OFF HOVER OF MOUSE: DO NOT TOUCH*/
+.showOnHover{
+  display: none;
+}
+.showHide:hover .showOnHover {
+  display: inline;
+}
+

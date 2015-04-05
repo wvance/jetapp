@@ -7,7 +7,7 @@
 <h3>All Ideas:</h3>
 <div class="row">
 	<% @all_ideas.each do |ideaItem| %>
-	  <div class="col-sm-6 col-md-4 col-lg-3">
+	  <div class="col-sm-6 col-md-4 col-lg-3 showHide">
 	    <div class="thumbnail">
 	      <%= image_tag(ideaItem.picture_url, :class => "idea-thumbail-img",) if ideaItem.picture.present? %>
 	      <div class="caption">
@@ -20,7 +20,7 @@
 	    <!-- DELETE X: STYLE IS CRAP -->
 			<% if current_user.email == ideaItem.author %>
 				<%= link_to delete_path(:user_id => ideaItem.id), data: { confirm: 'Are you sure?' }, :class=>"close deleteButton" do %>
-					<i class="fa fa-times"></i>
+					<i class="fa fa-times showOnHover"></i>
 				<%end %>
 			<% end %>
 	  </div>

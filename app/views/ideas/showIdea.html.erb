@@ -1,32 +1,43 @@
 <div class="row">
 	<div class="col-sm-12">
-		<h2>
+		<h2 class="showHide">
 			<%= @idea.name %> 
+		<% if current_user.email == @idea.author %>
+			<i class="fa fa-pencil-square-o fa-sm showOnHover"></i>
+		<%end%>
 		</h2>
 		<h6 class="childElement"><%= @idea.author %></h6>
 
 		<!-- IF THE IDEA HAS A VALUE PROP: PLACE IT HERE -->
 		<% if @idea.valueProposition != nil%>
-			<div class="col-sm-12 ideaValueProp">
-				<h3 class="childElement">
-					<i class="fa fa-quote-left"></i><%=@idea.valueProposition%><i class="fa fa-quote-right"></i>
+			<div class="col-sm-12">
+				<h3 class="childElement showHide">
+					<i class="fa fa-quote-left"></i>
+						<%=@idea.valueProposition%>
+					<i class="fa fa-quote-right"></i>
+					<!-- IF POST IS OWNED BY USER< DISPLAY THIS LINK TO EDIT THIS SECTION -->
+					<% if current_user.email == @idea.author %>
+						<i class="fa fa-pencil-square-o fa-sm showOnHover"></i>
+					<%end%>
 				</h3>
 			</div>
 		<% end %>
 
 	</div>
 
-	<div class="col-xs-12 col-sm-4 col-md-6 pull-right">
+	<div class="col-xs-12 col-sm-4 col-md-5 pull-right">
 		<!-- PUT AUTHOR PROFILE PIC HERE -->
 		<% if @idea.picture.present? %>
 			<%= image_tag(@idea.picture_url, :class=>"ideaImage pull-right")%>
 			<% else %>
 			<div class="noPicUpload">
 				<i class="fa fa-picture-o fa-5x bigIcon"></i>
+				<h3>You have no Idea Photo! </h3>
 			</div>
 		<% end %>
+
 	</div>
-	<div class="col-sm-8 col-md-6">
+	<div class="col-sm-8 col-md-7">
 		<ul class="nav nav-tabs" role="tablist" id="myTab">
 		  <li role="presentation" class="active"><a href="#ideaDescrition" aria-controls="ideaDescrition" role="tab" data-toggle="tab">Description</a></li>
 		  <li role="presentation"><a href="#ideaCustomerSegment" aria-controls="ideaCustomerSegment" role="tab" data-toggle="tab">Customer Segment</a></li>
@@ -56,17 +67,18 @@
 		<div class="childElement">
 			<% @comments.each do |comment| %>
 				<!-- TODO: move this into a dedicated view -->
-				<div>
+				<div class="showHide">
 					<h4>
 						<!-- TODO: get the actual username/email via users table -->
 						<strong>UID <%= comment.user_id %> says:</strong>
 						<%= comment.body %> 
 						<% if current_user.id == comment.user_id %>
-							| 
-							<%= link_to edit_comment_path(:comment => params[:comment]), :class =>"commentForm" do%>
+
+						<!-- THIS IS WRONG: CURRENTLY GRABBING IDEA ID NOT COMMENT ID -->
+							<%= link_to edit_comment_path(:comment_id => params[:comment_id]), :class =>"commentForm showOnHover" do%>
 								<i class="fa fa-pencil-square-o"></i>
 							<%end%>
-							<%= link_to comment, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"commentForm" do%>
+							<%= link_to comment, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"commentForm showOnHover" do%>
 								<i class="fa fa-times"></i>
 							<% end %>
 						<% end %>
@@ -78,23 +90,16 @@
 </div>
 <% end %>
 <div class="row">
-	<div class="col-md-6 addComment">
+	<div class="col-md-7 addComment">
 		<h3><strong><i class="fa fa-plus-square-o"></i> Add Comment</strong></h3>
 		<%= render 'comments/form' %>
 	</div>
-	<div class="col-md-6 documents">
+	<div class="col-md-5 documents">
 		<h3><strong>Documents</strong></h3>
-<!-- 		<% if @idea.picture.present? %>
-			<%= image_tag(@idea.picture_url, :class=>"ideaImage pull-right")%>
-			<% else %> -->
 			<div class="noDocDisplay">
-				<h3> This Idea has no documents</h3>
-				<i class="fa fa-upload"></i> <h4> Upload one here!</h4>
-				<!-- <%= simple_form_for(@new_idea,:url=>{:action => "add"} , html: { class: 'form-horizontal' }) do |f| %>
-					<%= f.file_field :picture %>
-					<%= f.submit "Add picture", class: "btn btn-primary addIdeaBtn"%>
-				<% end %> -->
+				<i class="fa fa-file fa-5x bigIcon"></i>
+				<h3>You have no Documents! </h3>
+				<h5>Upload them here! </h5>
 			</div>
-		<!-- <% end %> -->
 	</div>
 </div>
