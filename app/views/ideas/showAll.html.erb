@@ -32,11 +32,11 @@
 	    	<div class="card-content">
 	    		<% if ideaItem.picture.present? %>
 			      <div class="card-image">
-		          <%= image_tag(ideaItem.picture_url, :class => "idea-thumbail-img",) %>
+		          	<%= image_tag(ideaItem.picture_url, :class => "idea-thumbail-img",) %>
 			      </div>
 	        <% end %>
 
-		      <div class="card-body">
+		      <div class="card-body" >
 		      	<h3><%= link_to ideaItem.name, showIdea_path(ideaItem.id) %></h3>
 		        <h5><%= ideaItem.author %></h5>
 		        <p><%=ideaItem.description%></p>

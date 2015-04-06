@@ -37,8 +37,8 @@
 		<% end %>
 
 	</div>
-	<div class="col-sm-8 col-md-7">
-		<ul class="nav nav-tabs" role="tablist" id="myTab">
+	<div class="col-sm-8 col-md-7" >
+		<ul class="nav nav-tabs" role="tablist" id="myTab" style="background-color:#333333">
 		  <li role="presentation" class="active"><a href="#ideaDescrition" aria-controls="ideaDescrition" role="tab" data-toggle="tab">Description</a></li>
 		  <li role="presentation"><a href="#ideaCustomerSegment" aria-controls="ideaCustomerSegment" role="tab" data-toggle="tab">Customer Segment</a></li>
 		  <li role="presentation"><a href="#ideaVision" aria-controls="ideaVision" role="tab" data-toggle="tab">Vision</a></li>
@@ -69,7 +69,6 @@
 				<!-- TODO: move this into a dedicated view -->
 				<div class="showHide">
 					<h4>
-						<!-- TODO: get the actual username/email via users table -->
 						<strong><%= comment.user.email %>:</strong>
 						<%= comment.body %> 
 						<% if current_user.id == comment.user_id %>
