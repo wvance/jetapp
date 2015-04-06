@@ -8,9 +8,8 @@
 <% @comments.each do |comment| %>
 	<!-- TODO: move this into a dedicated view -->
 	<div>
+		<%= comment.user.email %> says:
 		<p>
-			<!-- TODO: get the actual username/email via users table -->
-			UID <%= comment.user_id %> says:
 			<%= comment.body %>
 		</p>
 	</div>
