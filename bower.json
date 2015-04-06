@@ -1,0 +1,17 @@
+{
+  "name": "jetapp",
+  "version": "0.0.1",
+  "homepage": "https://github.com/wvance/jetapp",
+  "authors": [
+    "Wesley Vance <wesley.vance@mac.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,47 +1,103 @@
 <!-- Flashes are used to show the errors on the screen. These are linked with the ideas_controller as well-->
 <div class="row">
   <% @user_idea.each do |ideaItem| %>
-	  <div class="col-sm-6 col-md-4 col-lg-3 cardWrapper showHide">
-	  	<div class="card">
-	    	<div class="card-height-indicator"></div>
-	    	<div class="card-content">
-	    		<% if ideaItem.picture.present? %>
-			      <div class="card-image">
-		          <%= image_tag(ideaItem.picture_url, :class => "idea-thumbail-img",) %>
-			      </div>
-	        <% end %>
+  	<% if ideaItem.present?%>
+	  <div class="col s6 m6 l4">
 
-		      <div class="card-body">
-		      	<h3><%= link_to ideaItem.name, showIdea_path(ideaItem.id) %></h3>
-		        <h5><%= ideaItem.author %></h5>
-		        <p><%=ideaItem.description%></p>
-		      </div>
+    	<% if ideaItem.picture.present?%>
+    	<!-- IF THE IDEA HAS A PICTURE -->
+    		<div class="card card-picture medium">
+	        <div class="card-image waves-effect waves-block waves-light">
+	          <%= image_tag(ideaItem.picture_url, :class => "activator") %>
+	        </div>
+	        <div class="card-content">
+	          <span class="card-title grey-text text-darken-4 truncate">
+	            <%= link_to showIdea_path(ideaItem.id) do%>
+		          	<%= ideaItem.name%>
+		          <%end %>
+		          <i class="mdi-content-add activator right"></i>
+	          </span>
+	          <div class="card-author childElement truncate">
+	          	<%= ideaItem.author%>
+	          </div>
+	          <div class="card-img-footer">
+		          <%= link_to showIdea_path(ideaItem.id), :class=>"waves-effect waves-light btn red" do%>
+		        		Idea
+		        	<%end%>
+		        	<%= link_to showIdea_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat" do%>
+		        		Delete
+	        		<%end%>
+	        	</div>
+	        </div>
+	        <div class="card-reveal">
+	          <span class="card-title grey-text text-darken-4 truncate">
+	          	<%= ideaItem.name%> <i class="mdi-navigation-close right"></i>
+	          </span>
+	          <blockquote class="truncate"><%=ideaItem.valueProposition%></blockquote>
+          	<h6 class="truncate"><strong>Customer:</strong><%=ideaItem.customerSegment%></h6>
+          	<strong>Description:</strong> <h6 class=""><%=ideaItem.description%></h6>
+	        </div>
+	      </div>
+    	<%else%>
+    		<!-- IF IDEA HAS NO IMAGE -->
+        <div class="card medium">
+          <div class=" white-black">
+          	<div class="card-body">
+              <span class="card-title grey-text text-darken-4 truncate">	
+	              <%= link_to showIdea_path(ideaItem.id) do%>
+			        		<%= ideaItem.name%>
+			        	<%end%>
+              </span>
+              <div class="card-author childElement truncate">
+	          		<%= ideaItem.author%>
+	          	</div>
+		          <blockquote class="truncate"><%=ideaItem.valueProposition%></blockquote>
+          		<h6 class="truncate"><strong>Customer:</strong><%=ideaItem.customerSegment%></h6>
+          		<h6 class="truncate"><strong>Description:</strong><%=ideaItem.description%></h6>
+        		</div>
+        		<div class="card-footer">
+             	<%= link_to showIdea_path(ideaItem.id), :class=>"waves-effect waves-light btn red" do%>
+	        			Idea
+	        		<%end%>
+            	<%= link_to showIdea_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat" do%>
+	        			Delete
+	        		<%end%>
+          	</div>
+          </div>
+        </div>
+    	<%end%>
+    </div>
+    	
 
-		      <footer class="card-footer">
-		      	<%= link_to showIdea_path(ideaItem.id), :class=>"btn btn-flat showOnHover" do %>
-							Learn More
-						<%end %>
-			      <% if current_user.email == ideaItem.author %>
-							<%= link_to delete_path(:user_id => ideaItem.id), data: { confirm: 'Are you sure?' }, :class=>"btn btn-flat btn-warning showOnHover" do %>
-								Delete
-							<%end %>
-						<% end %>
-		      </footer>
-	    	</div>
-			</div>
-	  </div>
+    <%else%>
+    	<div class="row">
+        <div class="col s12 m6">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">No Ideas</span>
+              <p>There are currently no ideas. Go add one in the links above!</p>
+            </div>
+            <div class="card-action">
+              <!-- <a href="#">This is a link</a>
+              <a href='#'>This is a link</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    <%end%>
   <% end %>
 </div>
+
+
 <!-- FROM THE kaminari GEM -->
 <div class="row">
- 	<div class="col-md-12 text-center">
+ 	<div class="col s12 text-center">
 		<div class="pagination_links">
-	    <%= paginate @user_idea, :theme => 'twitter-bootstrap-3', :pagination_class => "pagination-small pagination-centered", :container => false %>
+	    <%= paginate @user_idea, :pagination_class => "pagination-medium pagination-centered", :container => false %>
 	  </div>
 	  <!-- <div class="page_info" style="text-align: center">
 	    <%= page_entries_info @user_idea %>
 	  </div> -->
  	</div>
 </div>
-
 

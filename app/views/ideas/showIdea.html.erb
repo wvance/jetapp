@@ -1,67 +1,64 @@
 <div class="row">
-	<div class="col-sm-12">
-		<h2 class="showHide">
-			<%= @idea.name %> 
-		<% if current_user.email == @idea.author %>
-			<i class="fa fa-pencil-square-o fa-sm showOnHover"></i>
-		<%end%>
-		</h2>
-		<h6 class="childElement"><%= @idea.author %></h6>
-
+	<div class="col s12 m12 l12">
+		<div class="row">
+			<div class="col s12">
+			<h2 class="showHide">
+				<%= @idea.name %> 
+			<% if current_user.email == @idea.author %>
+				<i class="fa fa-pencil-square-o fa-sm showOnHover"></i>
+			<%end%>
+			</h2>
+			<h6 class="childElement"><%= @idea.author %></h6>
+		</div>
 		<!-- IF THE IDEA HAS A VALUE PROP: PLACE IT HERE -->
 		<% if @idea.valueProposition != nil%>
-			<div class="col-sm-12">
-				<h3 class="childElement showHide">
-					<i class="fa fa-quote-left"></i>
+		<div class="row">
+			<div class="col s12">
+				<h3 class="childElement">
+					<blockquote>
 						<%=@idea.valueProposition%>
-					<i class="fa fa-quote-right"></i>
-					<!-- IF POST IS OWNED BY USER< DISPLAY THIS LINK TO EDIT THIS SECTION -->
-					<% if current_user.email == @idea.author %>
-						<i class="fa fa-pencil-square-o fa-sm showOnHover"></i>
-					<%end%>
+					</blockquote>
 				</h3>
 			</div>
-		<% end %>
-
-	</div>
-
-	<div class="col-xs-12 col-sm-4 col-md-5 pull-right">
-		<!-- PUT AUTHOR PROFILE PIC HERE -->
-		<% if @idea.picture.present? %>
-			<%= image_tag(@idea.picture_url, :class=>"ideaImage pull-right")%>
-			<% else %>
-			<div class="noPicUpload">
-				<i class="fa fa-picture-o fa-5x bigIcon"></i>
-				<h3>You have no Idea Photo! </h3>
-			</div>
-		<% end %>
-
-	</div>
-	<div class="col-sm-8 col-md-7">
-		<ul class="nav nav-tabs" role="tablist" id="myTab">
-		  <li role="presentation" class="active"><a href="#ideaDescrition" aria-controls="ideaDescrition" role="tab" data-toggle="tab">Description</a></li>
-		  <li role="presentation"><a href="#ideaCustomerSegment" aria-controls="ideaCustomerSegment" role="tab" data-toggle="tab">Customer Segment</a></li>
-		  <li role="presentation"><a href="#ideaVision" aria-controls="ideaVision" role="tab" data-toggle="tab">Vision</a></li>
-		</ul>
-		<div class="tab-content">
-		  <div role="tabpanel" class="tab-pane fade in active" id="ideaDescrition">
-		 		<div class="descriptionWrapper">
-		  		<h5><%= @idea.description %></h5>
-		  	</div>
-		  </div>
-		  <div role="tabpanel" class="tab-pane fade in" id="ideaCustomerSegment">
-		  	<h5><%=@idea.customerSegment%></h5>
-		  </div>
-		  <div role="tabpanel" class="tab-pane fade in " id="ideaVision">
-		  	<h5><%=@idea.vision%></h5>
-		  </div>		
 		</div>
+		<% end %>
+	</div>
+	<div class="row">
+		<div class="col s12 m4 l4 right align">
+			<!-- PUT AUTHOR PROFILE PIC HERE -->
+			<% if @idea.picture.present? %>
+				<%= image_tag(@idea.picture_url, :class=>"ideaImage right align")%>
+				<% else %>
+				<div class="noPicUpload">
+					<i class="fa fa-picture-o fa-5x bigIcon"></i>
+					<h3>You have no Idea Photo! </h3>
+				</div>
+			<% end %>
+		</div>
+	  <div class="col s12 m6 l7">
+	    <ul class="tabs">
+	      <li class="tab col s4"><a class="" href="#description">Description</a></li> 
+	      <li class="tab col s4"><a href="#customersegment">CustomerSegment</a></li>
+	      <li class="tab col s4"><a href="#vision">Vision</a></li>
+	    </ul>
+	  </div>
+	  <div id="description" class="col s12 m6 l7">
+			<div class="descriptionWrapper">
+	  		<h5><%= @idea.description %></h5>
+	  	</div>
+	  </div>
+	  <div id="customersegment" class="col s12 m6 l7">
+	  	<h5><%=@idea.customerSegment%></h5>
+	  </div>
+	  <div id="vision" class="col s12 m6 l7">
+	  	<h5><%=@idea.vision%></h5>
+	  </div>
 	</div>
 </div>
 
 <% if @comments.count > 0 %>
 <div class="row">
-	<div class="col-md-12">
+	<div class="col m12">
 	<hr>
 		<h3><strong> <i class="fa fa-comment"></i> Comments</strong></h3>
 		<div class="childElement">
@@ -88,14 +85,48 @@
 		</div>
 	</div>
 </div>
+<!--  <ul class="collection">
+    <li class="collection-item avatar">
+      <img src="images/yuna.jpg" alt="" class="circle">
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="mdi-file-folder circle"></i>
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="mdi-action-assessment circle green"></i>
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="mdi-av-play-arrow circle red"></i>
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
+    </li>
+  </ul> -->
 <% end %>
 <div class="row">
-	<div class="col-md-7 addComment">
+	<div class="col m6 s12 addComment">
 		<h3><strong><i class="fa fa-plus-square-o"></i> Add Comment</strong></h3>
 		<%= render 'comments/form' %>
 	</div>
-	<div class="col-md-5 documents">
-		<h3><strong>Documents</strong></h3>
+	<div class="col m5 s12 documents right align">
+		<h4><strong>Documents</strong></h4>
 			<div class="noDocDisplay">
 				<i class="fa fa-file fa-5x bigIcon"></i>
 				<h3>You have no Documents! </h3>

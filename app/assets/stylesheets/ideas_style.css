@@ -4,30 +4,36 @@ body {
 .wrapper{
 	/*USED TO OFFSET NAVBAR*/
 	/*margin-top: 70px;*/
+	width:100%;
 }
-.bodyWrapper{
-	margin-top: -10px;
+
+.card-body{
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 20px;
 }
-.cardWrapper{
-	padding-left: 5px;
-	padding-right: 5px;
-	margin-top: 5px;
-	margin-bottom: 5px;
+.card-img-footer{
+	position: absolute;
+	bottom:0;
+	padding-bottom: 10px;
 }
 .card-footer{
 	position: absolute;
-  bottom: 20px;
+	bottom:0;
+	padding-bottom: 10px;
+	padding-left: 20px;
 }
+
 .caption{
 	margin-top: -5px;
 }
-.card{
-	height:350px;
+.cardContainer{
+	/*height:400px;*/
 	width:100%;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 .deleteItem{
-	margin-top: -15px;
+	margin-top: 0px;
 }
 .deleteButton{
 	margin-top: -45px;

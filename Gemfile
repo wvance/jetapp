@@ -24,13 +24,16 @@ end
 
 # PAGINATION GEM & STYLE
 gem 'kaminari'
-gem 'bootstrap-kaminari-views'
+# gem 'bootstrap-kaminari-views'
+
+# FIXES BUGS FOR JQUERY 
+gem 'jquery-turbolinks'
 
 # STYLE FOR MATERIAL: NEEDED
 # https://github.com/FezVrasta/bootstrap-material-design
 # https://github.com/Aufree/bootstrap-material-design
 # https://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html
-gem 'bootstrap-material-design', '~> 0.1.7'
+# gem 'bootstrap-material-design', '~> 0.1.7'
 
 # USED FOR BETTER CUSTOMIZED FORMS
 gem 'simple_form'

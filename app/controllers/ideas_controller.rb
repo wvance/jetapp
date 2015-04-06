@@ -9,7 +9,7 @@ class IdeasController < ApplicationController
   end
   def showAuthorIdea
     # GETS THE IDEAS FOR THE CURRENT USER
-    @user_idea = Idea.where(:author => current_user.email).page(params[:page]).per(15)
+    @user_idea = Idea.where(:author => current_user.email).page(params[:page]).per(12)
     @new_idea = Idea.new
   end 
 

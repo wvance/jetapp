@@ -37,12 +37,17 @@
 				<h5><%= f.label :Sector %>:</h5>
 				<%= f.text_field :sector %>
 
-
-				<h5><%= f.label :Upload %>:</h5>
-				<%= f.file_field :picture %>
-		    <div class="editIdea"> 
-					<%= f.submit "Add Idea", class: "btn btn-primary addIdeaBtn"%>
+		    <div class="file-field input-field">
+		      <input class="file-path validate" type="text"/>
+		      <div class="btn">
+		        <span>File</span>
+		        <input type="file" />
+		      </div>
 				</div>
+				<button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    			<i class="mdi-content-send right"></i>
+  			</button>
+
 		  </div>
 		</div>
 	</div>
