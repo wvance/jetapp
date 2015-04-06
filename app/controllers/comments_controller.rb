@@ -17,9 +17,9 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
-  # GET /comments/1/edit
-  def edit
-  end
+  # # GET /comments/1/edit
+  # def edit
+  # end
 
   # POST /comments
   # POST /comments.json
@@ -64,6 +64,7 @@ class CommentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
+      # THIS IS WRONG: GETTING POST ID
       @comment = Comment.find(params[:id])
     end
 

@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'bundler'
 #FOR WINDOWS
 gem 'tzinfo-data'
 #FOR USER ACCOUNTS 
@@ -22,8 +22,29 @@ group :production do
   gem 'rails_12factor'
 end
 
+# PAGINATION GEM & STYLE
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
+
+# STYLE FOR MATERIAL: NEEDED
+# https://github.com/FezVrasta/bootstrap-material-design
+# https://github.com/Aufree/bootstrap-material-design
+# https://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html
+gem 'bootstrap-material-design', '~> 0.1.7'
+
+# USED FOR BETTER CUSTOMIZED FORMS
+gem 'simple_form'
+
+
+# USED FOR CUSTOM LOGIN/ API'S
+# gem 'omniauth'
+# gem 'omniauth-facebook'
+
 # PICTURE UPLOADS
 gem 'carrierwave'
+
+# FONT AWESOME
+gem "font-awesome-rails"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -63,5 +84,11 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  
+  # Used for code/test evaluation
+	gem 'simplecov'
+	gem 'codeclimate-test-reporter'
+  
 end
+
 

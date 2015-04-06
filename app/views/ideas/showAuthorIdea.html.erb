@@ -1,18 +1,47 @@
-<h3>My Ideas:</h3>
-<% @user_idea.each do |ideaItem| %>
-	<ul>
-		<li> 
-			<%= image_tag(ideaItem.picture_url, :width => 300) if ideaItem.picture.present? %>
-			<h4><%= ideaItem.name %></h4>
-			<h6><%= ideaItem.description %> </h6>
-			<h6><%= ideaItem.author %> </h6>
-		</li> 
-	</ul>
-<% end %>
+<!-- Flashes are used to show the errors on the screen. These are linked with the ideas_controller as well-->
+<div class="row">
+  <% @user_idea.each do |ideaItem| %>
+	  <div class="col-sm-6 col-md-4 col-lg-3 cardWrapper showHide">
+	  	<div class="card">
+	    	<div class="card-height-indicator"></div>
+	    	<div class="card-content">
+	    		<% if ideaItem.picture.present? %>
+			      <div class="card-image">
+		          <%= image_tag(ideaItem.picture_url, :class => "idea-thumbail-img",) %>
+			      </div>
+	        <% end %>
+
+		      <div class="card-body">
+		      	<h3><%= link_to ideaItem.name, showIdea_path(ideaItem.id) %></h3>
+		        <h5><%= ideaItem.author %></h5>
+		        <p><%=ideaItem.description%></p>
+		      </div>
+
+		      <footer class="card-footer">
+		      	<%= link_to showIdea_path(ideaItem.id), :class=>"btn btn-flat showOnHover" do %>
+							Learn More
+						<%end %>
+			      <% if current_user.email == ideaItem.author %>
+							<%= link_to delete_path(:user_id => ideaItem.id), data: { confirm: 'Are you sure?' }, :class=>"btn btn-flat btn-warning showOnHover" do %>
+								Delete
+							<%end %>
+						<% end %>
+		      </footer>
+	    	</div>
+			</div>
+	  </div>
+  <% end %>
+</div>
+<!-- FROM THE kaminari GEM -->
+<div class="row">
+ 	<div class="col-md-12 text-center">
+		<div class="pagination_links">
+	    <%= paginate @user_idea, :theme => 'twitter-bootstrap-3', :pagination_class => "pagination-small pagination-centered", :container => false %>
+	  </div>
+	  <!-- <div class="page_info" style="text-align: center">
+	    <%= page_entries_info @user_idea %>
+	  </div> -->
+ 	</div>
+</div>
 
 
-<h3>Add Idea: </h3>
-<%= render 'form' %>
-
-<!-- Rails way of adding a button:  -->
-<%= button_to "Delete Last Item", deleteLast_path, :class=> "btn btn-danger"%>

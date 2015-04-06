@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
   resources :comments
-
   devise_for :users
+
+  # You can have the root of your site routed with "root"
+  # ideas controller with the show action 
+  # ROOT IS ALSO NEEDED FOR DEVISE
+  root 'ideas#showAll'
+
   get 'ideas/showAll', to: 'ideas#showAll'
   get 'ideas/showAuthorIdea', to: 'ideas#showAuthorIdea'
   get 'ideas/delete'
+
+  get 'ideas/new', to: 'ideas#newIdea'
+
   # Never need an get route, as we will never directly naviage to the add page. 
   post 'ideas/add', to: 'ideas#add', :as => :add
   # Do not need a get route, as we will never directly navigate to the delete page. 
@@ -17,11 +25,6 @@ Rails.application.routes.draw do
   get 'ideas/:id', to:'ideas#showIdea', :as => :showIdea
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # ideas controller with the show action 
-  # ROOT IS ALSO NEEDED FOR DEVISE
-  root 'ideas#showAll'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,0 +1,90 @@
+body {
+	/*background: url(http://subtlepatterns.com/patterns/scribble_light.png) ;*/
+}
+.wrapper{
+	/*USED TO OFFSET NAVBAR*/
+	/*margin-top: 70px;*/
+}
+.bodyWrapper{
+	margin-top: -10px;
+}
+.cardWrapper{
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.card-footer{
+	position: absolute;
+  bottom: 20px;
+}
+.caption{
+	margin-top: -5px;
+}
+.card{
+	height:350px;
+	width:100%;
+	overflow: hidden;
+}
+.deleteItem{
+	margin-top: -15px;
+}
+.deleteButton{
+	margin-top: -45px;
+	margin-right: 5px;
+}
+.thumbnail img { 
+	max-height:200px; 
+	height:100%; 
+	min-width: 125px;
+}
+.idea-thumbail-img{
+	height:250px;
+}
+.addIdeaBtn{
+}
+.ideaImage{
+	padding-top: 25px;
+	padding-bottom: 10px;
+	width:100%;
+	min-height: 150px;
+	max-width: 500px;
+	max-height: 400px;
+}
+.childElement{
+	margin-top: -7px;
+	margin-left: 20px;
+	padding-bottom: 15px;
+}
+nav{
+	margin-top: -1px;
+}
+footer{
+	text-align: center;
+}
+.noPicUpload{
+	text-align: center;
+}
+.noPicUpload{
+	text-align: center;
+}
+.noDocDisplay{
+	text-align: center;
+}
+.bigIcon{
+	font-size: 200px;
+}
+.fa-sm{
+	font-size: 18px;
+}
+/*NEED TO FIX FOR MOBILE*/
+/*HIDE AND SHOW OFF HOVER OF MOUSE: DO NOT TOUCH*/
+.showOnHover{
+  display: none;
+}
+.showHide:hover .showOnHover {
+  display: inline;
+}
+.profilePic{
+	height:60px;
+}

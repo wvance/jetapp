@@ -25,9 +25,16 @@ ActiveRecord::Schema.define(version: 20150402194435) do
     t.string   "name"
     t.string   "author"
     t.text     "description"
+    t.text     "valueProposition"
+    t.text     "customerSegment"
+    t.integer  "marketSize"
+    t.text     "resources"
+    t.string   "stage"
+    t.text     "vision"
+    t.string   "sector"
     t.string   "picture"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "users", force: :cascade do |t|

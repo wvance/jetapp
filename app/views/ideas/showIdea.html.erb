@@ -1,17 +1,104 @@
-<h2><strong>Idea: </strong><%= @idea.name %></h2>
-<%= image_tag(@idea.picture_url, :width => 300) if @idea.picture.present? %>
-<hr>
-<h3><strong>ID: </strong><%= @idea.id %></h3>
-<h3><strong>Author: </strong><%= @idea.author %></h3>
-<h3><strong>Description: </strong><%= @idea.description %></h3>
-<h3><strong>Comments</strong></h3>
-<% @comments.each do |comment| %>
-	<!-- TODO: move this into a dedicated view -->
-	<div>
-		<%= comment.user.email %> says:
-		<p>
-			<%= comment.body %>
-		</p>
+<div class="row">
+	<div class="col-sm-12">
+		<h2 class="showHide">
+			<%= @idea.name %> 
+		<% if current_user.email == @idea.author %>
+			<i class="fa fa-pencil-square-o fa-sm showOnHover"></i>
+		<%end%>
+		</h2>
+		<h6 class="childElement"><%= @idea.author %></h6>
+
+		<!-- IF THE IDEA HAS A VALUE PROP: PLACE IT HERE -->
+		<% if @idea.valueProposition != nil%>
+			<div class="col-sm-12">
+				<h3 class="childElement showHide">
+					<i class="fa fa-quote-left"></i>
+						<%=@idea.valueProposition%>
+					<i class="fa fa-quote-right"></i>
+					<!-- IF POST IS OWNED BY USER< DISPLAY THIS LINK TO EDIT THIS SECTION -->
+					<% if current_user.email == @idea.author %>
+						<i class="fa fa-pencil-square-o fa-sm showOnHover"></i>
+					<%end%>
+				</h3>
+			</div>
+		<% end %>
+
 	</div>
+
+	<div class="col-xs-12 col-sm-4 col-md-5 pull-right">
+		<!-- PUT AUTHOR PROFILE PIC HERE -->
+		<% if @idea.picture.present? %>
+			<%= image_tag(@idea.picture_url, :class=>"ideaImage pull-right")%>
+			<% else %>
+			<div class="noPicUpload">
+				<i class="fa fa-picture-o fa-5x bigIcon"></i>
+				<h3>You have no Idea Photo! </h3>
+			</div>
+		<% end %>
+
+	</div>
+	<div class="col-sm-8 col-md-7" >
+		<ul class="nav nav-tabs" role="tablist" id="myTab" style="background-color:#333333">
+		  <li role="presentation" class="active"><a href="#ideaDescrition" aria-controls="ideaDescrition" role="tab" data-toggle="tab">Description</a></li>
+		  <li role="presentation"><a href="#ideaCustomerSegment" aria-controls="ideaCustomerSegment" role="tab" data-toggle="tab">Customer Segment</a></li>
+		  <li role="presentation"><a href="#ideaVision" aria-controls="ideaVision" role="tab" data-toggle="tab">Vision</a></li>
+		</ul>
+		<div class="tab-content">
+		  <div role="tabpanel" class="tab-pane fade in active" id="ideaDescrition">
+		 		<div class="descriptionWrapper">
+		  		<h5><%= @idea.description %></h5>
+		  	</div>
+		  </div>
+		  <div role="tabpanel" class="tab-pane fade in" id="ideaCustomerSegment">
+		  	<h5><%=@idea.customerSegment%></h5>
+		  </div>
+		  <div role="tabpanel" class="tab-pane fade in " id="ideaVision">
+		  	<h5><%=@idea.vision%></h5>
+		  </div>		
+		</div>
+	</div>
+</div>
+
+<% if @comments.count > 0 %>
+<div class="row">
+	<div class="col-md-12">
+	<hr>
+		<h3><strong> <i class="fa fa-comment"></i> Comments</strong></h3>
+		<div class="childElement">
+			<% @comments.each do |comment| %>
+				<!-- TODO: move this into a dedicated view -->
+				<div class="showHide">
+					<h4>
+						<strong><%= comment.user.email %>:</strong>
+						<%= comment.body %> 
+						<% if current_user.id == comment.user_id %>
+
+						<!-- THIS IS WRONG: CURRENTLY GRABBING IDEA ID NOT COMMENT ID -->
+							<%= link_to edit_comment_path(:comment_id => params[:comment_id]), :class =>"commentForm showOnHover" do%>
+								<i class="fa fa-pencil-square-o"></i>
+							<%end%>
+							<%= link_to comment, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"commentForm showOnHover" do%>
+								<i class="fa fa-times"></i>
+							<% end %>
+						<% end %>
+					</h4>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
 <% end %>
-<%= render 'comments/form' %>
+<div class="row">
+	<div class="col-md-7 addComment">
+		<h3><strong><i class="fa fa-plus-square-o"></i> Add Comment</strong></h3>
+		<%= render 'comments/form' %>
+	</div>
+	<div class="col-md-5 documents">
+		<h3><strong>Documents</strong></h3>
+			<div class="noDocDisplay">
+				<i class="fa fa-file fa-5x bigIcon"></i>
+				<h3>You have no Documents! </h3>
+				<h5>Upload them here! </h5>
+			</div>
+	</div>
+</div>
