@@ -26,7 +26,7 @@ class IdeasController < ApplicationController
 
   def delete
     # http://stackoverflow.com/questions/18682914/passing-id-to-controller-through-link-to-in-railsner
-    Idea.find(params[:user_id]).destroy
+    @deleteIdea = Idea.find(params[:id]).destroy
     redirect_to :action => 'showAuthorIdea'
   end
 
