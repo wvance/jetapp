@@ -1,13 +1,13 @@
 <!-- This file is the view action for the ideas controller: other actions (add, delete, etc) will get routed to here -->
 <title>Shared Ideas App</title>
 <div class="row">
-  <% @all_ideas.each do |ideaItem| %>
+  <% @all_ideas.shuffle.each do |ideaItem| %>
   	<% if ideaItem.present?%>
 	  <div class="col s6 m6 l3">
 
     	<% if ideaItem.picture.present?%>
     	<!-- IF THE IDEA HAS A PICTURE -->
-    		<div class="card card-picture small">
+    		<div class="card card-picture small showHide randomDepth">
 	        <div class="card-image waves-effect waves-block waves-light">
 	          <%= image_tag(ideaItem.picture_url, :class => "activator") %>
 	        </div>
@@ -17,24 +17,24 @@
 		            <%= link_to showIdea_path(ideaItem.id) do%>
 			          	<%= ideaItem.name%>
 			          <%end %>
-			          <i class="mdi-content-add activator right"></i>
+			          <i class="fa fa-angle-up activator right"></i>
 			        </h5>
 	          </span>
 	          <div class="card-author childElement truncate">
 	          	<%= ideaItem.author%>
 	          </div>
-	          <div class="card-img-footer">
-		          <%= link_to showIdea_path(ideaItem.id), :class=>"waves-effect waves-light btn blue" do%>
-		        		Idea
-		        	<%end%>
-		        	<%= link_to showIdea_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat" do%>
-		        		Delete
+	          <div class="card-img-footer showOnHover">
+	          	<%= link_to showIdea_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat right" do%>
+	        			<i class="fa fa-trash-o"></i>
 	        		<%end%>
+		          <%= link_to showIdea_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat right" do%>
+		        		<i class="fa fa-eye"></i>
+		        	<%end%>
 	        	</div>
 	        </div>
 	        <div class="card-reveal">
 	          <span class="card-title grey-text text-darken-4 truncate">
-	          	<%= ideaItem.name%> <i class="mdi-navigation-close right"></i>
+	          	<%= ideaItem.name%> <i class="fa fa-angle-down right"></i>
 	          </span>
 	          <blockquote class="truncate"><%=ideaItem.valueProposition%></blockquote>
           	<h6 class="truncate"><strong>Customer:</strong> <%=ideaItem.customerSegment%></h6>
@@ -43,8 +43,8 @@
 	      </div>
     	<%else%>
     		<!-- IF IDEA HAS NO IMAGE -->
-        <div class="card small">
-          <div class=" white-black">
+        <div class="card small showHide randomDepth">
+          <div class=" white-black ">
           	<div class="card-body">
               <span class="card-title grey-text text-darken-4">	
 	              <%= link_to showIdea_path(ideaItem.id) do%>
@@ -58,13 +58,13 @@
           		<h6 class="truncate"><strong>Customer:</strong> <%=ideaItem.customerSegment%></h6>
           		<h6 class="truncate"><strong>Description:</strong> <%=ideaItem.description%></h6>
         		</div>
-        		<div class="card-footer">
-             	<%= link_to showIdea_path(ideaItem.id), :class=>"waves-effect waves-light btn blue" do%>
-	        			Idea
+        		<div class="card-footer showOnHover">
+            	<%= link_to showIdea_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat right" do%>
+	        			<i class="fa fa-trash-o"></i>
 	        		<%end%>
-            	<%= link_to showIdea_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat" do%>
-	        			Delete
-	        		<%end%>
+	        		<%= link_to showIdea_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat right" do%>
+		        		<i class="fa fa-eye"></i>
+		        	<%end%>
           	</div>
           </div>
         </div>
