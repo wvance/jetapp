@@ -97,7 +97,7 @@
 					<div class="showHide">
 						<h5>
 							<!-- TODO: get the actual username/email via users table -->
-							<strong>UID <%= comment.user_id %> says:</strong>
+							<strong><%= comment.user.email %> says:</strong>
 							<%= comment.body %> 
 							<% if current_user.id == comment.user_id %>
 
