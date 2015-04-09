@@ -45,7 +45,7 @@ gem 'simple_form'
 
 # PICTURE UPLOADS
 gem 'carrierwave'
-
+gem 'mini_magick', "~> 4.2.1"
 # FONT AWESOME
 gem "font-awesome-rails"
 
