@@ -24,7 +24,6 @@ end
 
 # PAGINATION GEM & STYLE
 gem 'kaminari'
-# gem 'bootstrap-kaminari-views'
 
 # FIXES BUGS FOR JQUERY 
 gem 'jquery-turbolinks'
