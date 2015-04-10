@@ -94,8 +94,9 @@
 				<% @comments.each do |comment| %>
 					<!-- TODO: move this into a dedicated view -->
 					<div class="showHide">
-						<%= image_tag(comment.user.avatar, :class=>"circle")%>
-						<h5>
+						<!-- SHOW AUTHOR THUMBNAIL IMAGE -->
+						<h5 class="inLine">
+							<%= image_tag(comment.user.avatar.url(:thumb).to_s, :class=>"circle")%>
 							<strong><%= comment.user.email %> says:</strong>
 							<%= comment.body %> 
 							<% if current_user.id == comment.user_id %>
