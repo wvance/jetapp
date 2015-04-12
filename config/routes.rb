@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   post 'ideas/deleteLast', to: 'ideas#deleteLast', :as => :deleteLast
   
   post 'ideas/delete', to: 'ideas#delete', :as => :delete
+  
   # This is the old way of doing things, use get/post as opposed to match. 
   # match 'ideas/delete', :to => 'ideas#delete', :via => [:get, :post], :as=> :delete
 

@@ -1,3 +1,22 @@
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+<!-- 
+   t.string   "name" *
+    t.string   "author" *
+    t.text     "description" *
+    t.text     "valueProposition" *
+    t.text     "customerSegment" *
+    t.integer  "marketSize"
+    t.text     "resources" -
+    t.string   "stage" 
+    t.text     "vision" *
+    t.string   "sector" -
+    t.string   "picture" *
+     -->
 <% if flash[:success] %>
 	<div class="alert alert-success">
 		<button type="button" class="close" data-dismiss="alert">x</button>
@@ -10,6 +29,7 @@
 		<strong> <%= flash[:error]%> </strong>
 	</div>
 <% end %>
+
 <%= simple_form_for(@new_idea,:url=>{:action => "add"} , html: { class: 'form-horizontal' }) do |f| %>
 	<div class="row">
 		<div class="col s12 m12 l12">
@@ -17,6 +37,10 @@
 				<div class="col s6">
 						<%= f.text_field :name, :placeholder => "Name"%> 
 				<h6 class="childElement"><%= current_user.email %></h6>
+				</div>
+				<div class="col s6 right">
+					<%= image_tag(current_user.avatar.url, :class=>"right") %>
+				</div>
 			</div>
 			<!-- IF THE IDEA HAS A VALUE PROP: PLACE IT HERE -->
 				<div class="row">
@@ -35,8 +59,8 @@
 		<div class="col s12 m12 l4 right align">
 			<!-- PUT IDEA PIC HERE -->
 				<div class="noPicUpload">
-					<i class="fa fa-picture-o fa-5x bigIcon"></i>
-					<h3>You have no Idea Photo! </h3>
+					<!-- <i class="fa fa-picture-o fa-5x bigIcon"></i> -->
+					<h3>Upload an Idea Photo! </h3>
 					<%= f.file_field :picture %>
 				</div>
 		</div>

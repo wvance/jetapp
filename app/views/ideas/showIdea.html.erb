@@ -2,13 +2,14 @@
 	<div class="col s12 m12 l12">
 		<div class="row">
 			<div class="col s12">
-			<h2 class="showHide">
-				<%= @idea.name %> 
-			<% if current_user.email == @idea.author %>
-				<i class="fa fa-pencil-square-o fa-sm showOnHover"></i>
-			<%end%>
-			</h2>
-			<h6 class="childElement"><%= @idea.author %></h6>
+				<h2 class="showHide">
+					<%= @idea.name %> 
+					<% if current_user.email == @idea.author %>
+						<i class="fa fa-pencil-square-o fa-sm showOnHover"></i>
+					<%end%>
+				</h2>
+				<h6 class="childElement"><%= @idea.author %></h6>
+			</div>
 		</div>
 		<!-- IF THE IDEA HAS A VALUE PROP: PLACE IT HERE -->
 		<% if @idea.valueProposition != "" %>
@@ -74,11 +75,6 @@
 		 <!-- @idea.users.each do |user|  -->
 		<ul class="collection">
 		    <li class="collection-item avatar">
-		    	<!-- IDEA COLLABORATOR IMAGE -->
-		      <!-- < image_tag(user.author) > -->
-		      <!-- COLLABORATOR NAME -->
-		      <!-- <span class="title">< user.email ></span> -->
-		      <!-- NAME: DESCRIPTOIN (IF EXISTS) -->
 		      <p>First Line <br>
 		         Second Line
 		      </p>
@@ -95,21 +91,19 @@
 					<!-- TODO: move this into a dedicated view -->
 					<div class="showHide">
 						<!-- SHOW AUTHOR THUMBNAIL IMAGE -->
-						<h5 class="inLine">
-							<%= image_tag(comment.user.avatar.url(:thumb).to_s, :class=>"circle")%>
+							<%= image_tag(comment.user.avatar.url.to_s, :class=>"left")%>
 							<strong><%= comment.user.email %> says:</strong>
 							<%= comment.body %> 
 							<% if current_user.id == comment.user_id %>
 
 							<!-- THIS IS WRONG: CURRENTLY GRABBING IDEA ID NOT COMMENT ID -->
-								<%= link_to edit_comment_path(:comment_id => params[:comment_id]), :class =>"commentForm showOnHover" do%>
+								<%= link_to edit_comment_path(comment), :class =>"commentForm showOnHover" do%>
 									<i class="fa fa-pencil-square-o"></i>
 								<%end%>
 								<%= link_to comment, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"commentForm showOnHover" do%>
 									<i class="fa fa-times"></i>
 								<% end %>
 							<% end %>
-						</h5>
 					</div>
 				<% end %>
 			<% end %>
