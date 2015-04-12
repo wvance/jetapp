@@ -1,5 +1,68 @@
-<h1>New Idea</h1>
+<% if flash[:success] %>
+	<div class="alert alert-success">
+		<button type="button" class="close" data-dismiss="alert">x</button>
+		<strong> <%= flash[:success]%> </strong>
+	</div>
+<% end %>
+<% if flash[:error] %>
+	<div class="alert alert-danger">
+		<button type="button" class="close" data-dismiss="alert">x</button>
+		<strong> <%= flash[:error]%> </strong>
+	</div>
+<% end %>
+<%= simple_form_for(@new_idea,:url=>{:action => "add"} , html: { class: 'form-horizontal' }) do |f| %>
+	<div class="row">
+		<div class="col s12 m12 l12">
+			<div class="row">
+				<div class="col s6">
+						<%= f.text_field :name, :placeholder => "Name"%> 
+				<h6 class="childElement"><%= current_user.email %></h6>
+			</div>
+			<!-- IF THE IDEA HAS A VALUE PROP: PLACE IT HERE -->
+				<div class="row">
+					<div class="col s11">
+						<h3 class="childElement">
+							<blockquote>
+								<%= f.text_field :valueProposition, :placeholder => "Value Proposition" %>
+							</blockquote>
+						</h3>
+					</div>
+				</div>
+		</div>
+	</div>
 
-	<%= render 'form' %>
+	<div class="row">
+		<div class="col s12 m12 l4 right align">
+			<!-- PUT IDEA PIC HERE -->
+				<div class="noPicUpload">
+					<i class="fa fa-picture-o fa-5x bigIcon"></i>
+					<h3>You have no Idea Photo! </h3>
+					<%= f.file_field :picture %>
+				</div>
+		</div>
+	  <div class="col s12 m12 l7">
+	    <ul class="tabs">	
+	      	<li class="tab col s4"><a class="" href="#description">Description</a></li> 
+	      	<li class="tab col s4"><a href="#customersegment">CustomerSegment</a></li>
+	      	<li class="tab col s4"><a href="#vision">Vision</a></li>
+	    </ul>
+	  </div>
+	  <div id="description" class="col s12 l7">
+			<div class="descriptionWrapper">
+				<%= f.text_area :description, :class => "materialize-textarea", :length =>"120", :placeholder => "Here is a quick description of the Idea" %>
+	  	</div>
+	  </div>
+	  <div id="customersegment" class="col s12 l7">
+	  		<%= f.text_area :customerSegment, :class => "materialize-textarea", :length =>"120", :placeholder => "Please input a Customer Segment" %>
+	  </div>
+	  <div id="vision" class="col s12 l7">
+	  		<%= f.text_area :vision, :class => "materialize-textarea", :length =>"120", :placeholder => "What is your long-term vision?" %>
+	  </div>
+	</div>
 
-<%= link_to 'Back', comments_path %>
+	<div class="row">
+		<div class="left">
+		<%= f.submit "Add Idea", class: "btn addIdeaBtn"%>
+		</div>
+	</div>
+<%end%>
