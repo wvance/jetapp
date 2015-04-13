@@ -4,4 +4,11 @@ $(function () {
   $(".randomDepth").each(function(){
       $(this).addClass(depthClass[~~(Math.random()*depthClass.length)]);
   });
+
+  // USED TO CHANGE CARD DEPTH ON HOVER
+  $(".hoverDepth").mouseenter(function() {
+    $(this).addClass(depthClass[1]);
+  }).mouseleave(function() {
+    $(this).removeClass(depthClass[1])
+  });
 });

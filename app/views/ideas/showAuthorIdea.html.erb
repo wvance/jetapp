@@ -6,7 +6,7 @@
 
     	<% if ideaItem.picture.present?%>
     	<!-- IF THE IDEA HAS A PICTURE -->
-    		<div class="card card-picture small showHide randomDepth">
+    		<div class="card card-picture small showHide hoverDepth">
 	        <div class="card-image waves-effect waves-block waves-light">
 	          <%= image_tag(ideaItem.picture_url, :class => "activator") %>
 	        </div>
@@ -42,7 +42,7 @@
 	      </div>
     	<%else%>
     		<!-- IF IDEA HAS NO IMAGE -->
-        <div class="card small showHide randomDepth">
+        <div class="card small showHide hoverDepth">
           <div class=" white-black ">
           	<div class="card-body">
               <span class="card-title grey-text text-darken-4">	
