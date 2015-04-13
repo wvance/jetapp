@@ -1,17 +1,33 @@
-<h2>Sign up</h2>
+<h2 class="center">Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:multipart => true}) do |f| %>
   <%= devise_error_messages! %>
-  <%= f.email_field :email, required: :true, hide_label: :true, placeholder: "Email" %>
-  <%if @validatable %>
-    <%= f.password_field :password, autocomplete: "off", required: :true, hide_label: :true, placeholder: "Password", help: "Must be #{@minimum_password_length} characters minimum" %>
-  <% else %>
-    <%= f.password_field :password, autocomplete: "off", required: :true, hide_label: :true, placeholder: "Password" %>
-  <% end %>
-  <%= f.password_field :password_confirmation, autocomplete: "off", required: :true, hide_label: :true, placeholder: "Confirm password" %>
-  <%= f.file_field :avatar %>
-  <%= f.hidden_field :avatar_cache %>
-  <%= f.submit "Sign up" %>
-<% end %>
+  <div class="row">
+    <div class="col s8 offset-s2">
+      <div class="col s12">
+        <%= f.email_field :email, required: :true, hide_label: :true, placeholder: "Email" %>
+      </div>
+      <%if @validatable %>
+        <div class="col s6">
+          <%= f.password_field :password, autocomplete: "off", required: :true, hide_label: :true, placeholder: "Password", help: "Must be #{@minimum_password_length} characters minimum" %>
+        </div>
+      <% else %>
+        <div class="col s6">
+          <%= f.password_field :password, autocomplete: "off", required: :true, hide_label: :true, placeholder: "Password" %>
+        </div>
+      <% end %>
+      <div class="col s6">
+        <%= f.password_field :password_confirmation, autocomplete: "off", required: :true, hide_label: :true, placeholder: "Confirm password" %>
+      </div>
+      <div class="col s12">
+        <%= f.file_field :avatar %>
+        <%= f.hidden_field :avatar_cache %>
+      </div>
+      <%= f.submit "Sign up", :class=>"btn" %>
 
-<%= render "devise/shared/links" %>
+      <div class="right">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+<% end %>

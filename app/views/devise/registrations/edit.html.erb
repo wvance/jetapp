@@ -1,32 +1,29 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h4>Edit Account</h4>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:multipart => true}) do |f| %>
-  <%= devise_error_messages! %> 
+  <%= devise_error_messages! %>  
   <div class="row">
     <div class="row">
-    <div class="col s6">
-      <div class="field">
+      <div class="field col s6">
         <%= f.label :email %><br />
-        <%= f.email_field :email, :readonly => true %>
+        <%= f.email_field :email, :readonly=>true%>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
       </div>
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
-    </div>
-    <div class="col s6 center">
-      <% if current_user.avatar.url.present? %>
-        <%= image_tag(current_user.avatar.url) %>
+      
+      <!-- NOT SURE THIS WORK...? -->
+      <div class="col s6 center">
+        <% if current_user.avatar.url.present? %>
+          <%= image_tag(current_user.avatar.url) %> 
+        <%end%>
         <div class="field">
-          <%= f.label :remove_avatar %>
-          <%= f.check_box :remove_avatar %> 
-        </div>   
-      <%end%>
-      <div class="field">
-        <%= f.label :add_avatar %>
-        <%= f.file_field :avatar %>
-        <%= f.hidden_field :avatar_cache%>
+          <%= f.label :add_avatar %>
+          <%= f.file_field :avatar %>
+          <%= f.hidden_field :avatar_cache%>
+        </div>
       </div>
     </div>
-
+    
     <div class="row">
       <div class="col s6">
         <div class="field">
@@ -49,9 +46,9 @@
         </div>
       </div>
     </div>
+
     <div class="actions">
-      <%= f.submit "Update" , class: "btn"%>
-      <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure, you want to cancle your account?" }, method: :delete , class: "btn right"%>
+      <%= f.submit "Update", :class => "btn"%>
     </div>
   </div>
 <% end %>
