@@ -97,15 +97,16 @@
         </ul>
       </nav>
 
-      <div class="container wrapper center">
-      	<!-- FLASHES FOR USER ACCOUNTS: DEVISE -->
-      	<% if notice %>
-      	  <p class="alert alert-success"><%= notice %></p>
-      	<% end %>
-      	<% if alert %>
-      	  <p class="alert alert-danger"><%= alert %></p>
-      	<% end %>
-
+      <div class="container wrapper">
+        <div class="center">
+        	<!-- FLASHES FOR USER ACCOUNTS: DEVISE -->
+        	<% if notice %>
+        	  <p class="alert alert-success"><%= notice %></p>
+        	<% end %>
+        	<% if alert %>
+        	  <p class="alert alert-danger"><%= alert %></p>
+        	<% end %>
+        </div>
     	  <!-- All views will get placed into here.-->
     		<%= yield %>
       </div>

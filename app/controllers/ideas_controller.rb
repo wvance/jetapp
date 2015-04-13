@@ -27,8 +27,8 @@ class IdeasController < ApplicationController
 
   def delete
     # http://stackoverflow.com/questions/18682914/passing-id-to-controller-through-link-to-in-railsner
-    @deleteIdea = Idea.find(params[:id]).destroy
-    redirect_to :action => 'showAuthorIdea'
+    @deleteIdea = Idea.find(params[:id]).delete
+    redirect_to :action => 'showAll'
   end
 
   def deleteLast
@@ -59,5 +59,11 @@ class IdeasController < ApplicationController
 
   def trancate(string, length = 200)
     string.size > length+5 ? [string[0,length],string[-5,5]].join("...") : string
+  end
+
+  private
+
+  def set_idea
+    @idea = Idea.find(params[:id])
   end
 end

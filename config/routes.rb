@@ -7,15 +7,19 @@ Rails.application.routes.draw do
   # ROOT IS ALSO NEEDED FOR DEVISE
   root 'ideas#showAll'
 
+  delete 'ideas/:id', to: 'ideas#delete', :as => :delete
+
   get 'ideas/showAll', to: 'ideas#showAll'
   get 'ideas/showAuthorIdea', to: 'ideas#showAuthorIdea'
-  get 'ideas/delete'
+  # get 'ideas/delete'
   get 'ideas/new', to: 'ideas#newIdea'
   # Never need an get route, as we will never directly naviage to the add page. 
   post 'ideas/add', to: 'ideas#add', :as => :add
+
+  # WHY WONT THIS WORK?
   # Do not need a get route, as we will never directly navigate to the delete page. 
-  post 'ideas/deleteLast', to: 'ideas#deleteLast', :as => :deleteLast
-  post 'ideas/delete', to: 'ideas#delete', :as => :delete
+  # post 'ideas/deleteLast', to: 'ideas#deleteLast', :as => :deleteLast
+
   # This is the old way of doing things, use get/post as opposed to match. 
   # match 'ideas/delete', :to => 'ideas#delete', :via => [:get, :post], :as=> :delete
   get 'ideas/:id', to:'ideas#showIdea', :as => :showIdea
