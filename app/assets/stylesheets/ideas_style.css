@@ -6,8 +6,9 @@ body {
 /*	margin-top: 30px;
 */	width:100%;
 }
-.container{
-	margin-top: 20px;
+.bodyContainer{
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 .navFix{
 	margin-left: 20px;
@@ -72,9 +73,6 @@ body {
 }
 nav{
 	margin-top: -1px;
-}
-footer{
-	text-align: center;
 }
 .noPicUpload{
 	text-align: center;
