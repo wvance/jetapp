@@ -1,0 +1,25 @@
+<%# The container tag
+  - available local variables
+    current_page:  a page object for the currently displayed page
+    total_pages:   total number of pages
+    per_page:      number of items to fetch per page
+    remote:        data-remote
+    paginator:     the paginator that renders the pagination tags inside
+-%>
+<%= paginator.render do -%>
+  <div class="centerPag">
+    <ul class="pagination">
+      <li class="waves-effect"> <%= first_page_tag unless current_page.first? %></li>
+      <li class="waves-effect"> <%= prev_page_tag unless current_page.first? %></li>
+      <% each_page do |page| -%>
+        <% if page.left_outer? || page.right_outer? || page.inside_window? -%>
+          <li class="waves-effect"> <%= page_tag page %></li>
+        <% elsif !page.was_truncated? -%>
+          <li class="waves-effect"> <%= gap_tag %></li>
+        <% end -%>
+      <% end -%>
+      <li class="waves-effect"> <%= next_page_tag unless current_page.last? %></li>
+      <li class="waves-effect"> <%= last_page_tag unless current_page.last? %></li>
+    </ul>
+  </div>
+<% end -%>
