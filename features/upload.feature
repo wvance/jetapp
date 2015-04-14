@@ -75,18 +75,6 @@ Feature: Upload Documents
 # 		When I press 'share idea'
 # 		Then my idea will be posted to social media
 
-# #-------------------------------------------------------------------
-
-# Feature:Share ideas with social media
-# 	In order to build current ideas
-# 	As a 3DS student
-# 	I want to be able post to social media to recieve more feedback
-
-# 	Scenario: Posting idea to social media
-# 		Given I am a 3DS student
-# 		And have logged in
-# 		When I press 'share idea'
-# 		Then my idea will be posted to social media
 
 # #-------------------------------------------------------------------
 
