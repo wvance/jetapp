@@ -89,11 +89,15 @@ group :development, :test do
 end
 
 group :test do
-  gem 'cucumber-rails', :require => false
-  # database_cleaner is not required, but highly recommended
+  gem 'shoulda-matchers'
+  gem 'cucumber-rails', require: false
   gem 'database_cleaner'
+  gem 'selenium-webdriver'
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
+
+gem 'gherkin', platforms: :ruby
