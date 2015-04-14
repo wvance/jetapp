@@ -3,11 +3,15 @@ body {
 }
 .wrapper{
 	/*USED TO OFFSET NAVBAR*/
-	/*margin-top: 70px;*/
-	width:100%;
+/*	margin-top: 30px;
+*/	width:100%;
 }
-.brand-logo{
-	margin-left: 20px;
+.bodyContainer{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.navFix{
+	margin-left: 30px;
 }
 .card-body{
 	padding-left: 20px;
@@ -70,9 +74,6 @@ body {
 nav{
 	margin-top: -1px;
 }
-footer{
-	text-align: center;
-}
 .noPicUpload{
 	text-align: center;
 }
@@ -98,6 +99,8 @@ footer{
 }
 .profilePic{
 	height:60px;
+}
+.inLine{
 }
 .thumbnail {
   display: block;

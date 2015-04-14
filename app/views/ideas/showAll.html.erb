@@ -7,7 +7,7 @@
 
     	<% if ideaItem.picture.present?%>
     	<!-- IF THE IDEA HAS A PICTURE -->
-    		<div class="card card-picture small showHide randomDepth">
+    		<div class="card card-picture small showHide hoverDepth">
 	        <div class="card-image waves-effect waves-block waves-light">
 	          <%= image_tag(ideaItem.picture_url, :class => "activator") %>
 	        </div>
@@ -43,7 +43,7 @@
 	      </div>
     	<%else%>
     		<!-- IF IDEA HAS NO IMAGE -->
-        <div class="card small showHide randomDepth">
+        <div class="card small showHide hoverDepth">
           <div class=" white-black ">
           	<div class="card-body">
               <span class="card-title grey-text text-darken-4">	
@@ -59,7 +59,7 @@
           		<h6 class="truncate"><strong>Description:</strong> <%=ideaItem.description%></h6>
         		</div>
         		<div class="card-footer showOnHover">
-            	<%= link_to delete_path(ideaItem.id), data:{confirm:'Are you sure?'}, :class=>"waves-effect waves-red btn-flat right" do%>
+        			<%= link_to delete_path(ideaItem.id), method: :delete, data: { confirm: 'Are you sure?' }, :class=>"waves-effect waves-red btn-flat right" do%>
 	        			<i class="fa fa-trash-o"></i>
 	        		<%end%>
 	        		<%= link_to showIdea_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat right" do%>

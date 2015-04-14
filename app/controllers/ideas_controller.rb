@@ -7,6 +7,7 @@ class IdeasController < ApplicationController
     # This is how we display all the Idea(s) in the index view
   	@all_ideas = Idea.all.page(params[:page]).per(12)
   end
+
   def showAuthorIdea
     # GETS THE IDEAS FOR THE CURRENT USER
     @user_idea = Idea.where(:author => current_user.email).page(params[:page]).per(12)
@@ -26,8 +27,8 @@ class IdeasController < ApplicationController
 
   def delete
     # http://stackoverflow.com/questions/18682914/passing-id-to-controller-through-link-to-in-railsner
-    @deleteIdea = Idea.find(params[:id]).destroy
-    redirect_to :action => 'showAuthorIdea'
+    @deleteIdea = Idea.find(params[:id]).delete
+    redirect_to :action => 'showAll'
   end
 
   def deleteLast
@@ -38,6 +39,7 @@ class IdeasController < ApplicationController
   end
 
   def add 
+    # THIS CANT BE RIGHT...
   	idea = Idea.create(:name => params[:idea][:name], :author => current_user.email, :valueProposition => params[:idea][:valueProposition], :customerSegment => params[:idea][:customerSegment], :marketSize => params[:idea][:marketSize], :resources => params[:idea][:resources], :stage => params[:idea][:stage], :vision => params[:idea][:vision], :sector => params[:idea][:sector], :description => params[:idea][:description], :picture =>params[:idea][:picture])
   	unless idea.valid?  
    		  flash[:error] = idea.errors.full_messages.join("<br>").html_safe
@@ -47,6 +49,7 @@ class IdeasController < ApplicationController
     # This will redirect the add action to the index action, which then routes to the index view.
  		redirect_to :action => 'newIdea'
   end
+
   def update
   end
 
@@ -55,6 +58,12 @@ class IdeasController < ApplicationController
   end
 
   def trancate(string, length = 200)
-  string.size > length+5 ? [string[0,length],string[-5,5]].join("...") : string
-end
+    string.size > length+5 ? [string[0,length],string[-5,5]].join("...") : string
+  end
+
+  private
+
+  def set_idea
+    @idea = Idea.find(params[:id])
+  end
 end
