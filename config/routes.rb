@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :stickies
+
   resources :comments
   devise_for :users
 
@@ -15,6 +17,8 @@ Rails.application.routes.draw do
   get 'ideas/new', to: 'ideas#newIdea'
   # Never need an get route, as we will never directly naviage to the add page. 
   post 'ideas/add', to: 'ideas#add', :as => :add
+
+  get 'ideas/showBMC/:id', to: 'ideas#showBMC', :as => :showBMC
 
   # WHY WONT THIS WORK?
   # Do not need a get route, as we will never directly navigate to the delete page. 

@@ -21,6 +21,12 @@ class IdeasController < ApplicationController
 		@comment = @idea.comments.build
   end
 
+  def showBMC
+    @idea = Idea.find(params[:id])
+    @stickies = @idea.stickies.all
+    @sticky = @idea.stickies.build
+  end
+
   def newIdea
     @new_idea = Idea.new
   end

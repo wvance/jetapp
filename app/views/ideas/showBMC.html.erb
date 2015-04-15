@@ -1,0 +1,13 @@
+<h3>Stickies</h3>
+<% @stickies.each do |sticky| %>
+	<div> 
+		<strong><%= sticky.body%></strong>
+		<br/>
+		<p><%= sticky.section%></p>
+		<p><%= sticky.stage%></p>
+		<p>
+			<%= link_to 'Delete', sticky_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+		</p>
+	</div>
+<%end%>
+<%= render 'stickies/form'%>
