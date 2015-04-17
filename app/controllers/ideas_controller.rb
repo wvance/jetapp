@@ -25,6 +25,17 @@ class IdeasController < ApplicationController
     @idea = Idea.find(params[:id])
     @stickies = @idea.stickies.all
     @sticky = @idea.stickies.build
+
+    # THIS SEEMS LIKE A BAD IDEA? HOW ELSE CAN THIS BE IMPLEMENTED??
+    @keyPartners = Sticky.where(:section => "Key Partners")
+    @keyActivities = Sticky.where(:section => "Key Activities")
+    @keyResources = Sticky.where(:section => "Key Resources")
+    @valueProposition = Sticky.where(:section => "Value Proposition")
+    @customerRelationships = Sticky.where(:section => "Customer Relationships")
+    @channels = Sticky.where(:section => "Channels")
+    @customerSegments = Sticky.where(:section => "Customer Segments")
+    @costStructure = Sticky.where(:section => "Cost Structure")
+    @revenueStreams = Sticky.where(:section => "Revenue Streams")
   end
 
   def newIdea

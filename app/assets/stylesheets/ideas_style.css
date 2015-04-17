@@ -92,7 +92,8 @@ nav{
 /*NEED TO FIX FOR MOBILE*/
 /*HIDE AND SHOW OFF HOVER OF MOUSE: DO NOT TOUCH*/
 .showOnHover{
-  display: none;
+  /*display: none;*/
+  display: inline;
 }
 .showHide:hover .showOnHover {
   display: inline;

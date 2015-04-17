@@ -1,0 +1,22 @@
+.keyPartners, .valueProposition, .customerSegments{
+	height: 500px;
+	position: relative;
+}
+.keyActivities, .keyResources, .customerRelationships, .channels, .costStructure, .revenueStreams{
+	height: 250px;
+	position:relative;
+}
+.bmcWrapper .row{
+	margin-top: 0px;
+	margin-bottom: 0px;
+
+}
+
+.sectionFooter {
+  position: absolute; 
+	bottom: 0;
+}
+.sectionHeadder {
+  position: absolute; 
+	top: 0;
+}

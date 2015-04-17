@@ -1,14 +1,40 @@
-<%= simple_form_for(@sticky) do |f| %>
-  <%= f.error_notification %>
+<%= form_for(@sticky) do |f| %>
+  <% if @sticky.errors.any? %>
+    <div id="error_explanation">
+      <h5><%= pluralize(@sticky.errors.count, "error") %> prohibited this sticky from being saved:</h5>
+      <ul>
+        <% @sticky.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <div class="form-inputs">
-    <%= f.input :body %>
-    <%= f.input :author_id %>
-    <%= f.input :section %>
-    <%= f.input :stage %>
+  <div class="field">
+    <%= f.label :'New Sticky' %><br>
+    <%= f.text_area :body, :class => "commentBodyEnter materialize-textarea", :length =>"120"%>
   </div>
+  <div class="input-field col s12">
+    <select class="browser-default">
+      <%= options_for_select(Sticky::SECTIONS) %>
+    </select>
+  </div>
+  <div class="input-field col s12">
+    <%= f.select(:section, :class => "browser-default sectionEnter")%>
+      <%= options_for_select(Sticky::SECTIONS) %>
+  </div>
+  
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+
+  <!-- !!! NEED THIS TO WORK!!! -->
+  <div class="input-field">
+    <!-- <%= f.label :'Section' %><br> -->
+    <%= f.select(:section, :class => "browser-default sectionEnter") %>
+    <%= options_for_select(Sticky::SECTIONS) %>
+  </div>
+  <%= f.hidden_field :idea_id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <div class="actions">
+    <%= f.submit "Add Comment", class: "btn red addCommentBtn"%>
   </div>
 <% end %>

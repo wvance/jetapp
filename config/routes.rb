@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :stickies
-
   resources :comments
   devise_for :users
 

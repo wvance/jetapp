@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :ideas
-	has_many :comments
+	# has_many :comments
+  # has_many :stickies
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

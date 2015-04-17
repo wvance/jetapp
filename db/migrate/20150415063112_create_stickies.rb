@@ -3,7 +3,7 @@ class CreateStickies < ActiveRecord::Migration
     create_table :stickies do |t|
       t.text :body
       t.integer  :idea_id
-      t.integer :author_id
+      t.integer :user_id
       t.string :section
       t.string :stage
 

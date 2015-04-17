@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Body</th>
+      <th>Idea ID</th>
       <th>Author</th>
       <th>Section</th>
       <th>Stage</th>
@@ -17,7 +18,8 @@
     <% @stickies.each do |sticky| %>
       <tr>
         <td><%= sticky.body %></td>
-        <td><%= sticky.author_id %></td>
+        <td><%= sticky.idea_id %></td>
+        <td><%= sticky.user_id %></td>
         <td><%= sticky.section %></td>
         <td><%= sticky.stage %></td>
         <td><%= link_to 'Show', sticky %></td>

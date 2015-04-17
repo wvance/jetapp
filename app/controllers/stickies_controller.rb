@@ -25,7 +25,7 @@ class StickiesController < ApplicationController
   # POST /stickies.json
   def create
     @sticky = Sticky.new(sticky_params)
-
+    @stickySection = ["Key Partners", "Key Activities","Key Resources","Value Proposition","Customer Relationships","Chanels","Customer Segments", "Cost Structure","Revenue Streams"]
     respond_to do |format|
       if @sticky.save
         format.html { redirect_to @sticky, notice: 'Sticky was successfully created.' }
@@ -69,6 +69,6 @@ class StickiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sticky_params
-      params.require(:sticky).permit(:body, :author_id, :section, :stage)
+      params.require(:sticky).permit(:body, :user_id, :idea_id, :section, :stage)
     end
 end

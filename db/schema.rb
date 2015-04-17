@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20150415063112) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
-    t.integer  "idea_id" , null: false
+    t.integer  "idea_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 20150415063112) do
 
   create_table "stickies", force: :cascade do |t|
     t.text     "body"
-    t.integer  "idea_id", null: false
-    t.integer  "author_id"
+    t.integer  "idea_id"
+    t.integer  "user_id"
     t.string   "section"
     t.string   "stage"
     t.datetime "created_at", null: false
