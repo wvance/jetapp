@@ -1,9 +1,14 @@
-<h4 class="center"><%= @idea.name %></h3>
+<h4 class="center">
+	<%= link_to showIdea_path(@idea.id) do%>
+		<%= @idea.name %>
+	<%end%>
+</h4>
+
 <div class="bmcWrapper row">
 	<div class="col s12">
 		<!-- Top Half of BMC -->
 		<div class="row ">
-
+		
 			<!-- KEY PARTNERS -->
 			<div class="col s12 m6 l2 keyPartners red">
 				<div class="sectionHeader">
