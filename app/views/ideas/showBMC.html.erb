@@ -1,13 +1,13 @@
 <h4 class="center"><%= @idea.name %></h3>
-<div class="bmcWrapper row showHide">
+<div class="bmcWrapper row">
 	<div class="col s12">
 		<!-- Top Half of BMC -->
 		<div class="row ">
 
 			<!-- KEY PARTNERS -->
-			<div class="col s12 m6 l2 keyPartners showHide red">
+			<div class="col s12 m6 l2 keyPartners red">
 				<div class="sectionHeader">
-					<h5 class="showOnHover">Key Partners</h5>
+					<h5 class="center">Key Partners</h5>
 				</div>
 				<div class="sectionBody">
 					<% @keyPartners.each do |partner| %>
@@ -22,10 +22,10 @@
 			<div class="col s12 m6 l2 bmcSection">
 
 				<!-- KEY ACTIVITIES -->
-				<div class="row keyActivities showHide blue">
+				<div class="row keyActivities blue">
 					<div class="col s12">
 						<div class="sectionHeader">
-							<h5 class="showOnHover">Key Activities</h5>
+							<h5 class="center">Key Activities</h5>
 						</div>
 						<div class="sectionBody">
 							<% @keyActivities.each do |activity| %>
@@ -38,10 +38,10 @@
 				</div>
 
 				<!-- KEY RESOURCES -->
-				<div class="row keyResources showHide green">
+				<div class="row keyResources green">
 					<div class="col s12">
 						<div class="sectionHeader">
-							<h5 class="showOnHover">Key Resources</h5>
+							<h5 class="center">Key Resources</h5>
 						</div>
 						<div class="sectionBody">
 							<% @keyResources.each do |resource| %>
@@ -55,9 +55,9 @@
 			</div>
 			
 			<!-- VALUE PROPOSITION -->
-			<div class="col s12 m12 l3 bmcSection valueProposition showHide yellow">
+			<div class="col s12 m12 l3 bmcSection valueProposition yellow">
 				<div class="sectionHeader">
-					<h5 class="showOnHover">Value Proposition</h5>
+					<h5 class="center">Value Proposition</h5>
 				</div>
 				<div class="sectionBody">
 					<% @valueProposition.each do |value| %>
@@ -71,10 +71,10 @@
 			<div class="col s12 m6 l2 bmcSection">
 
 				<!-- CUSTOMER RELATIONSHIPS -->
-				<div class="row customerRelationships showHide teal">
+				<div class="row customerRelationships teal">
 					<div class="col s12">
 						<div class="sectionHeader">
-							<h5 class="showOnHover">Customer Relationships</h5>
+							<h5 class="center">Customer Relationships</h5>
 						</div>
 						<div class="sectionBody">
 							<% @customerRelationships.each do |relationship| %>
@@ -87,10 +87,10 @@
 				</div>
 
 				<!-- CHANNELS -->
-				<div class="row channels showHide orange">
+				<div class="row channels orange">
 					<div class="col s12">
 						<div class="sectionHeader">
-							<h5 class="showOnHover">Channels</h5>
+							<h5 class="center">Channels</h5>
 						</div>
 						<div class="sectionBody">
 							<% @channels.each do |channel| %>
@@ -104,9 +104,9 @@
 			</div>
 
 			<!-- CUSTOMER SEGMENTS -->
-			<div class="col s12 m6 l3 customerSegments fullSection showHide amber">
+			<div class="col s12 m6 l3 customerSegments fullSection amber">
 				<div class="sectionHeader">
-					<h5 class="showOnHover">Customer Segments</h5>
+					<h5 class="center">Customer Segments</h5>
 				</div>
 				<div class="sectionBody">
 					<% @customerSegments.each do |segment| %>
@@ -122,9 +122,9 @@
 		<div class="row">
 
 			<!-- COST STRUCTURE -->
-			<div class="col s12 m6 costStructure showHide purple">
+			<div class="col s12 m6 costStructure purple">
 				<div class="sectionHeader">
-					<h5 class="showOnHover">Cost Structure</h5>
+					<h5 class="center">Cost Structure</h5>
 				</div>
 				<div class="sectionBody">
 					<% @costStructure.each do |cost| %>
@@ -136,9 +136,9 @@
 			</div>
 
 			<!-- REVENUE STREAMS -->
-			<div class="col s12 m6 revenueStreams showHide indigo">
+			<div class="col s12 m6 revenueStreams indigo">
 				<div class="sectionHeader">
-					<h5 class="showOnHover">Revenue Streams</h5>
+					<h5 class="center">Revenue Streams</h5>
 				</div>
 				<div class="sectionBody">
 					<% @revenueStreams.each do |revenue| %>
