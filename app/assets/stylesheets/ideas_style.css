@@ -6,6 +6,10 @@ body {
 /*	margin-top: 30px;
 */	width:100%;
 }
+.smallBtn{
+	margin-left: -5px;
+	margin-right: -5px;
+}
 .bodyContainer{
 	padding-top: 20px;
 	padding-bottom: 20px;

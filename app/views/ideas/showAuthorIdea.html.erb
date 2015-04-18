@@ -26,7 +26,10 @@
 	          	<%= link_to showIdea_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat right" do%>
 	        			<i class="fa fa-trash-o"></i>
 	        		<%end%>
-		          <%= link_to showIdea_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat right" do%>
+	        		<%= link_to showBMC_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat right" do%>
+	    					<i class="fa fa-calendar"></i>
+	    				<%end%>
+		          <%= link_to showIdea_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat right smallBtn" do%>
 		        		<i class="fa fa-eye"></i>
 		        	<%end%>
 	        	</div>
@@ -58,10 +61,13 @@
           		<h6 class="truncate"><strong>Description:</strong> <%=ideaItem.description%></h6>
         		</div>
         		<div class="card-footer showOnHover">
-        			<%= link_to delete_path(ideaItem.id), method: :delete, data: { confirm: 'Are you sure?' }, :class=>"waves-effect waves-red btn-flat right" do%>
+        			<%= link_to delete_path(ideaItem.id), method: :delete, data: { confirm: 'Are you sure?' }, :class=>"waves-effect waves-red btn-flat right smallBtn" do%>
 	        			<i class="fa fa-trash-o"></i>
 	        		<%end%>
-	        		<%= link_to showIdea_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat right" do%>
+	        		<%= link_to showBMC_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat right" do%>
+	    					<i class="fa fa-calendar"></i>
+	    				<%end%>
+	        		<%= link_to showIdea_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat right smallBtn" do%>
 		        		<i class="fa fa-eye"></i>
 		        	<%end%>
           	</div>

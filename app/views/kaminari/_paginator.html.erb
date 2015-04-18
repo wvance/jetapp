@@ -7,19 +7,15 @@
     paginator:     the paginator that renders the pagination tags inside
 -%>
 <%= paginator.render do -%>
-  <div class="centerPag">
-    <ul class="pagination">
-      <li class="waves-effect"> <%= first_page_tag unless current_page.first? %></li>
-      <li class="waves-effect"> <%= prev_page_tag unless current_page.first? %></li>
-      <% each_page do |page| -%>
-        <% if page.left_outer? || page.right_outer? || page.inside_window? -%>
-          <li class="waves-effect"> <%= page_tag page %></li>
-        <% elsif !page.was_truncated? -%>
-          <li class="waves-effect"> <%= gap_tag %></li>
-        <% end -%>
+  <ul class="pagination">
+    <%= prev_page_tag %>
+    <% each_page do |page| -%>
+      <% if page.left_outer? || page.right_outer? || page.inside_window? -%>
+        <%= page_tag page %>
+      <% elsif !page.was_truncated? -%>
+        <%= gap_tag %>
       <% end -%>
-      <li class="waves-effect"> <%= next_page_tag unless current_page.last? %></li>
-      <li class="waves-effect"> <%= last_page_tag unless current_page.last? %></li>
-    </ul>
-  </div>
+    <% end -%>
+    <%= next_page_tag %>
+  </ul>
 <% end -%>
