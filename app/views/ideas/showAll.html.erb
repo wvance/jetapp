@@ -97,10 +97,19 @@
 
 
 <!-- FROM THE kaminari GEM -->
-<div class="row">
- 	<div class="col s12 text-center">
-		<div class="pagination_links">
-	    <%= paginate @all_ideas, :pagination_class => "pagination-small pagination-centered", :container => false %>
-	  </div>
- 	</div>
-</div>
+<% if @all_ideas.present?%>
+	<div class="row">
+	 	<div class="col s12">
+			<div class="pagination_links">
+		    <%= paginate @all_ideas, :pagination_class => "pagination-small pagination-centered", :container => false %>
+		  </div>
+	 	</div>
+	</div>
+	<div class="row">
+		<div class="col s12">
+		  <div class="page_info center">
+		    <%= page_entries_info @all_ideas %>
+		  </div>
+	 	</div>
+	</div>
+<%end%>

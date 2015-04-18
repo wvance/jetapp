@@ -21,6 +21,11 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       # Added For Avatar Uploads with Carrierwave
       t.string :avatar
+
+      t.string :firstName,        null: false, default: ""
+      t.string :lastName,         null: false, default: ""
+      t.string :profileName,      null: false, default: ""
+
       ## Confirmable
       # t.string   :confirmation_token
       # t.datetime :confirmed_at

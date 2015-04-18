@@ -10,7 +10,7 @@ class IdeasController < ApplicationController
 
   def showAuthorIdea
     # GETS THE IDEAS FOR THE CURRENT USER
-    @user_idea = Idea.where(:author => current_user.email).page(params[:page]).per(12)
+    @user_idea = Idea.where(:author => current_user.profileName).page(params[:page]).per(12)
     @new_idea = Idea.new
   end 
 
@@ -57,7 +57,7 @@ class IdeasController < ApplicationController
 
   def add 
     # THIS CANT BE RIGHT...
-  	idea = Idea.create(:name => params[:idea][:name], :author => current_user.email, :valueProposition => params[:idea][:valueProposition], :customerSegment => params[:idea][:customerSegment], :marketSize => params[:idea][:marketSize], :resources => params[:idea][:resources], :stage => params[:idea][:stage], :vision => params[:idea][:vision], :sector => params[:idea][:sector], :description => params[:idea][:description], :picture =>params[:idea][:picture])
+  	idea = Idea.create(:name => params[:idea][:name], :author => current_user.profileName, :valueProposition => params[:idea][:valueProposition], :customerSegment => params[:idea][:customerSegment], :marketSize => params[:idea][:marketSize], :resources => params[:idea][:resources], :stage => params[:idea][:stage], :vision => params[:idea][:vision], :sector => params[:idea][:sector], :description => params[:idea][:description], :picture =>params[:idea][:picture])
   	unless idea.valid?  
    		  flash[:error] = idea.errors.full_messages.join("<br>").html_safe
    	  else 

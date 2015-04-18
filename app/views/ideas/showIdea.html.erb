@@ -4,7 +4,7 @@
 			<div class="col s9">
 				<h2 class="showHide">
 					<%= @idea.name %>
-					<% if current_user.email == @idea.author %>
+					<% if current_user.profileName == @idea.author %>
 						<i class="fa fa-pencil-square-o fa-sm showOnHover"></i>
 					<%end%>
 				</h2>
@@ -97,7 +97,7 @@
 					<div class="showHide">
 						<!-- SHOW AUTHOR THUMBNAIL IMAGE -->
 							<%= image_tag(comment.user.avatar.url(:thumb).to_s, :class=>"left")%>
-							<strong><%= comment.user.email %> says:</strong>
+							<strong><%= comment.user.profileName %> says:</strong>
 							<%= comment.body %> 
 							<% if current_user.id == comment.user_id %>
 

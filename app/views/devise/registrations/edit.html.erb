@@ -3,45 +3,59 @@
   <%= devise_error_messages! %>  
   <div class="row">
     <div class="row">
-      <div class="field col s6">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, :readonly=>true%>
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-        <% end %>
+      <div class="col s12 m6 right">
+        <div class="col s12 m12 center">
+          <% if current_user.avatar.url.present? %>
+            <%= image_tag(current_user.avatar.url(:medium)) %> 
+          <%end%>
+          <div class="field">
+            <%= f.label :add_avatar %>
+            <%= f.file_field :avatar %>
+            <%= f.hidden_field :avatar_cache%>
+          </div>
+        </div>
       </div>
-      
-      <div class="col s6 center">
-        <% if current_user.avatar.url.present? %>
-          <%= image_tag(current_user.avatar.url(:medium)) %> 
-        <%end%>
-        <div class="field">
-          <%= f.label :add_avatar %>
-          <%= f.file_field :avatar %>
-          <%= f.hidden_field :avatar_cache%>
+      <div class="col s12 m6">
+        <div class="field col s6 m6">
+          <%= f.label :firstName%><br />
+          <%= f.text_field :firstName, :readonly=>true %>
+        </div>
+        <div class="field col s6 m6">
+          <%= f.label :lastName%><br />
+          <%= f.text_field :lastName, :readonly=>true %>
+        </div>
+        <div class="field col s12 m12">
+          <%= f.label :profileName %><br />
+          <%= f.email_field :profileName, :readonly=>true %>
+        </div>
+        <div class="field col s12 m12">
+          <%= f.label :email %><br />
+          <%= f.email_field :email%>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
         </div>
       </div>
     </div>
-    
     <div class="row">
-      <div class="col s6">
-        <div class="field">
-          <%= f.label :password %> <i>(Optional)</i><br />
-          <%= f.password_field :password, autocomplete: "off" %>
+      <div class="col s12 m12">
+        <div class="col s12 m6">
+          <div class="field">
+            <%= f.label :password %> <i>(Optional)</i><br />
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
         </div>
-      </div>
-      <div class="col s6">
-        <div class="field">
-          <%= f.label :confirmation %><br />
-          <%= f.password_field :confirmation, autocomplete: "off" %>
+        <div class="col s12 m6">
+          <div class="field">
+            <%= f.label :confirmation %><br />
+            <%= f.password_field :confirmation, autocomplete: "off" %>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s6">
-        <div class="field">
-          <%= f.label :current_password %> <i>(To confirm your changes)</i><br />
-          <%= f.password_field :current_password, autocomplete: "off" %>
+        <div class="col s12 m6">
+          <div class="field">
+            <%= f.label :current_password %> <i>(Required: To confirm your changes)</i><br />
+            <%= f.password_field :current_password, autocomplete: "off" %>
+          </div>
         </div>
       </div>
     </div>

@@ -99,13 +99,17 @@
 
 <!-- FROM THE kaminari GEM -->
 <div class="row">
- 	<div class="col s12 text-center">
+ 	<div class="col s12">
 		<div class="pagination_links">
 	    <%= paginate @user_idea, :pagination_class => "pagination-medium pagination-centered", :container => false %>
 	  </div>
-	  <!-- <div class="page_info" style="text-align: center">
+	</div>
+</div>
+<div class="row">
+	<div class="col s12">
+	  <div class="page_info center">
 	    <%= page_entries_info @user_idea %>
-	  </div> -->
+	  </div>
  	</div>
 </div>
 

@@ -6,6 +6,11 @@ body {
 /*	margin-top: 30px;
 */	width:100%;
 }
+.pagination_links{
+	width:200px;
+	margin-left: auto;
+	margin-right: auto;
+}
 .smallBtn{
 	margin-left: -5px;
 	margin-right: -5px;

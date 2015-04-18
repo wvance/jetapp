@@ -59,6 +59,9 @@ ActiveRecord::Schema.define(version: 20150415063112) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "avatar"
+    t.string   "firstName",              default: "", null: false
+    t.string   "lastName",               default: "", null: false
+    t.string   "profileName",            default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

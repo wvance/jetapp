@@ -14,8 +14,17 @@ class User < ActiveRecord::Base
   validates_integrity_of  :avatar
   validates_processing_of :avatar
 
+  validates :firstName, presence: true
+  validates :lastName, presence: true
+  validates :profileName, presence: true,
+            uniqueness: true,
+            format: {
+              with: /[a-zA-Z0-9_-]+/,
+              message: 'May contain only AlphaNumeric hyphen and underscore characters.'
+            }
+
   # USED FOR PROFILE PICTURE: LIBRARY
- #  include Gravtastic
+  #  include Gravtastic
 	# gravtastic :size => 50,
 	# 					 :default => 'mm'
 end

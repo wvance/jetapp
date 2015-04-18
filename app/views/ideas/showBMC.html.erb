@@ -1,8 +1,25 @@
-<h4 class="center">
-	<%= link_to showIdea_path(@idea.id) do%>
-		<%= @idea.name %>
-	<%end%>
-</h4>
+<div class="row">
+	<div class="col s12">
+		<%= link_to showIdea_path(@idea.id) do%>
+			<%= @idea.name %>
+		<%end%>
+		<!-- Modal Trigger -->
+	  <%= link_to '#addStickyModal', :class=>"waves-effect waves-light btn-flat modal-trigger right" do%>
+	  	Add Hypothesis
+	  <%end%>
+
+	  <!-- Modal Structure -->
+	  <div id="addStickyModal" class="modal">
+	    <div class="modal-content">
+	      <h4>Add Hypothesis</h4>
+	      <%= render 'stickies/form'%>
+	      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat right">Cancel</a>
+	    </div>
+	    <div class="modal-footer">
+	    </div>
+	  </div>
+	</div>
+</div>
 
 <div class="bmcWrapper row">
 	<div class="col s12">
@@ -157,5 +174,3 @@
 		</div> <!-- End Row -->
 	</div> <!-- End Row -->
 </div> <!-- End Row/Wrapper -->
-<%= render 'stickies/form'%>
-<hr>

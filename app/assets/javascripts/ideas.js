@@ -11,4 +11,6 @@ $(function () {
   }).mouseleave(function() {
     $(this).removeClass(depthClass[1])
   });
+
+  $('.modal-trigger').leanModal();
 });
