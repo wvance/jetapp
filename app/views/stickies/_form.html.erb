@@ -1,4 +1,5 @@
 <%= form_for(@sticky) do |f| %>
+
   <% if @sticky.errors.any? %>
     <div id="error_explanation">
       <h5><%= pluralize(@sticky.errors.count, "error") %> prohibited this sticky from being saved:</h5>
@@ -15,22 +16,10 @@
     <%= f.text_area :body, :class => "commentBodyEnter materialize-textarea", :length =>"120"%>
   </div>
   <div class="input-field col s12">
-    <select class="browser-default">
-      <%= options_for_select(Sticky::SECTIONS) %>
-    </select>
+    <%= f.select :section, Sticky::SECTIONS, {}, {class: 'browser-default'}%>
   </div>
-  <div class="input-field col s12">
-    <%= f.select(:section, :class => "browser-default sectionEnter")%>
-      <%= options_for_select(Sticky::SECTIONS) %>
-  </div>
-  
-
-
-  <!-- !!! NEED THIS TO WORK!!! -->
   <div class="input-field">
-    <!-- <%= f.label :'Section' %><br> -->
-    <%= f.select(:section, :class => "browser-default sectionEnter") %>
-    <%= options_for_select(Sticky::SECTIONS) %>
+    <%= select_tag(:section, Sticky::SECTIONS) %>
   </div>
   <%= f.hidden_field :idea_id %>
   <%= f.hidden_field :user_id, :value => current_user.id %>

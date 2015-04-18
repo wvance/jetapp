@@ -27,15 +27,15 @@ class IdeasController < ApplicationController
     @sticky = @idea.stickies.build
 
     # THIS SEEMS LIKE A BAD IDEA? HOW ELSE CAN THIS BE IMPLEMENTED??
-    @keyPartners = Sticky.where(:section => "Key Partners")
-    @keyActivities = Sticky.where(:section => "Key Activities")
-    @keyResources = Sticky.where(:section => "Key Resources")
-    @valueProposition = Sticky.where(:section => "Value Proposition")
-    @customerRelationships = Sticky.where(:section => "Customer Relationships")
-    @channels = Sticky.where(:section => "Channels")
-    @customerSegments = Sticky.where(:section => "Customer Segments")
-    @costStructure = Sticky.where(:section => "Cost Structure")
-    @revenueStreams = Sticky.where(:section => "Revenue Streams")
+    @keyPartners = @stickies.where(:section => "Key Partners")
+    @keyActivities = @stickies.where(:section => "Key Activities")
+    @keyResources = @stickies.where(:section => "Key Resources")
+    @valueProposition = @stickies.where(:section => "Value Proposition")
+    @customerRelationships = @stickies.where(:section => "Customer Relationships")
+    @channels = @stickies.where(:section => "Channels")
+    @customerSegments = @stickies.where(:section => "Customer Segments")
+    @costStructure = @stickies.where(:section => "Cost Structure")
+    @revenueStreams = @stickies.where(:section => "Revenue Streams")
   end
 
   def newIdea
