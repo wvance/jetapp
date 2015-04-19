@@ -8,7 +8,12 @@
 						<i class="fa fa-pencil-square-o fa-sm showOnHover"></i>
 					<%end%>
 				</h2>
-				<h6 class="childElement"><%= @idea.author %></h6>
+				<h6 class="childElement">
+					<%= link_to controller: "profiles", action: "showProfile", id: @idea.author do %>
+						<%=@idea.author%>
+					<%end%>
+						
+				</h6>
 			</div>
 			<div class="col s3">
 				<%= link_to showBMC_path(@idea.id), :class=>"waves-effect waves-red btn-large red right" do%>
@@ -101,7 +106,6 @@
 							<%= comment.body %> 
 							<% if current_user.id == comment.user_id %>
 
-							<!-- THIS IS WRONG: CURRENTLY GRABBING IDEA ID NOT COMMENT ID -->
 								<%= link_to edit_comment_path(comment), :class =>"commentForm showOnHover" do%>
 									<i class="fa fa-pencil-square-o"></i>
 								<%end%>

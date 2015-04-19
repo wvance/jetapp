@@ -17,7 +17,11 @@
 			<div class="row">
 				<div class="col s6">
 						<%= f.text_field :name, :placeholder => "Name"%> 
-				<h6 class="childElement"><%= current_user.profileName %></h6>
+				<h6 class="childElement">
+					<%= link_to controller: "profiles", action: "showProfile", id: current_user.profileName do %>
+						<%=current_user.profileName%>
+					<%end%>
+				</h6>
 				</div>
 				<div class="col s6 right">
 					<%= image_tag(current_user.avatar.url(:small), :class=>"right") %>

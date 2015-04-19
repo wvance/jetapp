@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'profiles/show'
-
   resources :stickies
   resources :comments
   devise_for :users
@@ -27,10 +25,11 @@ Rails.application.routes.draw do
 
   # This is the old way of doing things, use get/post as opposed to match. 
   # match 'ideas/delete', :to => 'ideas#delete', :via => [:get, :post], :as=> :delete
-  get 'ideas/:id', to:'ideas#showIdea', :as => :showIdea
+  get 'idea/:id', to:'ideas#showIdea', :as => :showIdea
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+  get '/:id', to: 'profiles#showProfile'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,0 +1,8 @@
+<!-- THIS IS WHERE THE PUBLIC PROFILE PAGE FOR A USER WILL BE :) -->
+<h1>YAY</h1>
+<h3>USER ID: <%=@user_byName.profileName%></h3>
+
+<h5>User Comments:</h5>
+<% @user_comments.each do |userComment| %>
+	<h6><%= userComment.body %></h6>
+<%end%>

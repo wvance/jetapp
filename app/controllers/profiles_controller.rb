@@ -1,10 +1,6 @@
 class ProfilesController < ApplicationController
-  def show
-  	@user = User.find_by_profileName(params[:id])
-  	if @user
-  		render action: :show
-  	else 
-  		render file:'public/404', status: 404, formats: [:html]
- 		end 
+  def showProfile
+  	@user_byName = User.find_by_profileName(params[:id])
+  	@user_comments = Comment.where(:user_id => @user_byName.id)
   end
 end

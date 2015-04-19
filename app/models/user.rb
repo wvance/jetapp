@@ -24,8 +24,9 @@ class User < ActiveRecord::Base
   validates :profileName, presence: true,
             uniqueness: true,
             format: {
-              with: /[a-zA-Z0-9_-]+/,
-              message: 'May contain only AlphaNumeric hyphen and underscore characters.'
+              # PREVENTS POORLY FORMATED profile names
+              with: /\A[a-zA-Z0-9_\-]+\z/,
+              message: 'May only contain; AlphaNumeric, hyphen, and underscore characters.'
             }
 
   # Virtual attribute for authenticating by either username or email

@@ -20,7 +20,9 @@
 				        </h5>
 		          </span>
 		          <div class="card-author childElement truncate">
-		          	<%= ideaItem.author%>
+		          	<%= link_to controller: "profiles", action: "showProfile", id: ideaItem.author do %>
+									<%=ideaItem.author%>
+								<%end%>
 		          </div>
 		          <div class="card-img-footer showOnHover">
 		          	<%= link_to showIdea_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat right" do%>
@@ -54,7 +56,9 @@
 				        	<%end%>
 	              </span>
 	              <div class="card-author childElement truncate">
-		          		<%= ideaItem.author%>
+		          		<%= link_to controller: "profiles", action: "showProfile", id: ideaItem.author do %>
+										<%=ideaItem.author%>
+									<%end%>
 		          	</div>
 			          <h6 class="truncate"><%=ideaItem.valueProposition%></h6>
 	          		<h6 class="truncate"><strong>Customer:</strong> <%=ideaItem.customerSegment%></h6>
