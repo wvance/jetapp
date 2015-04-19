@@ -1,19 +1,18 @@
 <!-- https://teamtreehouse.com/library/advanced-social-features-in-ruby-on-rails/activity-feeds/displaying-activity -->
-<% @activities.each do |activity|%>
+<!-- THIS FAILS -->
 	<div class="row">
 		<div class="col s6">
 			<ul class="collection">
 	      <li class="collection-item">
-	      	<%= image_tag(activity.user.avatar.url(:thumb).to_s, :class=>"circle left")%>
+	      	<%= image_tag(@activity.user.avatar.url(:thumb).to_s, :class=>"circle left")%>
 	      	<span class="title"><%= activity.user.profileName%></span>
 	      	<div class="actionItem">
 	      		<%= render partial: "activities/#{activity.targetable_type.underscore}/#{activity.action}", locals: {item: activity} %>
 	      	</div>
 	      	<div class="right">
-						<%=activity.created_at%>
+						<%=@activity.created_at%>
 					</div>
 				</li>
 	    </ul>
 	  </div>
   </div>
-<%end%>
