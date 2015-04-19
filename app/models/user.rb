@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :authentication_keys => [:login]
 
  	mount_uploader :avatar, AvatarUploader
 
@@ -22,6 +23,26 @@ class User < ActiveRecord::Base
               with: /[a-zA-Z0-9_-]+/,
               message: 'May contain only AlphaNumeric hyphen and underscore characters.'
             }
+
+  # Virtual attribute for authenticating by either username or email
+  # This is in addition to a real persisted field like 'profileName'
+  attr_accessor :login
+  def login=(login)
+    @login = login
+  end
+
+  def login
+    @login || self.profileName || self.email
+  end
+
+  def self.find_for_database_authentication(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      where(conditions.to_hash).where(["lower(profileName) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+    else
+      where(conditions.to_hash).first
+    end
+  end
 
   # USED FOR PROFILE PICTURE: LIBRARY
   #  include Gravtastic
