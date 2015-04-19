@@ -5,7 +5,6 @@ class ActivitiesController < ApplicationController
   	# MAP RETURNS user.id for each user and returns array of id's
   	# friend_ids = current_user.friends.map(&:id)
   	# @activities = Activity.where("user_id in (?)", friend_ids.push(current_user.id)).order("created_at desc").all
-
-  	@activities = Activity.find(current_user.id).all
+  	@activities = Activity.all
   end
 end
