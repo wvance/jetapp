@@ -28,6 +28,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+        current_user.createActivity(@comment, "created")
         format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
@@ -42,6 +43,7 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
+        current_user.createActivity(@comment, "updated")
         format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @comment }
       else
@@ -55,6 +57,7 @@ class CommentsController < ApplicationController
   # DELETE /comments/1.json
   def destroy
     @comment.destroy
+    current_user.createActivity(@comment, "deleted")
     respond_to do |format|
       format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }

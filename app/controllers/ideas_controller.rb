@@ -45,6 +45,13 @@ class IdeasController < ApplicationController
   def delete
     # http://stackoverflow.com/questions/18682914/passing-id-to-controller-through-link-to-in-railsner
     @deleteIdea = Idea.find(params[:id]).delete
+
+    if @deleteIdea.save
+      current_user.createActivity(@deleteIdea, "deleted")
+    else
+
+    end
+
     redirect_to :action => 'showAll'
   end
 
@@ -57,8 +64,15 @@ class IdeasController < ApplicationController
 
   def add 
     # THIS CANT BE RIGHT...
-  	idea = Idea.create(:name => params[:idea][:name], :author => current_user.profileName, :valueProposition => params[:idea][:valueProposition], :customerSegment => params[:idea][:customerSegment], :marketSize => params[:idea][:marketSize], :resources => params[:idea][:resources], :stage => params[:idea][:stage], :vision => params[:idea][:vision], :sector => params[:idea][:sector], :description => params[:idea][:description], :picture =>params[:idea][:picture])
-  	unless idea.valid?  
+  	@idea = Idea.create(:name => params[:idea][:name], :author => current_user.profileName, :valueProposition => params[:idea][:valueProposition], :customerSegment => params[:idea][:customerSegment], :marketSize => params[:idea][:marketSize], :resources => params[:idea][:resources], :stage => params[:idea][:stage], :vision => params[:idea][:vision], :sector => params[:idea][:sector], :description => params[:idea][:description], :picture =>params[:idea][:picture])
+  	
+    if @idea.save
+      current_user.createActivity(@idea, "created")
+    else
+
+    end
+
+    unless @idea.valid?  
    		  flash[:error] = idea.errors.full_messages.join("<br>").html_safe
    	  else 
    		  flash[:success] = "Idea Added!"

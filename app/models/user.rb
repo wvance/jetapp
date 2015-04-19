@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   before_create :setDefaultUserRole
 
   has_many :ideas
+  has_many :activities
 	# has_many :comments
   # has_many :stickies
   
@@ -48,6 +49,14 @@ class User < ActiveRecord::Base
       where(conditions.to_hash).first
     end
   end
+
+  def createActivity(item, action)
+    activity = activities.new 
+    activity.targetable = item
+    activity.action = action
+    activity.save
+    activity
+  end 
 
   private
   def setDefaultUserRole

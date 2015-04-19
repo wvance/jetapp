@@ -42,6 +42,10 @@
                 <!-- <i class="fa fa-home"></i> --> All Ideas
               <% end %>
             </li>
+            <li class="<%= is_active?('/activities') %>">
+              <%= link_to "Activity Feed", activities_path %>
+            </li>
+            
             <li class="<%= is_active?('/ideas/showAuthorIdea') %>">
               <%= link_to '/ideas/showAuthorIdea' do%>
                 <!-- <i class="fa fa-exclamation"></i> --> My Ideas
@@ -63,6 +67,9 @@
             <%= link_to '/ideas/showAll' do%>
               All Ideas
             <% end %>
+          </li>
+          <li class="<%= is_active?('/activities') %>">
+            <%= link_to "Activity Feed", activities_path %>
           </li>
           <li class="<%= is_active?('/ideas/showAuthorIdea') %>">
             <%= link_to '/ideas/showAuthorIdea' do%>

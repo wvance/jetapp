@@ -28,6 +28,7 @@ class StickiesController < ApplicationController
     @stickySection = ["Key Partners", "Key Activities","Key Resources","Value Proposition","Customer Relationships","Chanels","Customer Segments", "Cost Structure","Revenue Streams"]
     respond_to do |format|
       if @sticky.save
+        current_user.createActivity(@sticky, "created")
         format.html { redirect_to @sticky, notice: 'Sticky was successfully created.' }
         format.json { render :show, status: :created, location: @sticky }
       else
@@ -42,6 +43,7 @@ class StickiesController < ApplicationController
   def update
     respond_to do |format|
       if @sticky.update(sticky_params)
+        current_user.createActivity(@sticky, "updated")
         format.html { redirect_to @sticky, notice: 'Sticky was successfully updated.' }
         format.json { render :show, status: :ok, location: @sticky }
       else
@@ -55,6 +57,8 @@ class StickiesController < ApplicationController
   # DELETE /stickies/1.json
   def destroy
     @sticky.destroy
+    current_user.createActivity(@sticky, "deleted")
+
     respond_to do |format|
       format.html { redirect_to stickies_url, notice: 'Sticky was successfully destroyed.' }
       format.json { head :no_content }
