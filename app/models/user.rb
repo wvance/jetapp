@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  # https://github.com/plataformatec/devise/wiki/How-To:-Add-a-default-role-to-a-User
+  belongs_to :role
+  before_create :setDefaultUserRole
+
   has_many :ideas
 	# has_many :comments
   # has_many :stickies
@@ -44,6 +48,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  private
+  def setDefaultUserRole
+    self.role ||= Role.find_by_name('registered')
+  end
   # USED FOR PROFILE PICTURE: LIBRARY
   #  include Gravtastic
 	# gravtastic :size => 50,
