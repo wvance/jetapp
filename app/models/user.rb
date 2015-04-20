@@ -34,18 +34,20 @@ class User < ActiveRecord::Base
   # This is in addition to a real persisted field like 'profileName'
   # https://github.com/plataformatec/devise/wiki/How-To:-Allow-users-to-sign-in-using-their-username-or-email-address
   attr_accessor :login
-  def login=(login)
-    @login = login
-  end
+  attr_accessible :username
 
-  def login
-    @login || self.profileName || self.email
-  end
+  # def login=(login)
+  #   @login = login
+  # end
+
+  # def login
+  #   @login || self.profileName || self.email
+  # end
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     login = conditions.delete(:login)
-    where(conditions).where(["lower(profileName) = :value OR lower(email) = :value", { :value => login.strip.downcase }]).first
+    where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.strip.downcase }]).first
   end
 
 
