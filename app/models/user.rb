@@ -23,7 +23,8 @@ class User < ActiveRecord::Base
   validates :firstName, presence: true
   validates :lastName, presence: true
   validates :profileName, presence: true,
-            uniqueness: true,
+            uniqueness: {
+              :case_sensitive => false },
             format: {
               # PREVENTS POORLY FORMATED profile names
               with: /\A[a-zA-Z0-9_\-]+\z/,
@@ -34,22 +35,22 @@ class User < ActiveRecord::Base
   # This is in addition to a real persisted field like 'profileName'
   # https://github.com/plataformatec/devise/wiki/How-To:-Allow-users-to-sign-in-using-their-username-or-email-address
   attr_accessor :login
-  attr_accessible :username
+  def login=(login)
+    @login = login
+  end
 
-  # def login=(login)
-  #   @login = login
-  # end
-
-  # def login
-  #   @login || self.profileName || self.email
-  # end
+  def login
+    @login || self.profileName || self.email
+  end
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
-    login = conditions.delete(:login)
-    where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.strip.downcase }]).first
+    if login = conditions.delete(:login)
+      where(conditions.to_hash).where(["profileName = :value OR lower(email) = :value", { :value => login.downcase }]).first
+    else
+      where(conditions.to_hash).first
+    end
   end
-
 
 
   def createActivity(item, action)
