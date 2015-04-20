@@ -42,14 +42,12 @@ class User < ActiveRecord::Base
     @login || self.profileName || self.email
   end
 
-  def self.find_first_by_auth_conditions(warden_conditions)
+  def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
-    if login = conditions.delete(:login)
-      where(conditions).where(["lower(profileName) = :value OR lower(email) = :value", { :value => login.downcase }]).first
-    else
-      where(conditions).first
-    end
+    login = conditions.delete(:login)
+    where(conditions).where(["lower(profileName) = :value OR lower(email) = :value", { :value => login.strip.downcase }]).first
   end
+
 
 
   def createActivity(item, action)
