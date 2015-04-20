@@ -2,13 +2,17 @@ Rails.application.routes.draw do
   resources :stickies
   resources :comments
   resources :activities, only:[:index]
-  resources :user_friendships
+  
+  resources :user_friendships, only: [:new,:create]
   devise_for :users
 
   # You can have the root of your site routed with "root"
   # ideas controller with the show action 
   # ROOT IS ALSO NEEDED FOR DEVISE
   root 'ideas#showAll'
+
+  get "profiles/showProfile"
+
 
   delete 'ideas/:id', to: 'ideas#delete', :as => :delete
 
@@ -31,7 +35,7 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  get '/:id', to: 'profiles#showProfile'
+  get '/:id', to: 'profiles#showProfile', :as => :showProfile
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -104,15 +104,13 @@
         </ul>
       </nav>
 
+      
       <div class="container bodyContainer wrapper">
         <div class="center">
         	<!-- FLASHES FOR USER ACCOUNTS: DEVISE -->
-        	<% if notice %>
-        	  <p class="alert alert-success"><%= notice %></p>
-        	<% end %>
-        	<% if alert %>
-        	  <p class="alert alert-danger"><%= alert %></p>
-        	<% end %>
+          <% flash.each do |key, value| %>
+            <%= content_tag :div, value, class: "flash #{key}" %>
+          <% end %>
         </div>
     	  <!-- All views will get placed into here.-->
     		<%= yield %>
