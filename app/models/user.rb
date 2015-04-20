@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
 
   validates :firstName, presence: true
   validates :lastName, presence: true
-  validates :profileName, presence: true,
+  validates :profileName,
             uniqueness: {
               :case_sensitive => false },
             format: {
