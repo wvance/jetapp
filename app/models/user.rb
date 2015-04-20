@@ -11,8 +11,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :authentication_keys => [:login]
+         :recoverable, :rememberable, :trackable, :validatable
 
  	mount_uploader :avatar, AvatarUploader
 
@@ -23,7 +22,8 @@ class User < ActiveRecord::Base
   validates :firstName, presence: true
   validates :lastName, presence: true
   validates :profileName, presence: true,
-            uniqueness: true,
+            uniqueness: {
+              :case_sensitive => false },
             format: {
               # PREVENTS POORLY FORMATED profile names
               with: /\A[a-zA-Z0-9_\-]+\z/,
@@ -32,23 +32,19 @@ class User < ActiveRecord::Base
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'profileName'
+  # https://github.com/plataformatec/devise/wiki/How-To:-Allow-users-to-sign-in-using-their-username-or-email-address
   attr_accessor :login
-  def login=(login)
-    @login = login
-  end
-
-  def login
-    @login || self.profileName || self.email
-  end
-
+  
+  # FIX THIS LATER
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
-      where(conditions.to_hash).where(["lower(profileName) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+      where(conditions.to_hash).where(["lower(email) = :value", { :value => login.downcase }]).first
     else
       where(conditions.to_hash).first
     end
   end
+
 
   def createActivity(item, action)
     activity = activities.new 

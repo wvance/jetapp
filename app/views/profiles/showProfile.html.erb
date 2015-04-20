@@ -1,8 +1,28 @@
 <!-- THIS IS WHERE THE PUBLIC PROFILE PAGE FOR A USER WILL BE :) -->
-<h1>YAY</h1>
-<h3>USER ID: <%=@user_byName.profileName%></h3>
+<h3><%=@user_byName.profileName%></h3>
+<div class="row">
+	<div class="col s6">
+		<% if @user_comments.size > 0 %>
+			<h5>Comments:</h5>
+			<% @user_comments.each do |userComment| %>
+				<h6><%= userComment.body %></h6>
+			<%end%>
+		<%else%>
+			<p>User has no comments</p>
+		<%end%>
 
-<h5>User Comments:</h5>
-<% @user_comments.each do |userComment| %>
-	<h6><%= userComment.body %></h6>
-<%end%>
+		<% if @user_ideas.size > 0 %>
+			<h5>Ideas:</h5>
+				<% @user_ideas.each do |userIdea| %>
+				<%= link_to showIdea_path(userIdea.id) do%>
+					<%= userIdea.name %>
+				<%end%>
+			<%end%>
+		<%else%>
+			<p>User has no Ideas</p>
+		<%end%>
+	</div>
+	<div class="col s6">
+		<h5>Friends:</h5>
+	</div>
+</div>
