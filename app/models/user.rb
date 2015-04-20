@@ -49,7 +49,11 @@ class User < ActiveRecord::Base
     end
   end
 
+  def full_name
+    firstName + " " +lastName  
+  end
 
+ 
   def createActivity(item, action)
     activity = activities.new 
     activity.targetable = item

@@ -1,5 +1,7 @@
 <!-- THIS IS WHERE THE PUBLIC PROFILE PAGE FOR A USER WILL BE :) -->
 <h3><%=@user_byName.profileName%></h3>
+
+<%= link_to "Add Friend", new_user_friendship_path(friend_id: @user_byName), class: "btn btn-flat"%> 
 <div class="row">
 	<div class="col s6">
 		<% if @user_comments.size > 0 %>

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :stickies
   resources :comments
   resources :activities, only:[:index]
+  resources :user_friendships
   devise_for :users
 
   # You can have the root of your site routed with "root"
