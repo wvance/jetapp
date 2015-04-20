@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
 
   has_many :ideas
   has_many :activities
+
+  has_many :user_friendships
+  has_many :friends, through: :user_friendships
+
 	# has_many :comments
   # has_many :stickies
   
