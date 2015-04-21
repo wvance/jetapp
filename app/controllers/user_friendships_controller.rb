@@ -27,7 +27,7 @@ class UserFriendshipsController < ApplicationController
 			flash[:error] ="friend required"
 		end
 		rescue ActiveRecord::RecordNotFound
-			renter file:'public/404', status: :not_found
+			render file:'public/404', status: :not_found
 	end
 
 	def create 
