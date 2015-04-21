@@ -7,9 +7,23 @@ class User < ActiveRecord::Base
   has_many :activities
 
   has_many :user_friendships
-  has_many :friends, through: :user_friendships
 
-	# has_many :comments
+  # RAILS 3 WAY
+  # has_many :friends, ->{ where() } through: :user_friendships, 
+  #           conditions: {user_friendships: {state: "accepted"}}
+  # RAILS 4 WAY
+  # http://stackoverflow.com/questions/20307874/what-is-the-equivalent-of-conditions-in-has-many-rails-4
+  has_many :friends, -> { where(user_friendships: {state: 'accepted'})}, :through => :user_friendships
+
+  # USED FOR PENDING USER FRIENDSHIP ASSOCIATIONS
+  # has_many :pending_user_friendships, class_name: "userFriendship", 
+  #           foreign_key: :user_id,
+  #           condition:{state: 'pending'}
+  has_many :pending_user_friendships, -> { where(state: 'pending').order('firstName DESC')}, class_name: "userFriendship", foreign_key: :user_id
+
+  has_many :pending_friends, through: :pending_user_friendships, source: :friend
+	
+  # has_many :comments
   # has_many :stickies
   
   # Include default devise modules. Others available are:
@@ -49,7 +63,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def full_name
+  def fullName
     firstName + " " +lastName  
   end
 

@@ -2,8 +2,14 @@ Rails.application.routes.draw do
   resources :stickies
   resources :comments
   resources :activities, only:[:index]
+  # NOTE DO NOT ADD IDEAS AS RESOURCE
   
-  resources :user_friendships, only: [:new,:create]
+  resources :user_friendships do 
+    member do 
+      put :accept
+    end
+  end
+
   devise_for :users
 
   # You can have the root of your site routed with "root"
@@ -16,12 +22,10 @@ Rails.application.routes.draw do
 
   delete 'ideas/:id', to: 'ideas#delete', :as => :delete
 
-  get 'ideas/showAll', to: 'ideas#showAll'
+  get 'ideas/showAll', to: 'ideas#showAll', :as => :showAll
   get 'ideas/showAuthorIdea', to: 'ideas#showAuthorIdea'
-  # get 'ideas/delete'
   get 'ideas/new', to: 'ideas#newIdea'
-  # Never need an get route, as we will never directly naviage to the add page. 
-  post 'ideas/add', to: 'ideas#add', :as => :add
+  post 'ideas/add', to: 'ideas#add', :as => :add            # Never need an get route, as we will never directly naviage to the add page. 
 
   get 'ideas/showBMC/:id', to: 'ideas#showBMC', :as => :showBMC
 
@@ -36,6 +40,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   get '/:id', to: 'profiles#showProfile', :as => :showProfile
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
