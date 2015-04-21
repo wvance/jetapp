@@ -1,5 +1,7 @@
 require 'spec_helper'
-
-describe UserFriendship do
-  pending "add some examples to (or delete) #{__FILE__}"
+	
+class UserFriendshipTest < ActiveSupport::TestCase
+	should belong_to(:user)
+	should belong_to(:friend)
+		
 end
