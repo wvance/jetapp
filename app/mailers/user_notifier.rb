@@ -1,5 +1,5 @@
 class UserNotifier < ApplicationMailer
-	default from: "no-reply@ideajet.com"
+	default from: "ideajet.me@gmail.com"
   
   def friend_requested(user_friendship_id)
   	user_friendship = UserFriendship.find(user_friendship_id)
