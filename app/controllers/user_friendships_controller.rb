@@ -36,13 +36,11 @@ class UserFriendshipsController < ApplicationController
 
 			@user_friendship = UserFriendship.request(current_user, @friend)
 
-			# @user_friendship.save
-
 			respond_to do |format|
 				if @user_friendship.new_record?
 	        format.html do 
 	          flash[:error] = "There was problem creating that friend request."
-	          # redirect_to root_path
+	          redirect_to root_path
 	        end
 	        format.json { render json: @user_friendship.to_json, status: :precondition_failed }
 	    	else
@@ -65,7 +63,6 @@ class UserFriendshipsController < ApplicationController
 	end
 
 	private
-    # Never trust parameters from the scary internet, only allow the white list through.
     def user_friendship_params
       params.require(:user_friendship).permit(:user, :user_id, :friend, :friend_id, :state)
     end

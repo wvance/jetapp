@@ -1,7 +1,19 @@
 <!-- THIS IS WHERE THE PUBLIC PROFILE PAGE FOR A USER WILL BE :) -->
-<h3><%=@user_byName.profileName%></h3>
 
-<%= link_to "Add Friend", new_user_friendship_path(friend_id: @user_byName), class: "btn btn-flat"%> 
+<div class="row">
+	<div class="col m6">
+		<h3><%=@user_byName.fullName.split.map(&:capitalize).join(' ')%></h3>
+		<p class="childElement">@<%=@user_byName.profileName %></p>
+		<% if @user_byName != current_user %> 
+			<%= link_to "Add Friend", new_user_friendship_path(friend_id: @user_byName), class: "btn btn-flat"%> 
+		<%end%>
+	</div>
+	<div class="col m6">
+		<% if @user_byName.avatar.url.present? %>
+      <%= image_tag(@user_byName.avatar.url(:small), class: "right") %> 
+    <%end%>
+	</div>
+</div>
 <div class="row">
 	<div class="col s6">
 		<% if @user_comments.size > 0 %>
@@ -15,7 +27,7 @@
 
 		<% if @user_ideas.size > 0 %>
 			<h5>Ideas:</h5>
-				<% @user_ideas.each do |userIdea| %>
+			<% @user_ideas.each do |userIdea| %>
 				<%= link_to showIdea_path(userIdea.id) do%>
 					<%= userIdea.name %>
 				<%end%>
@@ -23,6 +35,9 @@
 		<%else%>
 			<p>User has no Ideas</p>
 		<%end%>
+		<%= link_to	newIdea_path(), :class => "btn btn-flat" do %>
+      Create Idea
+    <% end %>
 	</div>
 	<div class="col s6">
 		<h5>Friends:</h5>

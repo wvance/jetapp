@@ -23,8 +23,8 @@ Rails.application.routes.draw do
   delete 'ideas/:id', to: 'ideas#delete', :as => :delete
 
   get 'ideas/showAll', to: 'ideas#showAll', :as => :showAll
-  get 'ideas/showAuthorIdea', to: 'ideas#showAuthorIdea'
-  get 'ideas/new', to: 'ideas#newIdea'
+  get 'ideas/showAuthorIdea', to: 'ideas#showAuthorIdea', :as => :showAuthorIdea
+  get 'ideas/new', to: 'ideas#newIdea', :as => :newIdea
   post 'ideas/add', to: 'ideas#add', :as => :add            # Never need an get route, as we will never directly naviage to the add page. 
 
   get 'ideas/showBMC/:id', to: 'ideas#showBMC', :as => :showBMC

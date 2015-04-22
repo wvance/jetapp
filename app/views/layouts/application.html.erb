@@ -34,28 +34,19 @@
       </ul>
       <nav>
         <div class="nav-wrapper blue darken-4">
-          <a class="brand-logo navFix" href="/ideas/showAll"> JetApp </a>
+          <%= link_to "JetApp", activities_path, class: "brand-logo navFix"%>
           <a href="#" data-activates="mobile" class="button-collapse navFix"><i class="fa fa-angle-right"></i></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li class="<%= is_active?('/ideas/showAll') %>">
-              <%= link_to '/ideas/showAll' do%>
+              <%= link_to showAll_path() do%>
                 <!-- <i class="fa fa-home"></i> --> All Ideas
               <% end %>
-            </li>
-            <li class="<%= is_active?('/activities') %>">
-              <%= link_to "Activity Feed", activities_path %>
-            </li>
-            
+            </li>            
             <li class="<%= is_active?('/ideas/showAuthorIdea') %>">
-              <%= link_to '/ideas/showAuthorIdea' do%>
+              <%= link_to showAuthorIdea_path() do%>
                 <!-- <i class="fa fa-exclamation"></i> --> My Ideas
               <% end %>
             </li> 
-            <li class="<%= is_active?('/ideas/new') %>">
-              <%= link_to'/ideas/new' do %>
-                <!-- <i class="fa fa-pencil-square-o"></i> --> Create Idea
-              <% end %>
-            </li>
             <!-- Dropdown Trigger -->
             <li>
             <a class="dropdown-button" href="#!" data-activates="dropDownMainMenu">Account<i class="fa fa-angle-down right"></i></a>
@@ -68,19 +59,12 @@
               All Ideas
             <% end %>
           </li>
-          <li class="<%= is_active?('/activities') %>">
-            <%= link_to "Activity Feed", activities_path %>
-          </li>
           <li class="<%= is_active?('/ideas/showAuthorIdea') %>">
             <%= link_to '/ideas/showAuthorIdea' do%>
               My Ideas
             <% end %>
           </li>
-          <li class="<%= is_active?('/ideas/new') %>">
-            <%= link_to'/ideas/new' do %>
-              Create Idea
-            <% end %>
-          </li>
+          
           <li class="divider"></li>
           <% if user_signed_in? %>
             <li>

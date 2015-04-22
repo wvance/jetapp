@@ -11,6 +11,8 @@ gem 'carrierwave'                   # PICTURE UPLOADS
 gem 'mini_magick' , "~> 4.2.1"      # USED TO RESIZE IMAGES
 gem "font-awesome-rails"            # FONT AWESOME ICONS
 gem 'state_machines-activerecord'   # ADDS STATES TO APPLCIATION (FRIEND REQUESTS) 
+gem 'modernizr-rails'               # USED FOR FRONTEND DEV
+gem "figaro"                        # USED TO MANAGE SECRET INFO (USERNAME AND PASSWORD OF GMAILS SETTINGS, ETC)
 
 # USED FOR CUSTOM LOGIN/ API'S
 # gem 'omniauth'
