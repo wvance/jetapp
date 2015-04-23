@@ -41,12 +41,14 @@
               <%= link_to showAll_path() do%>
                 <!-- <i class="fa fa-home"></i> --> All Ideas
               <% end %>
-            </li>            
-            <li class="<%= is_active?('/ideas/showAuthorIdea') %>">
-              <%= link_to showAuthorIdea_path() do%>
-                <!-- <i class="fa fa-exclamation"></i> --> My Ideas
-              <% end %>
             </li> 
+
+            <li class="<%= is_active?('showProfile_path()')%>"%>
+              <%= link_to showProfile_path(current_user.profileName) do %>
+                <%= current_user.profileName %>
+              <%end%>
+            </li>
+
             <!-- Dropdown Trigger -->
             <li>
             <a class="dropdown-button" href="#!" data-activates="dropDownMainMenu">Account<i class="fa fa-angle-down right"></i></a>

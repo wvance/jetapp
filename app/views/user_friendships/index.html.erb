@@ -9,7 +9,6 @@
       <strong><%= friend.fullName %></strong><br />
         <% if friendship.pending? %>
           <em>Friendship is pending.</em> <%= link_to "Delete request", edit_user_friendship_path(friendship) %>
-.
         <% end %>
         <% if friendship.requested? %>
           <em>Friendship requested.</em> <%= link_to "Accept friendship", edit_user_friendship_path(friendship) %>.

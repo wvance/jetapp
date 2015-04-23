@@ -2,6 +2,9 @@ class UserFriendship < ActiveRecord::Base
 	belongs_to :user
   belongs_to :friend, :foreign_key => "friend_id", :class_name => "User" 
 
+
+  after_destroy :delete_mutual_friendship!
+
 	# THE INITIAL/DEFAULT STATE OF A FRIENDSHIP REQUEST
 	state_machine :state, initial: :pending do
 
@@ -40,6 +43,10 @@ class UserFriendship < ActiveRecord::Base
 		# GRAB MUTUAL FRIENDSHIP AND UPDATE STATE WITHOUT USING 
 		# THE STATE MACHINE SO AS NOT TO INVOKE CALLBACKS
     mutual_friendship.update_attributes(:state => 'accepted')
+	end
+
+	def delete_mutual_friendship!
+		mutual_friendship.delete
 	end
 end
 

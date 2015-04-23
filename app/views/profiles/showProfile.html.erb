@@ -6,6 +6,10 @@
 		<p class="childElement">@<%=@user_byName.profileName %></p>
 		<% if @user_byName != current_user %> 
 			<%= link_to "Add Friend", new_user_friendship_path(friend_id: @user_byName), class: "btn btn-flat"%> 
+		<%else%>
+			<%= link_to	newIdea_path(), :class => "btn btn-flat" do %>
+      	Create Idea
+   		<% end %>
 		<%end%>
 	</div>
 	<div class="col m6">
@@ -27,20 +31,42 @@
 
 		<% if @user_ideas.size > 0 %>
 			<h5>Ideas:</h5>
-			<% @user_ideas.each do |userIdea| %>
-				<%= link_to showIdea_path(userIdea.id) do%>
-					<%= userIdea.name %>
+			<ul>
+				<% @user_ideas.each do |userIdea| %>
+					<li>
+						<%= link_to showIdea_path(userIdea.id) do%>
+							<%= userIdea.name %>
+						<%end%>
+					</li>
 				<%end%>
-			<%end%>
+			</ul>
 		<%else%>
 			<p>User has no Ideas</p>
 		<%end%>
-		<%= link_to	newIdea_path(), :class => "btn btn-flat" do %>
-      Create Idea
-    <% end %>
 	</div>
 	<div class="col s6">
 		<h5>Friends:</h5>
-		<%= link_to 'Friends', user_friendships_path %>
+		<!-- <%= link_to 'Friends', user_friendships_path %> -->
+		<% @user_friendships.each do |friendship| %>
+		  <% friend = friendship.friend %>
+			  <div id="<%= dom_id(friendship) %>" class="friend row">
+			    <div class="">
+						<%= link_to image_tag(friend.avatar.url(:thumb)), showProfile_path(friend) %>
+			    </div>
+			    <div class="">
+			      <strong><%= friend.fullName %></strong><br />
+			        <% if friendship.pending? %>
+			          <em>Friendship is pending.</em> <%= link_to "Delete request", edit_user_friendship_path(friendship) %>
+			        <% end %>
+			        <% if friendship.requested? %>
+			          <em>Friendship requested.</em> <%= link_to "Accept friendship", edit_user_friendship_path(friendship) %>.
+			        <% end %>
+			        <% if friendship.accepted? %>
+			          <em>Friendship started <%= friendship.updated_at %>.</em> <%= link_to "Update friendship", edit_user_friendship_path(friendship) %>.
+			        <% end %>
+			    </div>
+			  </div>
+		<% end %>
 	</div>
+
 </div>
