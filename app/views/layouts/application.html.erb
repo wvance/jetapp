@@ -42,12 +42,14 @@
                 <!-- <i class="fa fa-home"></i> --> All Ideas
               <% end %>
             </li> 
-
-            <li class="<%= is_active?('showProfile_path()')%>"%>
-              <%= link_to showProfile_path(current_user.profileName) do %>
-                <%= current_user.profileName %>
-              <%end%>
-            </li>
+  
+            <% if user_signed_in? %>
+              <li class="<%= is_active?('showProfile_path()')%>"%>
+                <%= link_to showProfile_path(current_user.profileName) do %>
+                  <%= current_user.profileName %>
+                <%end%>
+              </li>
+            <%end%>
 
             <!-- Dropdown Trigger -->
             <li>
