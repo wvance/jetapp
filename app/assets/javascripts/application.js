@@ -15,7 +15,7 @@
 //= require jquery_ujs
 //
 // PUT OTHERS HERE
-// require js-routes
+//= require js-routes
 //= require materialize
 //
 //= require turbolinks
