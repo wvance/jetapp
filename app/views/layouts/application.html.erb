@@ -57,18 +57,20 @@
             </li>
           </ul>
         </div>      
+        <!-- MOBILE NAVBAR -->
         <ul class="side-nav" id="mobile">
           <li class="<%= is_active?('/ideas/showAll') %>">
             <%= link_to showAll_path do%>
               All Ideas
             <% end %>
           </li>
-          <li class="<%= is_active?('/ideas/showAuthorIdea') %>">
-            <%= link_to '/ideas/showAuthorIdea' do%>
-              My Ideas
-            <% end %>
-          </li>
-          
+          <% if user_signed_in? %>
+            <li class="<%= is_active?('showProfile_path()')%>"%>
+              <%= link_to showProfile_path(current_user.profileName) do %>
+                <%= current_user.profileName %>
+              <%end%>
+            </li>
+          <%end%>
           <li class="divider"></li>
           <% if user_signed_in? %>
             <li>
@@ -119,7 +121,7 @@
             <li><a class="grey-text text-lighten-3" href="#!">About Us</a></li>
             <li><a class="grey-text text-lighten-3" href="#!">Dev Blog</a></li>
             <li><a class="grey-text text-lighten-3" href="#!">Site Map</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">GitHub Repo</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://github.com/wvance/jetapp" target="_blank">GitHub Repo</a></li>
           </ul>
         </div>
       </div>
@@ -127,7 +129,9 @@
     <div class="footer-copyright">
       <div class="container">
       © 2014 Copyright Text
-      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      <!-- <a class="grey-text text-lighten-4 right" href="#!"><i class="fa fa-facebook"></i></a>
+      <a class="grey-text text-lighten-4 right" href="#!"><i class="fa fa-twitter"></i></a>
+      <a class="grey-text text-lighten-4 right" href="#!"><i class="fa fa-github"></i></a> -->
       </div>
     </div>
   </footer>
