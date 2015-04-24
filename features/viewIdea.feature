@@ -1,4 +1,3 @@
-# features/home_page.feature
 Feature: View idea
 
 Scenario: Viewing an idea
