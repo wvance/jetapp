@@ -13,6 +13,9 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
+    when host
+      'localhost:3000'  
+
     when /home\s?page$/
       root_path
 
@@ -40,12 +43,26 @@ end
 World(NavigationHelpers)
 
 # Automates login for reusability
-def log_in(session)
-    s = session
-    s.visit('localhost:3000')
+def sign_up(s, us_f, us_l)
+  s.find('a.dropdown-button').click # assuming you only have one a.dropdown-toggle
+  s.click_on("Sign up")
+  s.fill_in("First Name",       with: us_f)
+  s.fill_in("Last Name",        with: us_l)
+  s.fill_in("Profile Name",     with: us_f + '_' + us_l)
+  s.fill_in("Email",            with: "chrisbuz@tamu.edu")
+  s.fill_in("Password",         with: "12345678")
+  s.fill_in("Confirm password", with: "12345678")
+  s.click_button("Sign up")
+end
+
+def log_in(s)
     s.fill_in('Login', with: "chrisbuz@tamu.edu")
     s.fill_in('Password', with: "12345678")
-    s.click_on("Log in")
+    s.click_button("Log in")
+end
+
+def delete_test_user
+
 end
 
 

@@ -5,8 +5,9 @@ Feature: Submit Idea
 
 	Scenario: Submit an Idea
 		Given that I am on the home page and have logged in
-		And I click on "Create Idea"
-		When I enter the idea "Name" with "Some Idea"
-		And I click the button "Add Idea"
-		Then I should see "Some Idea" on the "All Ideas" page
+		And I click on my username
+		And I click on "Create Idea" button
+		When I enter a "Name" for "Some Idea"
+		And I click on the button "Add Idea"
+		Then I should see "Idea Added!"
 		
