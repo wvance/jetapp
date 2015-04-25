@@ -42,27 +42,39 @@ module NavigationHelpers
 end
 World(NavigationHelpers)
 
-# Automates login for reusability
-def sign_up(s, us_f, us_l)
-  s.find('a.dropdown-button').click # assuming you only have one a.dropdown-toggle
-  s.click_on("Sign up")
-  s.fill_in("First Name",       with: us_f)
-  s.fill_in("Last Name",        with: us_l)
-  s.fill_in("Profile Name",     with: us_f + '_' + us_l)
-  s.fill_in("Email",            with: "chrisbuz@tamu.edu")
-  s.fill_in("Password",         with: "12345678")
-  s.fill_in("Confirm password", with: "12345678")
-  s.click_button("Sign up")
-end
 
-def log_in(s)
-    s.fill_in('Login', with: "chrisbuz@tamu.edu")
-    s.fill_in('Password', with: "12345678")
-    s.click_button("Log in")
-end
+module AutomationHelpers
+  # Automates login for reusability
+  def sign_up(s, us_f, us_l)
 
-def delete_test_user
+    s.find('a.dropdown-button').click # assuming you only have one a.dropdown-toggle
+    s.click_on("Sign up")
+    s.fill_in("First Name",       with: us_f)
+    s.fill_in("Last Name",        with: us_l)
+    s.fill_in("Profile Name",     with: us_f + '_' + us_l)
+    s.fill_in("Email",            with: "chrisbuz@tamu.edu")
+    s.fill_in("Password",         with: "12345678")
+    s.fill_in("Confirm password", with: "12345678")
+    s.click_button("Sign up")
 
+  end
+
+  def log_in(s)
+
+      s.fill_in('Login', with: "chrisbuz@tamu.edu")
+      s.fill_in('Password', with: "12345678")
+      s.click_button("Log in")
+
+  end
+
+  def window_max(session)
+    session.current_window.maximize
+  end
+
+  def delete_test_user
+    #will later delete test user
+  end
 end
+World(AutomationHelpers)
 
 
