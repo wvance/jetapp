@@ -21,16 +21,15 @@
 //= require turbolinks
 //= require_tree .
 
-// https://teamtreehouse.com/library/advanced-social-features-in-ruby-on-rails/push-updates/javascript-polling-2
-// var pollActivity = function(){
-// 	$.ajax({
-// 		url: Routes.activities_path({format:'json'}),
-// 		type:"GET",
-// 		dataType:"json",
-// 		success:function(data){
-// 			console.log(data);
-// 		}
-// 	});
-// }
-
+var pollActivity = function(){
+	$.ajax({
+		url: Routes.activities_path({format: 'json', since: window.lastFetch}),
+		type:"GET",
+		dataType:"json",
+		success: function(data){
+			window.lastFetch = Math.floor((new Date).getTime() / 1000);
+			console.log(data);
+		}
+	});
+}
 // window.pollInterval = window.setInterval(pollActivity, 5000);

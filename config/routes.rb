@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :stickies
   resources :comments
   resources :activities, only:[:index]
-  
+    
   resources :user_friendships do 
     member do 
       put :accept
