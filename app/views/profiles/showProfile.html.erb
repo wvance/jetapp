@@ -5,11 +5,13 @@
 		<h3><%=@user_byName.fullName.split.map(&:capitalize).join(' ')%></h3>
 		<p class="childElement">@<%=@user_byName.profileName %></p>
 		<% if @user_byName != current_user %> 
-			<% if current_user.friends.include?(@user_byName)%>
-				<%= link_to "Edit Friendship", edit_user_friendship_path(@friendship), class: "btn btn-flat"%> 
-			<%else%>
-				<%= link_to "Add Friend", new_user_friendship_path(friend_id: @user_byName), class: "btn btn-flat"%> 
-			<%end%>
+			<div id = "friend-status">
+				<% if current_user.friends.include?(@user_byName)%>
+					<%= link_to "Edit Friendship", edit_user_friendship_path(@friendship), class: "btn btn-flat"%> 
+				<%else%>
+					<%= link_to "Add Friend", new_user_friendship_path(friend_id: @user_byName), id: "add-friendship", class: "btn btn-flat", data: {friend_id: @user_byName.to_param} %> 
+				<%end%>
+			</div>
 		<%else%>
 			<%= link_to	newIdea_path(), :class => "btn btn-flat" do %>
       	Create Idea
