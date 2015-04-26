@@ -31,7 +31,7 @@ Preconditions: Please make sure you have the rails server running
 
 * Example: 
 
-  $ bundle exec feature/add_comment.feature
+  $ bundle exec cucumber feature/add_comment.feature
 
 * Note: For a successful test, all steps must indicate GREEN
 
