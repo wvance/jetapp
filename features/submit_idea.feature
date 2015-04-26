@@ -1,5 +1,5 @@
 Feature: Submit Idea
-	As a 3DS participant
+	As a participant
 	So that I can share my startup idea digitally and get feedback from others
 	I want to be able to submit an idea online
 

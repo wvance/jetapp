@@ -60,11 +60,9 @@ module AutomationHelpers
   end
 
   def log_in(s)
-
       s.fill_in('Login', with: "chrisbuz@tamu.edu")
       s.fill_in('Password', with: "12345678")
       s.click_button("Log in")
-
   end
 
   def window_max(session)

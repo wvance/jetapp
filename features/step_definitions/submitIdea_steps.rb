@@ -8,11 +8,10 @@ Given(/^that I am on the home page and have logged in$/) do
 	window_max(s)
 	s.visit path_to(host)
 	sign_up(s, user_first, user_last)
-
 end
 
 Given(/^I click on my username$/) do
-  s.click_link(user_p_name)
+	s.click_link(user_p_name)
 end
 
 Given(/^I click on "(.*?)" button$/) do |arg1|
@@ -20,13 +19,15 @@ Given(/^I click on "(.*?)" button$/) do |arg1|
 end
 
 When(/^I enter a "(.*?)" for "(.*?)"$/) do |arg1, arg2|
-  s.fill_in(arg1, with: arg2)
+ 	s.fill_in(arg1, with: arg2)
 end
 
 When(/^I click on the button "(.*?)"$/) do |arg1|
-  s.click_button(arg1)
+ 	s.click_button(arg1)
 end
 
- Then(/^I should see "(.*?)"$/) do |arg1|
-  page.has_xpath?('//button[contains(text(), arg1)]')
+Then(/^I should see "(.*?)"$/) do |arg1|
+	s.within("div.center") do
+		s.find("div.flash.success", text: arg1)
+	end
 end
