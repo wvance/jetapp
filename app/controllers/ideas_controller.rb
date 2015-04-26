@@ -90,8 +90,8 @@ class IdeasController < ApplicationController
     @idea = Idea.find(params[:id])
     #idea_params = @idea.params
     if @idea.update_attributes(idea_params)
-      #flash[:notice] = "Idea updated"
-      #redirect_to(:action => showAll)
+      flash[:success] = "Idea updated!"
+      redirect_to :action => 'showAll'
     else
       #render('editIdea')
     end
@@ -114,7 +114,7 @@ class IdeasController < ApplicationController
   private 
 
   def idea_params
-    params.require(:idea).permit(:name, :author, :description, :valueProposition, :customerSegment, :marketSize, :resources, :stage, :vision, :sector, :picture)
+    params.require(:idea).permit(:name, :author, :description, :valueProposition, :customerSegment); #, :marketSize, :resources, :stage, :vision, :sector, :picture)
   end
 
 
