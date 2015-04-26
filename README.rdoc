@@ -16,4 +16,18 @@ To view this application on your own machine follow these steps:
 
 * Open a browser and navigate to localhost:3000
 
-You should now be able to see our application in your browser.
+You should now be able to see our application in your browser
+
+
+== Running Tests
+
+Preconditions: Please make sure you have the rails server running
+
+* Move to the JetPack (or JetApp) directory
+
+* Run 'bundle exec cucumber (your feature)'
+
+	* Example: bundle exec feature/add_comment.feature
+
+* Note: For a succescful test, all steps must indicate GREEN
+.
