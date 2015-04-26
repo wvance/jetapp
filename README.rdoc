@@ -25,9 +25,13 @@ Preconditions: Please make sure you have the rails server running
 
 * Move to the JetPack (or JetApp) directory
 
-* Run 'bundle exec cucumber (your feature)'
+* Run 
 
-..* Example: `bundle exec feature/add_comment.feature`
+  $ bundle exec cucumber (your feature)
+
+* Example: 
+
+  $ bundle exec feature/add_comment.feature
 
 * Note: For a successful test, all steps must indicate GREEN
 
