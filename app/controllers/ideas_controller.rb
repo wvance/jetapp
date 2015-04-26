@@ -81,7 +81,20 @@ class IdeasController < ApplicationController
  		redirect_to :action => 'newIdea'
   end
 
+  def editIdea 
+    @idea = Idea.find(params[:id])
+    #redirect_to :action => 'editIdea'
+  end
+
   def update
+    @idea = Idea.find(params[:id])
+    #idea_params = @idea.params
+    if @idea.update_attributes(idea_params)
+      #flash[:notice] = "Idea updated"
+      #redirect_to(:action => showAll)
+    else
+      #render('editIdea')
+    end
   end
 
   def current_page(path)
@@ -97,4 +110,12 @@ class IdeasController < ApplicationController
   def set_idea
     @idea = Idea.find(params[:id])
   end
+
+  private 
+
+  def idea_params
+    params.require(:idea).permit(:name, :author, :description, :valueProposition, :customerSegment, :marketSize, :resources, :stage, :vision, :sector, :picture)
+  end
+
+
 end

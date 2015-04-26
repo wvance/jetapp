@@ -5,7 +5,7 @@
 				<h2 class="showHide">
 					<%= @idea.name %>
 					<% if current_user.profileName == @idea.author %>
-						<i class="fa fa-pencil-square-o fa-sm showOnHover"></i>
+						<!--i class="fa fa-pencil-square-o fa-sm showOnHover"></i-->
 					<%end%>
 				</h2>
 				<h6 class="childElement">
@@ -17,6 +17,12 @@
 			<div class="col s3">
 				<%= link_to showBMC_path(@idea.id), :class=>"waves-effect waves-red btn-large red right" do%>
 	    		BMC
+	    	<%end%>
+	    	<div class="col s3">
+	    		<% if current_user.profileName == @idea.author %>
+					<%= link_to editIdea_path(@idea.id), :class=>"waves-effect waves-red btn-large red right" do%>
+	    			Edit
+    			<%end%>
 	    	<%end%>
 			</div>
 		</div>

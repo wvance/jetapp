@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   get 'idea/:id',             to: 'ideas#showIdea',         :as => :showIdea
   post 'ideas/add',           to: 'ideas#add',              :as => :add           
   delete 'ideas/:id',         to: 'ideas#delete',           :as => :delete
+  get 'ideas/editIdea/:id',   to: 'ideas#editIdea',         :as => :editIdea
+  patch 'ideas/update',   to: 'ideas#update',           :as => :update
+  #post 'ideas/editIdea/:id',  to: 'ideas#editIdea',         :as => :editIdea
 
   get '/:id',                 to: 'profiles#showProfile',   :as => :showProfile
 
