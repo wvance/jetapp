@@ -1,4 +1,4 @@
-== README
+## README
 
 This is our CSCE 431 Application. It's purpose is to improve students ideas, before they get involved with 3DayStartup.
 
@@ -19,7 +19,7 @@ To view this application on your own machine follow these steps:
 You should now be able to see our application in your browser
 
 
-== Running Tests
+## Running Tests
 
 Preconditions: Please make sure you have the rails server running
 
@@ -27,10 +27,10 @@ Preconditions: Please make sure you have the rails server running
 
 * Run:
 
-..`bundle exec cucumber dir/to/the/feature`
+      `bundle exec cucumber dir/to/the/feature`
 
 * Example: 
 
-..`bundle exec cucumber feature/add_comment.feature`
+      `bundle exec cucumber feature/add_comment.feature`
 
 * Note: For a successful test, all steps must indicate GREEN
