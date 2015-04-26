@@ -10,4 +10,3 @@ Feature: Submit Idea
 		When I enter a "Name" for "Some Idea"
 		And I click on the button "Add Idea"
 		Then I should see "Idea Added!"
-		
