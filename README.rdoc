@@ -27,7 +27,8 @@ Preconditions: Please make sure you have the rails server running
 
 * Run 'bundle exec cucumber (your feature)'
 
-...Example: `bundle exec feature/add_comment.feature`
+..* Example: `bundle exec feature/add_comment.feature`
 
-* Note: For a succescful test, all steps must indicate GREEN
-.
+* Note: For a successful test, all steps must indicate GREEN
+
+
