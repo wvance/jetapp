@@ -17,8 +17,10 @@ Rails.application.routes.draw do
   get 'ideas/showAuthorIdea', to: 'ideas#showAuthorIdea',   :as => :showAuthorIdea
   get 'ideas/new',            to: 'ideas#newIdea',          :as => :newIdea
   get 'ideas/showBMC/:id',    to: 'ideas#showBMC',          :as => :showBMC
-  get 'idea/:id',             to: 'ideas#showIdea',         :as => :showIdea
-  post 'ideas/add',           to: 'ideas#add',              :as => :add           
+  get 'ideas/:id',            to: 'ideas#showIdea',         :as => :showIdea
+  get 'ideas/editIdea/:id',   to: 'ideas#editIdea',         :as => :editIdea
+  post 'ideas/add',           to: 'ideas#add',              :as => :add     
+  patch 'ideas/update',       to: 'ideas#update',           :as => :update
   delete 'ideas/:id',         to: 'ideas#delete',           :as => :delete
 
   get '/:id',                 to: 'profiles#showProfile',   :as => :showProfile
