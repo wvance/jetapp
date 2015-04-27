@@ -74,7 +74,7 @@ body {
 	min-height: 150px;
 	max-width: 500px;
 	max-height: 400px;
-}
+};
 .childElement{
 	margin-top: -7px;
 	margin-left: 20px;
@@ -82,10 +82,12 @@ body {
 }
 nav{
 	margin-top: -1px;
+	min-height: 100px;
+	background-color: #4285F5; !important
 }
 .noPicUpload{
 	text-align: center;
-}
+
 .noPicUpload{
 	text-align: center;
 }
