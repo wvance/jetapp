@@ -45,6 +45,7 @@ World(NavigationHelpers)
 
 module AutomationHelpers
   # Automates login for reusability
+  
   def sign_up(s, us_f, us_l)
 
     s.find('a.dropdown-button').click # assuming you only have one a.dropdown-toggle
