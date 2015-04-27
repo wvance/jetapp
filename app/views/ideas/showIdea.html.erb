@@ -101,11 +101,11 @@
 					<div class="showHide">
 						<!-- SHOW AUTHOR THUMBNAIL IMAGE -->
 							<%= comment.id %>,
-							<%= comment.parent_comment_id %>
+							<%= comment.parent %>
 							<%= image_tag(comment.user.avatar.url(:thumb).to_s, :class=>"left")%>
 							<strong><%= comment.user.profileName %> says:</strong>
 							<%= comment.body %>
-							<%= link_to new_comment_path(:data=> {:parent_comment_id => comment.id}), :class =>"commentForm showOnHover" do%>
+							<%= link_to new_comment_path(:data => {:parent_comment_id => comment.id, :idea_id => @idea.id}), :class =>"commentForm showOnHover" do%>
 								<i class="fa fa-pencil-square-o"></i>
 							<%end%>
 							<%= link_to comment, method: :create, data: {:parent_comment_id => comment.parent_comment_id}, :class =>"commentForm showOnHover"%>

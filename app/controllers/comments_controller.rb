@@ -15,7 +15,6 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
 		@comment = Comment.new
-		@pcid = params[:data]["parent_comment_id"]
 	end
 
   # # GET /comments/1/edit

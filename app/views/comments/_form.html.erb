@@ -14,8 +14,13 @@
     <%= f.label :'New Comment' %><br>
     <%= f.text_area :body, :class => "commentBodyEnter materialize-textarea", :length =>"120"%>
   </div>
-	<%= f.hidden_field :idea_id %>
 	<%= f.hidden_field :user_id, :value => current_user.id %>
+	<% if params[:data] %>
+		<% @pcid = params[:data]["parent_comment_id"] %>
+		<%= f.hidden_field :idea_id, :value => params[:data]["idea_id"] %>
+	<% else %>
+		<%= f.hidden_field :idea_id %>
+	<% end %>
 	<%= f.hidden_field :parent_comment_id, :value => @pcid %>
   <div class="actions">
     <%= f.submit "Add Comment", class: "btn red addCommentBtn"%>
