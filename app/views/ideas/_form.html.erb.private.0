@@ -1,0 +1,72 @@
+<!-- Flashes are used to show the errors on the screen. These are linked with the ideas_controller as well-->
+<% if flash[:success] %>
+	<div class="alert alert-success">
+		<button type="button" class="close" data-dismiss="alert">x</button>
+		<strong> <%= flash[:success]%> </strong>
+	</div>
+<% end %>
+<% if flash[:error] %>
+	<div class="alert alert-danger">
+		<button type="button" class="close" data-dismiss="alert">x</button>
+		<strong> <%= flash[:error]%> </strong>
+	</div>
+<% end %>
+<!-- Form For is a rails specific keyword, allowing use of forms in the view that link to the controller -->
+<!-- As you can see this form is linked to the add 'action', which can be found in ideas_controller file. -->
+<%= simple_form_for(@new_idea,:url=>{:action => "add"} , html: { class: 'form-horizontal' }) do |f| %>
+	<div class="">
+		<div class="row">
+		  <div class="caption">
+		  	<div class="row">
+			  	<div class="col s4">
+				    <h5><%= f.label :name %></h5>
+						<%= f.text_field :name %> 
+					</div>
+				</div>
+				<div class="row">
+					<!-- AUTHOR BY CURRENT USER -->
+					<div class="col s8">
+				    <h5><%= f.label :Description %></h5>
+						<%= f.text_area :description, :class => "materialize-textarea", :length =>"120"%>
+					</div>
+				<div class="col s6">
+					<h5><%= f.label :'Value Proposition' %></h5>
+					<%= f.text_field :valueProposition %>
+				</div>
+				</div>
+				<div class="col s6">
+					<h5><%= f.label :'Customer Segment' %></h5>
+					<%= f.text_field :customerSegment %>
+				</div>
+				<div class="col s6">
+					<h5><%= f.label :'Market Size' %></h5>
+					<%= f.text_field :marketSize %>
+				</div>
+				<div class="col s6">
+					<h5><%= f.label :Resources %></h5>
+					<%= f.text_field :resources %>
+				</div>
+				<div class="col s6">
+					<h5><%= f.label :Stage %></h5>
+					<%= f.text_field :stage %>
+				</div>
+				<div class="col s6">
+					<h5><%= f.label :Vision %></h5>
+					<%= f.text_field :vision %>
+				</div>
+				<div class="col s6">
+					<h5><%= f.label :Sector %></h5>
+					<%= f.text_field :sector %>
+				</div>
+				
+				<div clas="col s6 ">
+					<%= f.file_field :picture %>
+					
+			    <div class="editIdea"> 
+						<%= f.submit "Add Idea", class: "btn addIdeaBtn"%>
+					</div>
+				</div>
+		  </div>
+		</div>
+	</div>
+<% end %>

@@ -1,0 +1,19 @@
+<!-- Form For is a rails specific keyword, allowing use of forms in the view that link to the controller -->
+<!-- As you can see this form is linked to the add 'action', which can be found in ideas_controller file. -->
+<%= form_for @new_idea, :url=> {:action => "add"} do |f| %> 
+	<div class="">
+		<div class="">
+		  <div class="caption">
+		    <h5><%= f.label :name %>:</h5>
+				<%= f.text_field :name %> 
+		    <h5><%= f.label :description %>:</h5>
+				<%= f.text_field :description %>
+				<h5><%= f.label :Upload %>:</h5>
+				<%= f.file_field :picture %>
+		    <div class="editIdea"> 
+					<%= f.submit "Add Idea", class: "btn btn-primary addIdeaBtn"%>
+				</div>
+		  </div>
+		</div>
+	</div>
+<% end %>

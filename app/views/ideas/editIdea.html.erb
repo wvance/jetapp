@@ -1,0 +1,3 @@
+<%= form_for(@idea, :url => {:action => :update , :id => @idea.id}) do |f| %> 
+<%= render(:partial => "form", :locals => {:f => f}) %>  
+<% end %>

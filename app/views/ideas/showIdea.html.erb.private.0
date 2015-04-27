@@ -1,0 +1,136 @@
+<div class="row">
+	<div class="col s12 m12 l12">
+		<div class="row">
+			<div class="col s9">
+				<h2 class="showHide">
+					<%= @idea.name %>
+					<% if current_user.profileName == @idea.author %>
+						<i class="fa fa-pencil-square-o fa-sm showOnHover"></i>
+					<%end%>
+				</h2>
+				<h6 class="childElement">
+					<%= link_to controller: "profiles", action: "showProfile", id: @idea.author do %>
+						<%=@idea.author%>
+					<%end%>
+						
+				</h6>
+			</div>
+			<div class="col s3">
+				<%= link_to showBMC_path(@idea.id), :class=>"waves-effect waves-red btn-large red right" do%>
+	    		BMC
+	    	<%end%>
+			</div>
+		</div>
+		<!-- IF THE IDEA HAS A VALUE PROP: PLACE IT HERE -->
+		<% if @idea.valueProposition != "" %>
+			<div class="row">
+				<div class="col s12">
+					<h3 class="childElement">
+						<blockquote>
+							<%=@idea.valueProposition%>
+						</blockquote>
+					</h3>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col s12 m12 l4 right align">
+		<!-- PUT IDEA PIC HERE -->
+		<% if @idea.picture.present? %>
+			<%= image_tag(@idea.picture_url(:small), :class=>"ideaImage right align")%>
+			<% else %>
+			<div class="noPicUpload">
+				<i class="fa fa-picture-o fa-5x bigIcon"></i>
+				<h3>You have no Idea Photo! </h3>
+			</div>
+		<% end %>
+	</div>
+  <div class="col s12 m12 l7">
+    <ul class="tabs">	
+      	<li class="tab col s4"><a class="" href="#description">Description</a></li> 
+      	<li class="tab col s4"><a href="#customersegment">CustomerSegment</a></li>
+      	<li class="tab col s4"><a href="#vision">Vision</a></li>
+    </ul>
+  </div>
+  <div id="description" class="col s12 m6 l7">
+		<div class="descriptionWrapper">
+			<% if @idea.description.present? %>
+  			<h5><%= @idea.description %></h5>
+  		<% else %>
+  			<h5>You have not added an idea description</h5>
+  		<%end%>
+  	</div>
+  </div>
+  <div id="customersegment" class="col s12 m6 l7">
+    <% if @idea.customerSegment.present? %>
+  		<h5><%=@idea.customerSegment%></h5>
+  	<%else%>
+  		<h5>You have not added a customer Segment</h5>
+  	<%end%>
+  </div>
+  <div id="vision" class="col s12 m6 l7">
+    <% if @idea.vision.present? %>
+  		<h5><%=@idea.vision%></h5>
+  	<%else%>
+  		<h5>You have not added an idea vision</h5>
+  	<%end%>
+  </div>
+</div>
+<div class="row">
+	<div class="col s12 m12 l5 align right">
+	<!-- THIS IS WHERE THE AUTHORS GO FOR THE IDEA -->
+		 <!-- @idea.users.each do |user|  -->
+		<ul class="collection">
+		    <li class="collection-item avatar">
+		      <p>First Line <br>
+		         Second Line
+		      </p>
+		      <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a>
+		    </li>
+  	</ul>
+  	<!-- end -->
+	</div>
+	<div class="col s12 m12 l7">
+		<h3><strong> <i class="fa fa-comment"></i> Comments</strong></h3>
+		<div class="childElement">
+			<% if @comments.count > 0 %>
+				<% @comments.each do |comment| %>
+					<!-- TODO: move this into a dedicated view -->
+					<div class="showHide">
+						<!-- SHOW AUTHOR THUMBNAIL IMAGE -->
+							<%= image_tag(comment.user.avatar.url(:thumb).to_s, :class=>"left")%>
+							<strong><%= comment.user.profileName %> says:</strong>
+							<%= comment.body %> 
+							<% if current_user.id == comment.user_id %>
+
+								<%= link_to edit_comment_path(comment), :class =>"commentForm showOnHover" do%>
+									<i class="fa fa-pencil-square-o"></i>
+								<%end%>
+								<%= link_to comment, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"commentForm showOnHover" do%>
+									<i class="fa fa-times"></i>
+								<% end %>
+							<% end %>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col m6 s12 addComment">
+		<h3><strong><i class="fa fa-plus-square-o"></i> Add Comment</strong></h3>
+		<%= render 'comments/form' %>
+	</div>
+	<div class="col m5 s12 documents right align">
+		<h4><strong>Documents</strong></h4>
+			<div class="noDocDisplay">
+				<i class="fa fa-file fa-5x bigIcon"></i>
+				<h3>You have no Documents! </h3>
+				<h5>Upload them here! </h5>
+			</div>
+	</div>
+</div>
