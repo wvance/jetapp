@@ -2,35 +2,29 @@ Rails.application.routes.draw do
   resources :stickies
   resources :comments
   resources :activities, only:[:index]
+    
+  resources :user_friendships do 
+    member do 
+      put :accept
+    end
+  end
+
   devise_for :users
+  
+  root 'activities#index'
 
-  # You can have the root of your site routed with "root"
-  # ideas controller with the show action 
-  # ROOT IS ALSO NEEDED FOR DEVISE
-  root 'ideas#showAll'
+  get 'ideas/showAll',        to: 'ideas#showAll',          :as => :showAll
+  get 'ideas/showAuthorIdea', to: 'ideas#showAuthorIdea',   :as => :showAuthorIdea
+  get 'ideas/new',            to: 'ideas#newIdea',          :as => :newIdea
+  get 'ideas/showBMC/:id',    to: 'ideas#showBMC',          :as => :showBMC
+  get 'idea/:id',             to: 'ideas#showIdea',         :as => :showIdea
+  post 'ideas/add',           to: 'ideas#add',              :as => :add           
+  delete 'ideas/:id',         to: 'ideas#delete',           :as => :delete
 
-  delete 'ideas/:id', to: 'ideas#delete', :as => :delete
+  get '/:id',                 to: 'profiles#showProfile',   :as => :showProfile
 
-  get 'ideas/showAll', to: 'ideas#showAll'
-  get 'ideas/showAuthorIdea', to: 'ideas#showAuthorIdea'
-  # get 'ideas/delete'
-  get 'ideas/new', to: 'ideas#newIdea'
-  # Never need an get route, as we will never directly naviage to the add page. 
-  post 'ideas/add', to: 'ideas#add', :as => :add
+  # get "profiles/showProfile", to: 'profiles#showProfile',   :as => :showProfile
 
-  get 'ideas/showBMC/:id', to: 'ideas#showBMC', :as => :showBMC
-
-  # WHY WONT THIS WORK?
-  # Do not need a get route, as we will never directly navigate to the delete page. 
-  # post 'ideas/deleteLast', to: 'ideas#deleteLast', :as => :deleteLast
-
-  # This is the old way of doing things, use get/post as opposed to match. 
-  # match 'ideas/delete', :to => 'ideas#delete', :via => [:get, :post], :as=> :delete
-  get 'idea/:id', to:'ideas#showIdea', :as => :showIdea
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  get '/:id', to: 'profiles#showProfile'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

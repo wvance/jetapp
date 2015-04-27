@@ -34,53 +34,43 @@
       </ul>
       <nav>
         <div class="nav-wrapper blue darken-4">
-          <a class="brand-logo navFix" href="/ideas/showAll"> JetApp </a>
+          <%= link_to "JetApp", activities_path, class: "brand-logo navFix"%>
           <a href="#" data-activates="mobile" class="button-collapse navFix"><i class="fa fa-angle-right"></i></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li class="<%= is_active?('/ideas/showAll') %>">
-              <%= link_to '/ideas/showAll' do%>
+              <%= link_to showAll_path() do%>
                 <!-- <i class="fa fa-home"></i> --> All Ideas
               <% end %>
-            </li>
-            <li class="<%= is_active?('/activities') %>">
-              <%= link_to "Activity Feed", activities_path %>
-            </li>
-            
-            <li class="<%= is_active?('/ideas/showAuthorIdea') %>">
-              <%= link_to '/ideas/showAuthorIdea' do%>
-                <!-- <i class="fa fa-exclamation"></i> --> My Ideas
-              <% end %>
             </li> 
-            <li class="<%= is_active?('/ideas/new') %>">
-              <%= link_to'/ideas/new' do %>
-                <!-- <i class="fa fa-pencil-square-o"></i> --> Create Idea
-              <% end %>
-            </li>
+  
+            <% if user_signed_in? %>
+              <li class="<%= is_active?('showProfile_path()')%>"%>
+                <%= link_to showProfile_path(current_user.profileName) do %>
+                  <%= current_user.profileName %>
+                <%end%>
+              </li>
+            <%end%>
+
             <!-- Dropdown Trigger -->
             <li>
             <a class="dropdown-button" href="#!" data-activates="dropDownMainMenu">Account<i class="fa fa-angle-down right"></i></a>
             </li>
           </ul>
         </div>      
+        <!-- MOBILE NAVBAR -->
         <ul class="side-nav" id="mobile">
           <li class="<%= is_active?('/ideas/showAll') %>">
-            <%= link_to '/ideas/showAll' do%>
+            <%= link_to showAll_path do%>
               All Ideas
             <% end %>
           </li>
-          <li class="<%= is_active?('/activities') %>">
-            <%= link_to "Activity Feed", activities_path %>
-          </li>
-          <li class="<%= is_active?('/ideas/showAuthorIdea') %>">
-            <%= link_to '/ideas/showAuthorIdea' do%>
-              My Ideas
-            <% end %>
-          </li>
-          <li class="<%= is_active?('/ideas/new') %>">
-            <%= link_to'/ideas/new' do %>
-              Create Idea
-            <% end %>
-          </li>
+          <% if user_signed_in? %>
+            <li class="<%= is_active?('showProfile_path()')%>"%>
+              <%= link_to showProfile_path(current_user.profileName) do %>
+                <%= current_user.profileName %>
+              <%end%>
+            </li>
+          <%end%>
           <li class="divider"></li>
           <% if user_signed_in? %>
             <li>
@@ -104,15 +94,13 @@
         </ul>
       </nav>
 
+      
       <div class="container bodyContainer wrapper">
         <div class="center">
         	<!-- FLASHES FOR USER ACCOUNTS: DEVISE -->
-        	<% if notice %>
-        	  <p class="alert alert-success"><%= notice %></p>
-        	<% end %>
-        	<% if alert %>
-        	  <p class="alert alert-danger"><%= alert %></p>
-        	<% end %>
+          <% flash.each do |key, value| %>
+            <%= content_tag :div, value, class: "flash #{key}" %>
+          <% end %>
         </div>
     	  <!-- All views will get placed into here.-->
     		<%= yield %>
@@ -133,7 +121,7 @@
             <li><a class="grey-text text-lighten-3" href="#!">About Us</a></li>
             <li><a class="grey-text text-lighten-3" href="#!">Dev Blog</a></li>
             <li><a class="grey-text text-lighten-3" href="#!">Site Map</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">GitHub Repo</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://github.com/wvance/jetapp" target="_blank">GitHub Repo</a></li>
           </ul>
         </div>
       </div>
@@ -141,7 +129,9 @@
     <div class="footer-copyright">
       <div class="container">
       © 2014 Copyright Text
-      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      <!-- <a class="grey-text text-lighten-4 right" href="#!"><i class="fa fa-facebook"></i></a>
+      <a class="grey-text text-lighten-4 right" href="#!"><i class="fa fa-twitter"></i></a>
+      <a class="grey-text text-lighten-4 right" href="#!"><i class="fa fa-github"></i></a> -->
       </div>
     </div>
   </footer>
