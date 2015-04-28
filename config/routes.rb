@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   
   root 'activities#index'
 
+  # IDEAS ROUTES
   get 'ideas/showAll',        to: 'ideas#showAll',          :as => :showAll
   get 'ideas/showAuthorIdea', to: 'ideas#showAuthorIdea',   :as => :showAuthorIdea
   get 'ideas/new',            to: 'ideas#newIdea',          :as => :newIdea
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
   patch 'ideas/update',       to: 'ideas#update',           :as => :update
   delete 'ideas/:id',         to: 'ideas#delete',           :as => :delete
 
+  # PROFILE ROUTES
   get '/:id',                 to: 'profiles#showProfile',   :as => :showProfile
 
   # get "profiles/showProfile", to: 'profiles#showProfile',   :as => :showProfile
