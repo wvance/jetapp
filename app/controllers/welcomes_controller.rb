@@ -1,9 +1,6 @@
-class WelcomesController < ApplicationController
+class WelcomesController < ActionController::Base
 
-	skip_before_action :authenticate_user!
-
-	def showLanding
-		#redirect_to :action => 'showLanding'
+	def index
 	end
 
 end

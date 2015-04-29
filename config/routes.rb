@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'welcomes/showLanding'
+  get 'welcomes/index'
 
   resources :stickies
   resources :comments
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   
-  root 'welcomes#showLanding'
+  root 'welcomes#index'
 
   # IDEAS ROUTES
   get 'ideas/showAll',        to: 'ideas#showAll',          :as => :showAll
