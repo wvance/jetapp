@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
+=======
+  get 'homepage/index'
+
+>>>>>>> social
   resources :stickies
   resources :comments
   resources :activities, only:[:index]
@@ -11,7 +16,11 @@ Rails.application.routes.draw do
 
   devise_for :users
   
+<<<<<<< HEAD
   root 'activities#index'
+=======
+  root 'homepage#index'
+>>>>>>> social
 
   # IDEAS ROUTES
   get 'ideas/showAll',        to: 'ideas#showAll',          :as => :showAll
@@ -27,6 +36,12 @@ Rails.application.routes.draw do
   # PROFILE ROUTES
   get '/:id',                 to: 'profiles#showProfile',   :as => :showProfile
 
+<<<<<<< HEAD
+=======
+  # HOMEPAGE ROUTE
+  get 'homepage/index',       to: 'homepage#index',         :as => :index
+
+>>>>>>> social
   # get "profiles/showProfile", to: 'profiles#showProfile',   :as => :showProfile
 
   # Example of regular route:

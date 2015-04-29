@@ -1,0 +1,170 @@
+<div class="homeWrapper">
+	<div class="row">
+
+	  <div class="col s12 m6 l4">
+	  	<div class="row">
+	  		<div class="col s12">
+
+					<%= link_to showAll_path() do%>
+						<div class="card-panel showIdeaCard largeCard grey lighten-5">
+							<div class="cardBody center">
+								<span class="black-text">
+					      	<i class="fa fa-globe"></i>
+					      </span>
+				      </div>
+				      <div class="cardFooter valign-wrapper grey">
+				      	<span class="foot white-text">All Ideas <i class="fa fa-caret-right"></i></span>
+				      </div>
+				    </div>
+					<%end%>
+
+	  		</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col s12 m6">
+
+					<%= link_to showAll_path() do%>
+						<div class="card-panel showActivityCard smallCard  red lighten-3">
+							<div class="cardBody center">
+					      <span class="black-text">
+					      	<i class="fa fa-heart"></i>
+					      </span>
+				      </div>
+				      <div class="cardFooter valign-wrapper red lighten-1">
+				      	<span class="foot white-text">Friends <i class="fa fa-caret-right"></i></span>
+				      </div>
+				    </div>
+					<%end%>
+
+	  		</div>
+	  		<div class="col s12 m6">
+	  			
+	  			<%= link_to showAll_path() do%>
+						<div class="card-panel createIdeaCard smallCard purple lighten-3">
+							<div class="cardBody center">
+					      <span class="black-text">
+					      	<i class="fa fa-search"></i>
+					      </span>
+				      </div>
+				      <div class="cardFooter valign-wrapper purple lighten-1">
+				      	<span class="foot white-text">Search <i class="fa fa-caret-right"></i></span>
+				      </div>
+				    </div>
+					<%end%>
+
+	  		</div>
+	  	</div>
+	  </div>
+
+	  <div class="col s12 m6 l4">
+	  	<div class="row">
+	  		<div class="col s12 m6">
+
+					<%= link_to activities_path() do%>
+						<div class="card-panel showActivityCard smallCard green lighten-3">
+							<div class="cardBody center">
+					      <span class="black-text">
+					      	<i class="fa fa-th-list"></i>
+					      </span>
+				      </div>
+				      <div class="cardFooter valign-wrapper green lighten-1">
+				      	<span class="foot dark-text">Show Activity <i class="fa fa-caret-right"></i></span>
+				      </div>
+				    </div>
+					<%end%>
+
+	  		</div>
+	  		<div class="col s12 m6">
+
+	  			<%= link_to showAll_path() do%>
+						<div class="card-panel createIdeaCard smallCard yellow lighten-3">
+							<div class="cardBody center">
+					      <span class="black-text">
+					      	<i class="fa fa-globe"></i>
+					      </span>
+				      </div>
+				      <div class="cardFooter valign-wrapper yellow lighten-1">
+				      	<span class="foot dark-text">Events <i class="fa fa-caret-right"></i></span>
+				      </div>
+				    </div>
+			    <%end%>
+
+	  		</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col s12">
+
+					<%= link_to	newIdea_path() do %>
+		  			<div class="card-panel showIdeaCard largeCard red lighten-3">
+							<div class="cardBody center">
+					      <span class="black-text">				     
+					      	<i class="fa fa-rocket"></i>
+					      </span>
+				      </div>
+				      <div class="cardFooter valign-wrapper red lighten-1">
+				      	<span class="foot white-text">Create Idea <i class="fa fa-caret-right"></i></span>
+				      </div>
+				    </div>
+					<%end%>
+
+	  		</div>
+	  	</div>
+		</div>
+
+		<div class="col s12 m6 l4">
+			<div class="row">
+				<div class="col s12 m6">
+
+					<%= link_to showAll_path() do%>
+						<div class="card-panel createIdeaCard largeCard blue lighten-3">
+							<div class="cardBody center">
+					      <span class="black-text">
+					      	<i class="fa fa-user"></i>
+					      </span>
+				      </div>
+				      <div class="cardFooter valign-wrapper blue lighten-1">
+				      	<span class="foot white-text">My Ideas <i class="fa fa-caret-right"></i></span>
+				      </div>
+				    </div>
+			    <%end%>
+
+				</div>
+				<div class="col s12 m6">
+
+					<%= link_to showAll_path() do%>
+						<div class="card-panel createIdeaCard largeCard green lighten-3">
+							<div class="cardBody center">
+					      <span class="black-text">
+					      	<i class="fa fa-info"></i>
+					      </span>
+				      </div>
+				      <div class="cardFooter valign-wrapper green lighten-1">
+				      	<span class="foot dark-text">Resources <i class="fa fa-caret-right"></i></span>
+				      </div>
+				    </div>
+			    <%end%>
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+
+					<%= link_to showProfile_path(current_user.profileName) do %>
+						<div class="card-panel createIdeaCard smallCard purple lighten-3">
+							<div class="cardBody center">
+					      <span class="black-text">
+					      	<i class="fa fa-cogs"></i>
+					      </span>
+				      </div>
+				      <div class="cardFooter valign-wrapper purple lighten-1">
+				      	<span class="foot white-text">Profile <i class="fa fa-caret-right"></i></span>
+				      </div>
+				    </div>
+			    <%end%>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

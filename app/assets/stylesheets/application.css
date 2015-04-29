@@ -16,8 +16,11 @@
  *= require_self
  */
 
- footer {
+/* footer {
  	position: fixed;
  	bottom: 0;
  	width: 100%;
- }
+}*/
+.bodyContainer{
+ 	margin-top: 40px;
+}
