@@ -8,9 +8,7 @@
 		<% if comment.parent %>
 			<%= comment.parent.id %>
 		<% end %>
-		<% comment.child_comments.each do |child| %>
-			<%= child.id %>
-		<% end %>
+
 
 		<%= image_tag(comment.user.avatar.url(:thumb).to_s, :class=>"left")%>
 		<strong><%= comment.user.profileName %> says:</strong>
@@ -29,6 +27,12 @@
 			<%= link_to comment, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"commentForm showOnHover" do%>
 				<i class="fa fa-times"></i>
 			<% end %>
+		<% end %>
+
+		<% comment.child_comments.each do |child| %>
+			<br />
+
+			<%= render file: 'comments/show', locals: {comment: child, idea: @idea} %>
 		<% end %>
 
 </div>

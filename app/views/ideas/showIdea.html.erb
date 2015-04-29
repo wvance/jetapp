@@ -107,8 +107,12 @@
 					<!-- TODO: move this into a dedicated view -->
 					<div class="showHide">
 						<!-- SHOW AUTHOR THUMBNAIL IMAGE -->
+							<% if comment.parent %>
+								<% next %>
+							<% end %>
 							<%= render file: 'comments/show', locals: {comment: comment, idea: @idea} %>
 							<!-- NEW -->
+							<% next %>
 							<%= comment.id %>,
 							<% if comment.parent %>
 								<%= comment.parent.id %>
