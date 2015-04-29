@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'welcomes/showLanding'
+
   resources :stickies
   resources :comments
   resources :activities, only:[:index]
@@ -11,7 +13,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   
-  root 'activities#index'
+  root 'welcomes#showLanding'
 
   # IDEAS ROUTES
   get 'ideas/showAll',        to: 'ideas#showAll',          :as => :showAll
