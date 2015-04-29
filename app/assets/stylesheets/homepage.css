@@ -22,7 +22,8 @@
 	font-size: 42px;
 }
 .largeCard .cardBody{
-	margin-top: 100px;
+	/*CENTERS IMAGE ON LARGE CARD AND MAKES SIZE BIG*/
+	margin-top: 90px; 
 	font-size: 58px;
 }
 .cardFooter{

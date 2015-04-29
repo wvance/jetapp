@@ -15,3 +15,7 @@
  *= require_tree .
  *= require_self
  */
+
+ .bodyContainer{
+ 	margin-top: 40px;
+ }
