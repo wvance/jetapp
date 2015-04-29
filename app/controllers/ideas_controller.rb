@@ -2,6 +2,7 @@ class IdeasController < ApplicationController
   # Each 'def' is an action, inside the ideas_controller. 
   # INDEX IS THE SAME A SHOW
   # CRUD ACTIONS HERE: Create = add, Read = show 
+
   def showAll
     # These are instance variables, which can be used in the views
     # This is how we display all the Idea(s) in the index view
