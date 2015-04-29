@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'homepage/index'
+  # get 'welcomes/index'
 
   resources :stickies
   resources :comments
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   
 
   root 'homepage#index'
+  # root 'welcomes#index'
 
   # IDEAS ROUTES
   get 'ideas/showAll',        to: 'ideas#showAll',          :as => :showAll
