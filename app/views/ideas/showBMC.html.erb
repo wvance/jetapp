@@ -4,8 +4,10 @@
 			<%= @idea.name %>
 		<%end%>
 		<!-- Modal Trigger -->
-	  <%= link_to '#addStickyModal', :class=>"waves-effect waves-light btn-flat modal-trigger right" do%>
-	  	Add Hypothesis
+		<% if @idea.author == current_user.profileName %>
+		  <%= link_to '#addStickyModal', :class=>"waves-effect waves-light btn-flat modal-trigger right" do%>
+		  	Add Hypothesis
+		  <%end%>
 	  <%end%>
 
 	  <!-- Modal Structure -->
