@@ -3,8 +3,8 @@ body {
 }
 .wrapper{
 	/*USED TO OFFSET NAVBAR*/
-/*	margin-top: 30px;
-*/	width:100%;
+/*	margin-top: 30px;*/ 
+ width:100%;
 }
 .pagination_links{
 	width:200px;
@@ -82,9 +82,8 @@ body {
 }
 nav{
 	margin-top: -1px;
-}
-.noPicUpload{
-	text-align: center;
+	min-height: 100px;
+	background-color: #4285F5;
 }
 .noPicUpload{
 	text-align: center;

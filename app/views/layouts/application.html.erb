@@ -33,8 +33,10 @@
         <% end %>
       </ul>
       <nav>
-        <div class="nav-wrapper blue darken-4">
-          <%= link_to "JetApp", activities_path, class: "brand-logo navFix"%>
+        <div class="nav-wrapper bluer
+         darken-4">
+          <%= link_to image_tag("JetPack_Logo_White.png", :size => '187.5x75', :alt => "JetPack Logo"), index_path, class: "brand-logo navFix"%>
+
           <a href="#" data-activates="mobile" class="button-collapse navFix"><i class="fa fa-angle-right"></i></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li class="<%= is_active?('/ideas/showAll') %>">
@@ -94,17 +96,21 @@
         </ul>
       </nav>
 
-      
       <div class="container bodyContainer wrapper">
-        <div class="center">
-        	<!-- FLASHES FOR USER ACCOUNTS: DEVISE -->
-          <% flash.each do |key, value| %>
-            <%= content_tag :div, value, class: "flash #{key}" %>
-          <% end %>
-        </div>
+
+        <% if false %>
+          <div class="center">
+          	<!-- FLASHES FOR USER ACCOUNTS: DEVISE -->
+            <% flash.each do |key, value| %>
+              <%= content_tag :div, value, class: "flash #{key}" %>
+            <% end %>
+          </div>
+        <%end%>
+
     	  <!-- All views will get placed into here.-->
     		<%= yield %>
       </div>
+
     </div>
 	</body>
   <!-- WILL EDIT THIS LATER -->

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  get 'homepage/index'
+
   resources :stickies
   resources :comments
   resources :activities, only:[:index]
-  
+    
   resources :user_friendships do 
     member do 
       put :accept
@@ -11,17 +13,24 @@ Rails.application.routes.draw do
 
   devise_for :users
   
-  root 'activities#index'
+  root 'homepage#index'
 
+  # IDEAS ROUTES
   get 'ideas/showAll',        to: 'ideas#showAll',          :as => :showAll
   get 'ideas/showAuthorIdea', to: 'ideas#showAuthorIdea',   :as => :showAuthorIdea
   get 'ideas/new',            to: 'ideas#newIdea',          :as => :newIdea
   get 'ideas/showBMC/:id',    to: 'ideas#showBMC',          :as => :showBMC
-  get 'idea/:id',             to: 'ideas#showIdea',         :as => :showIdea
-  post 'ideas/add',           to: 'ideas#add',              :as => :add           
+  get 'ideas/:id',            to: 'ideas#showIdea',         :as => :showIdea
+  get 'ideas/editIdea/:id',   to: 'ideas#editIdea',         :as => :editIdea
+  post 'ideas/add',           to: 'ideas#add',              :as => :add     
+  patch 'ideas/update',       to: 'ideas#update',           :as => :update
   delete 'ideas/:id',         to: 'ideas#delete',           :as => :delete
 
+  # PROFILE ROUTES
   get '/:id',                 to: 'profiles#showProfile',   :as => :showProfile
+
+  # HOMEPAGE ROUTE
+  get 'homepage/index',       to: 'homepage#index',         :as => :index
 
   # get "profiles/showProfile", to: 'profiles#showProfile',   :as => :showProfile
 

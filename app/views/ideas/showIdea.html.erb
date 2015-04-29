@@ -5,19 +5,24 @@
 				<h2 class="showHide">
 					<%= @idea.name %>
 					<% if current_user.profileName == @idea.author %>
-						<i class="fa fa-pencil-square-o fa-sm showOnHover"></i>
+						<!--i class="fa fa-pencil-square-o fa-sm showOnHover"></i-->
 					<%end%>
 				</h2>
 				<h6 class="childElement">
 					<%= link_to controller: "profiles", action: "showProfile", id: @idea.author do %>
 						<%=@idea.author%>
-					<%end%>
-						
+					<%end%>		
 				</h6>
 			</div>
 			<div class="col s3">
 				<%= link_to showBMC_path(@idea.id), :class=>"waves-effect waves-red btn-large red right" do%>
 	    		BMC
+	    	<%end%>
+	    	<div class="col s3">
+	    		<% if current_user.profileName == @idea.author %>
+					<%= link_to editIdea_path(@idea.id), :class=>"waves-effect waves-red btn-large red right" do%>
+	    			Edit
+    			<%end%>
 	    	<%end%>
 			</div>
 		</div>
@@ -101,9 +106,25 @@
 					<!-- TODO: move this into a dedicated view -->
 					<div class="showHide">
 						<!-- SHOW AUTHOR THUMBNAIL IMAGE -->
+							
+							<!-- NEW -->
+							<%= comment.id %>,
+							<% if comment.parent %>
+								<%= comment.parent.id %>
+							<% end %>
+							<% comment.child_comments.each do |child| %>
+								<%= child.id %>
+							<% end %>
+
 							<%= image_tag(comment.user.avatar.url(:thumb).to_s, :class=>"left")%>
 							<strong><%= comment.user.profileName %> says:</strong>
-							<%= comment.body %> 
+							
+							<!-- NEW -->
+							<%= comment.body %>
+							<%= link_to new_comment_path(:data => {:parent_comment_id => comment.id, :idea_id => @idea.id}), :class =>"commentForm showOnHover" do%>
+								<i class="fa fa-reply"></i></i>
+							<%end%>
+
 							<% if current_user.id == comment.user_id %>
 
 								<%= link_to edit_comment_path(comment), :class =>"commentForm showOnHover" do%>
