@@ -3,7 +3,7 @@
 <div class="row">
 	<% if @all_ideas.present?%>
   	<% @all_ideas.shuffle.each do |ideaItem| %>
-		  <div class="col s6 m6 l3">
+		  <div class="col s12 m6 l3">
 	    	<% if ideaItem.picture.present?%>
 	    	<!-- IF THE IDEA HAS A PICTURE -->
 	    		<div class="card card-picture small showHide hoverDepth">
