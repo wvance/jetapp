@@ -13,9 +13,12 @@
 				<%end%>
 			</div>
 		<%else%>
-			<%= link_to	newIdea_path(), :class => "btn btn-flat" do %>
-      	Create Idea
+			<%= link_to	edit_user_registration_path(), :class => "btn btn-flat" do %>
+      	Edit Profile
    		<% end %>
+   		<%= link_to destroy_user_session_path, method: :delete, :class => 'btn btn-flat' do %>
+        Sign Out
+      <% end %>
 		<%end%>
 	</div>
 	<div class="col m6">
@@ -141,16 +144,16 @@
 	  <%end%>
   <%else%>
   	<div class="row">
-      <div class="col s12 m6 l3">
-        <div class="card blue-grey darken-1">
-          <div class="card-content white-text">
-            <span class="card-title">No Ideas</span>
-            <p>There are currently no ideas. Go add one in the links above!</p>
+      <div class="col s12 m6 l3 noIdeaCard">
+        <div class="card red lighten-3 center">
+          <div class="card-content black-text">
+            <span class="card-title black-text">You have no ideas :(</span>
+            <p>There are currently no ideas. Go add one with the link below!</p>
           </div>
-          <div class="card-action">
-            <%= link_to	newIdea_path(), :class => "btn btn-flat" do %>
-			      	Create Idea
-			   		<% end %>
+          <div class="card-action red lighten-1">
+          	<%= link_to'/ideas/new', :class=>"white-text" do %>
+            	<i class="fa fa-pencil-square-o"></i> Create Idea
+            <% end %>
           </div>
         </div>
       </div>
