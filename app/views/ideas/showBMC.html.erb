@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col s12">
 		<%= link_to showIdea_path(@idea.id) do%>
-			<%= @idea.name %>
+			<h5><%= @idea.name %></h5>
 		<%end%>
 		<!-- Modal Trigger -->
 		<% if @idea.author == current_user.profileName %>
@@ -27,18 +27,22 @@
 	<div class="col s12">
 		<!-- Top Half of BMC -->
 		<div class="row ">
-		
 			<!-- KEY PARTNERS -->
-			<div class="col s12 m6 l2 keyPartners red">
-				<div class="sectionHeader">
-					<h5 class="center">Key Partners</h5>
-				</div>
-				<div class="sectionBody">
-					<% @keyPartners.each do |partner| %>
-						<li><%= partner.body %></li>
-					<%end%>
-				</div>
-				<div class="sectionFooter">
+			<div class="col s12 m6 l2">
+				<div class="card-panel keyPartners red lighten-3">
+					<div class="sectionHeader valign-wrapper red lighten-1">
+				    <span class="head white-text">Key Partners 
+				    	<i class="fa fa-plus"></i>
+				    </span>
+					</div>
+					<div class="sectionBody">
+						<% @keyPartners.each do |partner| %>
+							<div class="card-panel red lighten-1">
+								<span class="white-text"><%= partner.body %></span>
+							</div>
+						<%end%>
+					</div>
+					
 				</div>
 			</div>
 			
@@ -46,133 +50,180 @@
 			<div class="col s12 m6 l2 bmcSection">
 
 				<!-- KEY ACTIVITIES -->
-				<div class="row keyActivities blue">
-					<div class="col s12">
-						<div class="sectionHeader">
-							<h5 class="center">Key Activities</h5>
+				<div class="row">
+					<div class="card-panel keyActivities blue lighten-3">
+						<div class="col s12">
+						<div class="sectionHeader valign-wrapper blue lighten-1">
+					    <span class="head white-text">Key Activities 
+					    	<i class="fa fa-plus"></i>
+					    </span>
 						</div>
-						<div class="sectionBody">
-							<% @keyActivities.each do |activity| %>
-								<li><%= activity.body %></li>
-							<%end%>
-						</div>
-						<div class="sectionFooter">
+							<div class="sectionBody">
+								<% @keyActivities.each do |activity| %>
+									<div class="card-panel blue lighten-1">
+										<span class="white-text"><%= activity.body %></span>
+									</div>
+								<%end%>
+							</div>
+							<div class="sectionFooter">
+							</div>
 						</div>
 					</div>
 				</div>
 
 				<!-- KEY RESOURCES -->
-				<div class="row keyResources green">
-					<div class="col s12">
-						<div class="sectionHeader">
-							<h5 class="center">Key Resources</h5>
-						</div>
-						<div class="sectionBody">
-							<% @keyResources.each do |resource| %>
-								<li><%= resource.body %></li>
-							<%end%>
-						</div>
-						<div class="sectionFooter">
+				<div class="row ">
+					<div class="card-panel keyResources green lighten-3">
+						<div class="col s12">
+							<div class="sectionHeader valign-wrapper green lighten-1">
+					    	<span class="head black-text">Key Resources 
+					    		<i class="fa fa-plus"></i>
+					    	</span>
+							</div>
+							<div class="sectionBody">
+								<% @keyResources.each do |resource| %>
+									<div class="card-panel green lighten-1">
+										<span class="black-text"><%= resource.body %></span>
+									</div>
+								<%end%>
+							</div>
+							<div class="sectionFooter">
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			
 			<!-- VALUE PROPOSITION -->
-			<div class="col s12 m12 l3 bmcSection valueProposition yellow">
-				<div class="sectionHeader">
-					<h5 class="center">Value Proposition</h5>
-				</div>
-				<div class="sectionBody">
-					<% @valueProposition.each do |value| %>
-						<li><%= value.body %></li>
-					<%end%>
-				</div>
-				<div class="sectionFooter">
+			<div class="col s12 m12 l3 bmcSection">
+				<div class="card-panel valueProposition yellow lighten-3">
+					<div class="sectionHeader valign-wrapper yellow lighten-1">
+				    <span class="head black-text">Value Proposition 
+				    	<i class="fa fa-plus"></i>
+				    </span>
+					</div>
+					<div class="sectionBody">
+						<% @valueProposition.each do |value| %>
+							<div class="card-panel yellow lighten-1">
+								<span class="black-text"><%= value.body %></li></span>
+							</div>
+						<%end%>
+					</div>
+					<div class="sectionFooter">
+					</div>
 				</div>
 			</div>
 			
 			<div class="col s12 m6 l2 bmcSection">
-
 				<!-- CUSTOMER RELATIONSHIPS -->
-				<div class="row customerRelationships teal">
-					<div class="col s12">
-						<div class="sectionHeader">
-							<h5 class="center">Customer Relationships</h5>
-						</div>
-						<div class="sectionBody">
-							<% @customerRelationships.each do |relationship| %>
-								<li><%= relationship.body %></li>
-							<%end%>
-						</div>
-						<div class="sectionFooter">
+				<div class="row">
+					<div class="card-panel customerRelationships teal lighten-3">
+						<div class="col s12">
+							<div class="sectionHeader valign-wrapper teal lighten-1">
+					    	<span class="head black-text">Relationships 
+					    		<i class="fa fa-plus"></i>
+					    	</span>
+							</div>
+							<div class="sectionBody">
+								<% @customerRelationships.each do |relationship| %>
+									<div class="card-panel teal lighten-1">
+										<span class="black-text"><%= relationship.body %></span>
+									</div>
+								<%end%>
+							</div>
+							<div class="sectionFooter">
+							</div>
 						</div>
 					</div>
 				</div>
 
 				<!-- CHANNELS -->
-				<div class="row channels orange">
-					<div class="col s12">
-						<div class="sectionHeader">
-							<h5 class="center">Channels</h5>
-						</div>
-						<div class="sectionBody">
-							<% @channels.each do |channel| %>
-								<li><%= channel.body %></li>
-							<%end%>
-						</div>
-						<div class="sectionFooter">
+				<div class="row">
+					<div class="card-panel channels orange lighten-3">
+						<div class="col s12">
+							<div class="sectionHeader valign-wrapper orange lighten-1">
+						    <span class="head black-text">Channels 
+						    	<i class="fa fa-plus"></i>
+						    </span>
+							</div>
+							<div class="sectionBody">
+								<% @channels.each do |channel| %>
+									<div class="card-panel orange lighten-1">								
+										<span class="black-text"><%= channel.body %></span>
+									</div>
+								<%end%>
+							</div>
+							<div class="sectionFooter">
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 
 			<!-- CUSTOMER SEGMENTS -->
-			<div class="col s12 m6 l3 customerSegments fullSection amber">
-				<div class="sectionHeader">
-					<h5 class="center">Customer Segments</h5>
-				</div>
-				<div class="sectionBody">
-					<% @customerSegments.each do |segment| %>
-						<li><%= segment.body %></li>
-					<%end%>
-				</div>
-				<div class="sectionFooter">
+			<div class="col s12 m6 l3 fullSection">
+				<div class="card-panel customerSegments amber lighten-3">
+					<div class="sectionHeader valign-wrapper amber lighten-1">
+				    <span class="head black-text">Customer Segments 
+				    	<i class="fa fa-plus"></i>
+				    </span>
+					</div>
+					<div class="sectionBody">
+						<% @customerSegments.each do |segment| %>
+							<div class="card-panel orange lighten-1">								
+								<span class="black-text"><%= segment.body %></span>
+							</div>
+						<%end%>
+					</div>
+					<div class="sectionFooter">
+					</div>
 				</div>
 			</div>
 		</div>
 
 		<!-- BOTTOM HALF of BMC -->
 		<div class="row">
-
 			<!-- COST STRUCTURE -->
-			<div class="col s12 m6 costStructure purple">
-				<div class="sectionHeader">
-					<h5 class="center">Cost Structure</h5>
-				</div>
-				<div class="sectionBody">
-					<% @costStructure.each do |cost| %>
-						<li><%= cost.body %></li>
-					<%end%>
-				</div>
-				<div class="sectionFooter">
+			<div class="col s12 m6">
+				<div class="card-panel costStructure purple lighten-3">
+					<div class="sectionHeader valign-wrapper purple lighten-1">
+				    <span class="head white-text">Cost Structure <i class="fa fa-plus"></i></span>
+					</div>
+					<div class="sectionBody">
+						<% @costStructure.each do |cost| %>
+							<div class="card-panel purple lighten-1">														
+								<span class="white-text"><%= cost.body %></span>
+							</div>
+						<%end%>
+					</div>
+					<div class="sectionFooter">
+					</div>
 				</div>
 			</div>
 
 			<!-- REVENUE STREAMS -->
-			<div class="col s12 m6 revenueStreams indigo">
-				<div class="sectionHeader">
-					<h5 class="center">Revenue Streams</h5>
-				</div>
-				<div class="sectionBody">
-					<% @revenueStreams.each do |revenue| %>
-						<li><%= revenue.body %></li>
-					<%end%>
-				</div>
-				<div class="sectionFooter">
+			<div class="col s12 m6">
+				<div class="card-panel revenueStreams indigo lighten-3">
+					<div class="sectionHeader valign-wrapper indigo lighten-1">
+				    <span class="head white-text">Revenue Streams 
+				    	<i class="fa fa-plus"></i>
+				    </span>
+					</div>
+					<div class="sectionBody">
+						<% @revenueStreams.each do |revenue| %>
+							<div class="card-panel indigo lighten-1">														
+								<span class="white-text"><%= revenue.body %></span>
+							</div>
+						<%end%>
+					</div>
+					<div class="sectionFooter">
+					</div>
 				</div>
 			</div>
 
 		</div> <!-- End Row -->
 	</div> <!-- End Row -->
 </div> <!-- End Row/Wrapper -->
+
+<h4>Add Hypothesis</h4>
+	      <%= render 'stickies/form'%>

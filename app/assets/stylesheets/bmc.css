@@ -1,22 +1,44 @@
 .keyPartners, .valueProposition, .customerSegments{
-	height: 500px;
+	height: 80vh;
 	position: relative;
+	overflow-y:auto
 }
 .keyActivities, .keyResources, .customerRelationships, .channels, .costStructure, .revenueStreams{
-	height: 250px;
+	height: 38vh;
 	position:relative;
+	overflow-y:auto
+}
+.bmcWrapper .sectionBody{
+	margin-top: 40px;
 }
 .bmcWrapper .row{
 	margin-top: 0px;
 	margin-bottom: 0px;
-
+}
+.bmcWrapper .card-panel{
+	margin-left: -5px;
+	margin-right: -5px;
+}
+.bmcWrapper .sectionHeader {
+  position: absolute;
+	top:0;
+	left:0;
+	height:50px;
+	width:100%;
+}
+.sectionHeader .head{
+	margin-left: 20px;
+	width:100%;
+	margin-top: 5px;
 }
 
-.sectionFooter {
-  position: absolute; 
-	bottom: 0;
-}
-.sectionHeadder {
+.bmcWrapper .sectionHeadder {
   position: absolute; 
 	top: 0;
+}
+.sectionHeader .fa{
+	font-size: 20px;
+	float: right;
+	margin-right: 20px;
+	margin-top: -0px;
 }
