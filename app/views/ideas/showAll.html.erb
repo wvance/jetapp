@@ -1,12 +1,45 @@
 <!-- This file is the view action for the ideas controller: other actions (add, delete, etc) will get routed to here -->
+
+<script>
+    var sectorColors = Array(
+                                {'sector' : 'high', 'color' : 'orange'},
+                                {'sector' : 'low', 'color' : 'blue'},
+                                {'sector' : 'medium', 'color' : 'green'},
+                                {'sector' : 'critical', 'color' : 'red'},
+                                {'sector' : 'abc', 'color' : 'purple'}
+                            );
+ 
+    function colorCards()
+    {
+        var divs = document.getElementsByClassName( 'hasSector' );
+        var i, n = divs.length;
+ 
+        for (i=0; i<n; i++)
+        {
+            curSector = divs[i].children[0].children[0].innerHTML;
+ 
+            for (j=0; j<sectorColors.length; j++)
+            {
+                if (sectorColors[j].sector == curSector) {
+                    divs[i].style.backgroundColor = sectorColors[j].color;
+                }
+            }
+        }
+    }
+</script>
+
 <title>Shared Ideas App</title>
-<div class="row">
+<body onload='colorCards();'> 
+<div class="row" >
 	<% if @all_ideas.present?%>
   	<% @all_ideas.shuffle.each do |ideaItem| %>
 		  <div class="col s12 m6 l3">
 	    	<% if ideaItem.picture.present?%>
 	    	<!-- IF THE IDEA HAS A PICTURE -->
-	    		<div class="card card-picture small showHide hoverDepth">
+	    		<div class="card card-picture small showHide hoverDepth hasSector">
+	    		<div style="visibility: hidden" > 
+	        	<p><%= ideaItem.sector%></p>
+	        	</div>
 		        <div class="card-image waves-effect waves-block waves-light">
 		          <%= image_tag(ideaItem.picture_url, :class => "activator") %>
 		        </div>
@@ -49,7 +82,10 @@
 		      </div>
 	    	<%else%>
 	    		<!-- IF IDEA HAS NO IMAGE -->
-	        <div class="card small showHide hoverDepth">
+	        <div class="card small showHide hoverDepth hasSector">
+	        	<div style="visibility: hidden" > 
+	        	<p><%= ideaItem.sector%></p>
+	        	</div>
 	          <div class=" white-black ">
 	          	<div class="card-body">
 	              <span class="card-title grey-text text-darken-4">	
@@ -121,3 +157,4 @@
 	 	</div>
 	</div>
 <%end%>
+</body>

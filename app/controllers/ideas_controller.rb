@@ -40,7 +40,7 @@ class IdeasController < ApplicationController
   end
 
   def newIdea
-    @new_idea = Idea.new
+    @idea = Idea.new
   end
 
   def delete
@@ -65,7 +65,19 @@ class IdeasController < ApplicationController
 
   def add 
     # THIS CANT BE RIGHT...
-  	@idea = Idea.create(:name => params[:idea][:name], :author => current_user.profileName, :valueProposition => params[:idea][:valueProposition], :customerSegment => params[:idea][:customerSegment], :marketSize => params[:idea][:marketSize], :resources => params[:idea][:resources], :stage => params[:idea][:stage], :vision => params[:idea][:vision], :sector => params[:idea][:sector], :description => params[:idea][:description], :picture =>params[:idea][:picture])
+  	@idea = Idea.create(
+      :name => params[:idea][:name], 
+      :author => current_user.profileName, 
+      :valueProposition => params[:idea][:valueProposition], 
+      :customerSegment => params[:idea][:customerSegment], 
+      :marketSize => params[:idea][:marketSize], 
+      :resources => params[:idea][:resources], 
+      :stage => params[:idea][:stage], 
+      :vision => params[:idea][:vision], 
+      :sector => params[:idea][:sector], 
+      :description => params[:idea][:description], 
+      :picture =>params[:idea][:picture]
+    )
   	
     if @idea.save
       current_user.createActivity(@idea, "created")
@@ -113,7 +125,19 @@ class IdeasController < ApplicationController
   end
 
   def idea_params
-    params.require(:idea).permit(:name, :author, :description, :valueProposition, :customerSegment); #, :marketSize, :resources, :stage, :vision, :sector, :picture)
+    params.require(:idea).permit(
+      :name, 
+      :author, 
+      :description, 
+      :valueProposition, 
+      :customerSegment, 
+      :marketSize, 
+      :resources, 
+      :stage, 
+      :vision, 
+      :sector, 
+      :picture
+    )
   end
 
 end

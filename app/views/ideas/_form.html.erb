@@ -13,7 +13,7 @@
 <% end %>
 <!-- Form For is a rails specific keyword, allowing use of forms in the view that link to the controller -->
 <!-- As you can see this form is linked to the add 'action', which can be found in ideas_controller file. -->
-<%= simple_form_for(@idea,:url=>{:action => "add"} , html: { class: 'form-horizontal' }) do |f| %>
+<%= simple_form_for(@idea,:url=>{:action => "add"} ) do |f| %>
 	<div class="">
 		<div class="row">
 		  <div class="caption">
