@@ -4,6 +4,10 @@
 		<!-- SHOW AUTHOR THUMBNAIL IMAGE -->
 
 		<!-- NEW -->
+		<% level ||= 0 %>
+		<% comment ||= @comment %>
+		<% idea ||= comment.idea %>
+
 		<% level.times do  %>
 			<%= '>' %>
 		<% end %>
