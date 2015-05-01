@@ -126,10 +126,8 @@ nav{
           transition: border .2s ease-in-out;
 }
 
-html, body {
-	height: 100%;
-}
-
-bodyContainer {
-	min-height: 100%;	
+.backIcon{
+	font-size: 48px;
+	margin-top: -50px;
+	margin-left: -50px;
 }
