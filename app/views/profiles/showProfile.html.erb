@@ -1,6 +1,6 @@
 <!-- THIS IS WHERE THE PUBLIC PROFILE PAGE FOR A USER WILL BE :) -->
 <div class="row">
-	<div class="col m10 offset-m1">
+	<div class="col s12 m10 offset-m1">
 		<div class="card-panel">
 			<div class="row">
 				<div class="col m6">
@@ -53,19 +53,19 @@
 					    <% if @user_byName == current_user %>
 						    <div class="">
 						      <strong><%= friend.fullName %></strong><br />
-					        <% if friendship.pending? %>
-					          <em>Friendship is pending.</em> <%= link_to "Delete request", edit_user_friendship_path(friendship) %>
-					        <% end %>
-					        <% if friendship.requested? %>
-					          <em>Friendship requested.</em> <%= link_to "Accept friendship", edit_user_friendship_path(friendship) %>.
-					        <% end %>
-					        <% if friendship.accepted? %>
-					          <em>Friendship started <%= friendship.updated_at %>.</em> <%= link_to "Update friendship", edit_user_friendship_path(friendship) %>.
-					        <% end %>
+						        <% if friendship.pending? %>
+						          <em>Friendship is pending.</em> <%= link_to "Delete request", edit_user_friendship_path(friendship) %>
+						        <% end %>
+						        <% if friendship.requested? %>
+						          <em>Friendship requested.</em> <%= link_to "Accept friendship", edit_user_friendship_path(friendship) %>.
+						        <% end %>
+						        <% if friendship.accepted? %>
+						          <em>Friendship started <%= friendship.updated_at %>.</em> <%= link_to "Update friendship", edit_user_friendship_path(friendship) %>.
+						        <% end %>
 						    </div>
-					    </div>
-					  </div>
-					<% end %>
+							<% end %>
+						</div>
+					<%end%>
 				</div>
 				<div class="col s12 m6">
 					<% if @user_comments.size > 0 %>
