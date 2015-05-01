@@ -4,12 +4,9 @@
 		<!-- SHOW AUTHOR THUMBNAIL IMAGE -->
 
 		<!-- NEW -->
-		<%= comment.id %>,
-		<% if comment.parent %>
-			<%= comment.parent.id %>
+		<% level.times do  %>
+			<%= '>' %>
 		<% end %>
-
-
 		<%= image_tag(comment.user.avatar.url(:thumb).to_s, :class=>"left")%>
 		<strong><%= comment.user.profileName %> says:</strong>
 
@@ -31,8 +28,7 @@
 
 		<% comment.child_comments.each do |child| %>
 			<br />
-
-			<%= render file: 'comments/show', locals: {comment: child, idea: @idea} %>
+			<%= render file: 'comments/show', locals: {comment: child, idea: @idea, level: (level + 1)} %>
 		<% end %>
 
 </div>
