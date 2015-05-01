@@ -110,7 +110,13 @@
 								<!-- TODO: move this into a dedicated view -->
 								<div class="showHide">
 									<!-- SHOW AUTHOR THUMBNAIL IMAGE -->
-										
+										<% if comment.parent %>
+											<% next #only call render comment here if it's top-level %>
+										<% end %>
+
+										<%= render file: 'comments/show', locals: {comment: comment, idea: @idea, level: 0} %>
+										<% next #TODO: remove code below and this 'next' statement %>
+
 										<!-- NEW -->
 										<%= comment.id %>,
 										<% if comment.parent %>

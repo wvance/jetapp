@@ -1,18 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @comment.body %>
-</p>
+<div class="showHide">
+		<!-- SHOW AUTHOR THUMBNAIL IMAGE -->
 
-<p>
-  <strong>Idea:</strong>
-  <%= @comment.idea_id %>
-</p>
+		<!-- NEW -->
+		<% level ||= 0 %>
+		<% comment ||= @comment %>
+		<% idea ||= comment.idea %>
 
-<p>
-  <strong>User:</strong>
-  <%= @comment.user_id %>
-</p>
+		<% level.times do  %>
+			<%= '>' %>
+		<% end %>
+		<%= image_tag(comment.user.avatar.url(:thumb).to_s, :class=>"left")%>
+		<strong><%= comment.user.profileName %> says:</strong>
 
-<%= link_to 'Edit', edit_comment_path(@comment) %>
+		<!-- NEW -->
+		<%= comment.body %>
+		<%= link_to new_comment_path(:data => {:parent_comment_id => comment.id, :idea_id => idea.id}), :class =>"commentForm showOnHover" do%>
+			<i class="fa fa-reply"></i></i>
+		<%end%>
+
+		<% if current_user.id == comment.user_id %>
+
+			<%= link_to edit_comment_path(comment), :class =>"commentForm showOnHover" do%>
+				<i class="fa fa-pencil-square-o"></i>
+			<%end%>
+			<%= link_to comment, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"commentForm showOnHover" do%>
+				<i class="fa fa-times"></i>
+			<% end %>
+		<% end %>
+
+		<% comment.child_comments.each do |child| %>
+			<br />
+			<%= render file: 'comments/show', locals: {comment: child, idea: @idea, level: (level + 1)} %>
+		<% end %>
+
+</div>
