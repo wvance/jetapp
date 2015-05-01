@@ -81,7 +81,7 @@ class User < ActiveRecord::Base
     self.role ||= Role.find_by_name('registered')
   end
   # USED FOR PROFILE PICTURE: LIBRARY
-  #  include Gravtastic
-	# gravtastic :size => 50,
-	# 					 :default => 'mm'
+   include Gravtastic
+	gravtastic :size => 50,
+						 :default => 'mm'
 end

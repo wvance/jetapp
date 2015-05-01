@@ -1,14 +1,9 @@
 <!-- This file is the view action for the ideas controller: other actions (add, delete, etc) will get routed to here -->
 <title>Shared Ideas App</title>
 <div class="row">
-	<%= link_to	newIdea_path(), :class => "btn btn-flat right" do %>
-		Create Idea
-	<% end %>
-</div>
-<div class="row">
 	<% if @all_ideas.present?%>
   	<% @all_ideas.shuffle.each do |ideaItem| %>
-		  <div class="col s6 m6 l3">
+		  <div class="col s12 m6 l3">
 	    	<% if ideaItem.picture.present?%>
 	    	<!-- IF THE IDEA HAS A PICTURE -->
 	    		<div class="card card-picture small showHide hoverDepth">
@@ -30,8 +25,10 @@
 								<%end%>
 		          </div>
 		          <div class="card-img-footer showOnHover">
-		          	<%= link_to showIdea_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat right" do%>
-		        			<i class="fa fa-trash-o"></i>
+		          	<% if ideaItem.author == current_user.profileName%>
+			          	<%= link_to delete_path(ideaItem.id), method: :delete, data: { confirm: 'Are you sure?' }, :class=>"waves-effect waves-red btn-flat right smallBtn" do%>
+			        			<i class="fa fa-trash-o"></i>
+			        		<%end%>
 		        		<%end%>
 		        		<%= link_to showBMC_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat right" do%>
 		    					<i class="fa fa-calendar"></i>
@@ -70,8 +67,10 @@
 	          		<h6 class="truncate"><strong>Description:</strong> <%=ideaItem.description%></h6>
 	        		</div>
 	        		<div class="card-footer showOnHover">
-	        			<%= link_to delete_path(ideaItem.id), method: :delete, data: { confirm: 'Are you sure?' }, :class=>"waves-effect waves-red btn-flat right smallBtn" do%>
-		        			<i class="fa fa-trash-o"></i>
+	        			<% if ideaItem.author == current_user.profileName%>
+		        			<%= link_to delete_path(ideaItem.id), method: :delete, data: { confirm: 'Are you sure?' }, :class=>"waves-effect waves-red btn-flat right smallBtn" do%>
+			        			<i class="fa fa-trash-o"></i>
+			        		<%end%>
 		        		<%end%>
 		        		<%= link_to showBMC_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat right" do%>
 		    					<i class="fa fa-calendar"></i>
@@ -87,13 +86,13 @@
     <%end%>
  	<%else%>
   	<div class="row">
-      <div class="col s12 m12">
-        <div class="card red darken-1 center">
-          <div class="card-content white-text">
-            <span class="card-title">You have no ideas :(</span>
+      <div class="col s12 m6 l3 noIdeaCard">
+        <div class="card red lighten-3 center">
+          <div class="card-content black-text">
+            <span class="card-title black-text">You have no ideas :(</span>
             <p>There are currently no ideas. Go add one with the link below!</p>
           </div>
-          <div class="card-action">
+          <div class="card-action red lighten-1">
           	<%= link_to'/ideas/new', :class=>"white-text" do %>
             	<i class="fa fa-pencil-square-o"></i> Create Idea
             <% end %>

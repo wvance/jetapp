@@ -1,24 +1,26 @@
 <!-- https://teamtreehouse.com/library/advanced-social-features-in-ruby-on-rails/activity-feeds/displaying-activity -->
 <div class="row">
-<% @activities.each do |activity|%>
-	<!-- <div class="row"> -->
-		<div class="col s12 m6 l4">
-			<ul class="collection">
-	      <li class="collection-item">
-	      	<!-- <%= image_tag(activity.user.avatar.url(:thumb).to_s, :class=>"circle left")%> -->
-	      	<%= link_to controller: "profiles", action: "showProfile", id: activity.user.profileName do %>
-						<%= activity.user.profileName%>
-					<%end%>
+	<div class="col s10 offset-s1">
+		<div class="card-panel">
+			<% @activities.each do |activity|%>
+				<!-- <div class="row"> -->
+				<ul class="collection">
+		      <li class="collection-item">
+		      	<!-- <%= image_tag(activity.user.avatar.url(:thumb).to_s, :class=>"circle left")%> -->
+		      	<%= link_to controller: "profiles", action: "showProfile", id: activity.user.profileName do %>
+							<%= activity.user.profileName%>
+						<%end%>
 
-	      	<div class="actionItem">
-	      		<%= render partial: "activities/#{activity.targetable_type.underscore}/#{activity.action}", locals: {item: activity} %>
-	      	</div>
-	      	<div class="right">
-						<%=activity.created_at%>
-					</div>
-				</li>
-	    </ul>
-	  </div>
-  <!-- </div> -->
-<%end%>
+		      	<div class="actionItem">
+		      		<%= render partial: "activities/#{activity.targetable_type.underscore}/#{activity.action}", locals: {item: activity} %>
+		      	</div>
+		      	<div class="right">
+							<%=activity.created_at%>
+						</div>
+					</li>
+		    </ul>
+			  <!-- </div> -->
+			<%end%>
+		</div>
+	</div>
 </div>
