@@ -50,8 +50,9 @@
 					    <div class="">
 								<%= image_tag(friend.avatar.url(:thumb))%>
 					    </div>
-					    <div class="">
-					      <strong><%= friend.fullName %></strong><br />
+					    <% if @user_byName == current_user %>
+						    <div class="">
+						      <strong><%= friend.fullName %></strong><br />
 					        <% if friendship.pending? %>
 					          <em>Friendship is pending.</em> <%= link_to "Delete request", edit_user_friendship_path(friendship) %>
 					        <% end %>
@@ -61,6 +62,7 @@
 					        <% if friendship.accepted? %>
 					          <em>Friendship started <%= friendship.updated_at %>.</em> <%= link_to "Update friendship", edit_user_friendship_path(friendship) %>.
 					        <% end %>
+						    </div>
 					    </div>
 					  </div>
 					<% end %>
