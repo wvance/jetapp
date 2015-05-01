@@ -32,6 +32,17 @@
 			<div class="row">
 				<div class="col s12 m6">
 					<h5>Friends:</h5>
+					<h5>
+						<%=@user_byName.firstName.split.map(&:capitalize).join(' ')%> 
+						has 
+						<%=@user_friendships.count %> 
+						<% if (@user_friendships.count > 1 && !0)%>
+							friends!
+						<%else%>
+							friend!
+						<%end%>
+					</h5>
+
 					<!-- <%= link_to 'Friends', user_friendships_path %> -->
 					<% @user_friendships.each do |friendship| %>
 					  <% friend = friendship.friend %>
@@ -71,7 +82,7 @@
 			<h4>Author Ideas</h4>
 				<% if @user_ideas.present?%>
 				  <% @user_ideas.each do |ideaItem| %>
-					  <div class="col s12 m6 l3">
+					  <div class="col s12 m6 l4">
 				 	  	<% if ideaItem.picture.present?%>
 				    	<!-- IF THE IDEA HAS A PICTURE -->
 				    		<div class="card card-picture small showHide hoverDepth">
@@ -146,7 +157,7 @@
 				  <%end%>
 			  <%else%>
 			  	<div class="row">
-			      <div class="col s12 m6 l3 noIdeaCard">
+			      <div class="col s12 m6 l4 noIdeaCard">
 			        <div class="card red lighten-3 center">
 			          <div class="card-content black-text">
 			            <span class="card-title black-text">You have no ideas :(</span>

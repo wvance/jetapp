@@ -30,14 +30,11 @@
         </nav>
       </div>
       <div class="bodyContainer wrapper">
-        <% if false %>
+        <div class="row">
           <div class="center">
-          	<!-- FLASHES FOR USER ACCOUNTS: DEVISE -->
-            <% flash.each do |key, value| %>
-              <%= content_tag :div, value, class: "flash #{key}" %>
-            <% end %>
+            <span class="red-text"><%= flash_message %></span>
           </div>
-        <%end%>
+        </div>
 
     		<%= yield %>
 
