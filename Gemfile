@@ -15,6 +15,7 @@ gem 'modernizr-rails'               # USED FOR FRONTEND DEV
 gem "figaro"                        # USED TO MANAGE SECRET INFO (USERNAME AND PASSWORD OF GMAILS SETTINGS, ETC)
 gem 'draper', '~> 1.3'              # USED TO ADD 'DECORATORS' TO RAILS
 gem 'js-routes'                     # ALLOWS JS TO HAVE ACCESS TO RAILS ROUTES
+gem 'fog'                       # USE AWS TO STORE FILES ON THE 'CLOUD'
 
 # USED FOR CUSTOM LOGIN/ API'S
 # gem 'omniauth'

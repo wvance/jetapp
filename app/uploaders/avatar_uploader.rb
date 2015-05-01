@@ -4,14 +4,14 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
-
+  
   def default_url(*args)
     [version_name, "default.jpg"].compact.join('_')
   end
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
+  # storage :file
+  storage :fog
   
   # For Cache location
   def cache_dir
