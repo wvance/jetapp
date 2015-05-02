@@ -77,6 +77,11 @@
 					<h5><%= f.label :Sector %></h5>
 					<%= f.text_field :sector %>
 				</div>
+
+				<div class="input-field  field col s12">
+    			<%= f.select :sector, Idea::SECTORS, {}, {class: 'browser-default'}%>
+  			
+  			</div>
 				<div class="row">
 					<div class="left">
 					<%= f.submit "Add Idea", class: "btn addIdeaBtn"%>
