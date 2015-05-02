@@ -14,3 +14,4 @@ $(function () {
 
   $('.modal-trigger').leanModal();
 });
+
