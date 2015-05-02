@@ -12,7 +12,7 @@ When(/^I click on "(.*?)"$/) do |arg1|
 end
 
 Then(/^I should see a list of all Ideas$/) do
-	s.within("div.container.bodyContainer.wrapper") do
+	s.within("div.bodyContainer.wrapper") do
 		s.find("div.page_info.center", text: "Displaying")
 
 		(s.find("div.page_info.center", text: "idea") ||

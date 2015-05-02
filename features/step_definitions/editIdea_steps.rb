@@ -26,10 +26,6 @@ When(/^I click on the "(.*?)" button$/) do |arg1|
   s.click_button("Save Changes")
 end
 
-When(/^I return to the "(.*?)" page$/) do |arg1|
-  s.click_link("All Ideas")
-end
-
 Then(/^I should see an Idea with the name "(.*?)"$/) do |arg1|
   s.find('div.showHide', text: arg1)
 end

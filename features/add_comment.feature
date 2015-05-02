@@ -8,5 +8,5 @@ Feature: Add Comments to Ideas
 		And I have clicked "All Ideas"
 		And then I click on "Some Idea"
 		When I enter "Some Comment" in the comment body
-		And click "Add Comment" go back to that Idea
+		And click "Add Comment" and go back to that Idea
 		Then I should see my comment under that Idea

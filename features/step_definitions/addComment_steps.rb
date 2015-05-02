@@ -26,14 +26,15 @@ When(/^I enter "(.*?)" in the comment body$/) do |arg1|
 	end
 end
 
-When(/^click "(.*?)" go back to that Idea$/) do |arg1|
+When(/^click "(.*?)" and go back to that Idea$/) do |arg1|
   s.click_button("Add Comment")
+  s.click_link("JetPack Logo")
+  s.click_link("All Ideas")
 end
 
 Then(/^I should see my comment under that Idea$/) do
-  s.click_link("All Ideas")
-  s.first('a', text: "Some Idea").click
-  s.find('div.showHide', text: "Some Comment")
+  s.click_link('a', text: "Some Idea Edited")
+  s.first('div.showHide', text: "Some Comment")
 end
 
 

@@ -47,8 +47,6 @@ module AutomationHelpers
   # Automates login for reusability
   
   def sign_up(s, us_f, us_l)
-
-    s.find('a.dropdown-button').click # assuming you only have one a.dropdown-toggle
     s.click_on("Sign up")
     s.fill_in("First Name",       with: us_f)
     s.fill_in("Last Name",        with: us_l)

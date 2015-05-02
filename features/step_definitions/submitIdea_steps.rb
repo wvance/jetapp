@@ -27,7 +27,7 @@ When(/^I click on the button "(.*?)"$/) do |arg1|
 end
 
 Then(/^I should see "(.*?)"$/) do |arg1|
-	s.within("div.center") do
-		s.find("div.flash.success", text: arg1)
+	s.within("div.alert.alert-success") do
+		s.find("strong", text: arg1)
 	end
 end
