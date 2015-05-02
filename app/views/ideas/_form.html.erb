@@ -73,17 +73,14 @@
 				  		<%= f.text_area :vision, :class => "materialize-textarea", :length =>"120", :placeholder => "What is your long-term vision?" %>
 				  </div>
 				</div>
-				<div class="col s6 right">
-					<h5><%= f.label :Sector %></h5>
-					<%= f.text_field :sector %>
-				</div>
-
-				<div class="input-field  field col s12">
-    			<%= f.select :sector, Idea::SECTORS, {}, {class: 'browser-default'}%>
-  			
-  			</div>
 				<div class="row">
-					<div class="left">
+					<div class="input-field  field col s6">
+	    			<%= f.select :sector, Idea::SECTORS, {}, {class: 'browser-default'}%>
+	  			</div>
+  			</div>
+
+				<div class="row">
+					<div class="right">
 					<%= f.submit "Add Idea", class: "btn addIdeaBtn"%>
 					</div>
 				</div>
