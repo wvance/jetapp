@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   # https://github.com/plataformatec/devise/wiki/How-To:-Add-a-default-role-to-a-User
+  # USED FOR FACEBOOK LOGIN
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
+
   belongs_to :role
   before_create :setDefaultUserRole
 
@@ -75,6 +78,28 @@ class User < ActiveRecord::Base
     activity.save
     activity
   end 
+
+  # If they auth from Omniauth then either find them or create them
+  def self.from_omniauth(auth)
+  where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+  user.email = auth.info.email
+  user.password = Devise.friendly_token[0,20]
+  user.remote_avatar_url = auth.info.image
+  end
+  end
+   
+  # If they don't give us a required parameter then we do this
+  def self.new_with_session(params, session)
+  super.tap do |user|
+  if data = session["devise.facebook_data"]
+  data.merge!(session["devise.facebook_data"]["info"])
+  data.merge!(session["devise.facebook_data"]["extra"]["raw_info"])
+  user.email = data["email"] if user.email.blank?
+  user.provider = data["provider"] if user.provider.blank?
+  user.uid = data["uid"] if user.uid.blank?
+  end
+  end
+  end
 
   private
   def setDefaultUserRole

@@ -6,6 +6,10 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # config.secret_key = 'b1c04340d3dff837fa2273cf3bebc900d1c68673c29c491bd63338e4d4743c47758841d277fb67a9bb61b04ce15443486f0f0f732f468a5edde8fa798e56edfd'
 
+  # USED FOR FACEBOOK LOGIN
+  config.omniauth :facebook, ENV["FB_ID"], ENV["FB_SECRET"], :scope => "email, public_profile", :image_size => "normal", :secure_image_url => true
+
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
