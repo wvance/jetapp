@@ -119,26 +119,26 @@ class IdeasController < ApplicationController
     string.size > length+5 ? [string[0,length],string[-5,5]].join("...") : string
   end
 
+
   private
+    def set_idea
+      @idea = Idea.find(params[:id])
+    end
 
-  def set_idea
-    @idea = Idea.find(params[:id])
-  end
-
-  def idea_params
-    params.require(:idea).permit(
-      :name, 
-      :author, 
-      :description, 
-      :valueProposition, 
-      :customerSegment, 
-      :marketSize, 
-      :resources, 
-      :stage, 
-      :vision, 
-      :sector, 
-      :picture
-    )
-  end
+    def idea_params
+      params.require(:idea).permit(
+        :name, 
+        :author, 
+        :description, 
+        :valueProposition, 
+        :customerSegment, 
+        :marketSize, 
+        :resources, 
+        :stage, 
+        :vision, 
+        :sector, 
+        :picture
+      )
+    end
 
 end

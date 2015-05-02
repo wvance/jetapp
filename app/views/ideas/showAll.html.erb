@@ -1,48 +1,12 @@
-<!-- This file is the view action for the ideas controller: other actions (add, delete, etc) will get routed to here -->
-
-<script>
-    var sectorColors = Array(
-                                {'sector' : 'Biology', 'color' : 'orange'},
-                                {'sector' : 'Financial', 'color' : 'green'},
-                                {'sector' : 'Healthcare', 'color' : 'blue'},
-                                {'sector' : 'Technology', 'color' : 'red'},
-                                {'sector' : 'Big Data', 'color' : 'purple'}, 
-                                {'sector' : 'Education', 'color' : 'yellow'}
-                            );
- 
-    function colorCards()
-    {
-        var divs = document.getElementsByClassName('hasSector');
-        var i, n = divs.length;
- 
-        for (i=0; i<n; i++)
-        {
-            curSector = divs[i].children[0].children[0].innerHTML;
- 
-            for (j=0; j<sectorColors.length; j++)
-            {
-                if (sectorColors[j].sector == curSector) {
-                    //divs[i].style.backgroundColor = sectorColors[j].color;
-                    divs[i].className += ' ' + sectorColors[j].color;
-                    divs[i].className += ' lighten-3';
-                }
-            }
-        }
-    }
-</script>
-
 <title>Shared Ideas App</title>
-<body onload='colorCards();'> 
 <div class="row" >
 	<% if @all_ideas.present?%>
   	<% @all_ideas.shuffle.each do |ideaItem| %>
 		  <div class="col s12 m6 l3">
 	    	<% if ideaItem.picture.present?%>
 	    	<!-- IF THE IDEA HAS A PICTURE -->
-	    		<div id="card" class="card card-picture small showHide hoverDepth hasSector">
-	    		<div style="visibility: hidden" > 
-	        	<p><%= ideaItem.sector%></p>
-	        	</div>
+	    		<div id="card" class="card card-picture small showHide hoverDepth <%= ideaCardColor(ideaItem.sector) -%>">
+	        	<%= ideaItem.sector%></p>
 		        <div class="card-image waves-effect waves-block waves-light">
 		          <%= image_tag(ideaItem.picture_url, :class => "activator") %>
 		        </div>
@@ -85,10 +49,8 @@
 		      </div>
 	    	<%else%>
 	    		<!-- IF IDEA HAS NO IMAGE -->
-	        <div id="card" class="card small showHide hoverDepth hasSector">
-	        	<div style="visibility: hidden" > 
-	        	<p><%= ideaItem.sector%></p>
-	        	</div>
+	        <div id="card" class="card small showHide hoverDepth <%= ideaCardColor(ideaItem.sector) -%>">
+	        	<%= ideaItem.sector%>
 	          <div class=" white-black ">
 	          	<div class="card-body">
 	              <span class="card-title grey-text text-darken-4">	
@@ -160,4 +122,3 @@
 	 	</div>
 	</div>
 <%end%>
-</body>
