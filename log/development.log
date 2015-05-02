@@ -27933,3 +27933,343 @@ Started GET "/assets/materialize/font/roboto/Roboto-Medium.woff2" for ::1 at 201
 
 
 Started GET "/assets/materialize/font/roboto/Roboto-Light.woff2" for ::1 at 2015-05-02 11:35:16 -0500
+
+
+Started GET "/ideas/showAll" for ::1 at 2015-05-02 11:40:59 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by IdeasController#showAll as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mIdea Load (2.0ms)[0m  [1mSELECT  "ideas".* FROM "ideas" LIMIT 12 OFFSET 0[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "ideas"
+  Rendered ideas/showAll.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 5291ms (Views: 5268.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/materialize/bin/materialize.self-ca422d2b0fdd1d813809d4f4b89a1ca9ab280d9cc0bd1231649908a2f0db8870.css?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/font-awesome.self-2d17540bab3759939e910ca38a695f014e0c777ded3ad7a01c4658b9d3fc980d.css?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/activities.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/bmc.self-26d3eb33b1b7a5d4aece27b96a6d70f23bee0a296d865e3c3796d38fe9f489af.css?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/homepage.self-283a6bcc3b5b83efbc0037a355e5d1174e23d54e9c71a67468beb8e75df17b55.css?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/comments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/comments_style.self-dd85d96ab2368be1fa9797ea579cab195e137d93b98491e8e5737bfe5e559392.css?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/ideas.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/ideas_style.self-cf799bfb726bc886e5ec7edac8249528ab1e66220270a8021a2b5a55661f4b70.css?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/profiles.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/scaffolds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/stickies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/user_friendships.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/application.self-f35fcf3ed7ff2dbdb9b3fb2cb9c24a3073283a57829754b5192ace25306250b1.css?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/jquery/dist/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/jquery.turbolinks.self-176b9819f30444d441e820bbccd3264fe57753aeafd54dec732b0dbc77129a2a.js?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/js-routes.self-88999122fda2f940991938a066e6e101738a8c70da710d6aad75fc70eb2f727d.js?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/materialize/bin/materialize.self-2147c587a4902cebd11d59d74e7382ac17a832f6544691dd019ea263f0ab7170.js?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/turbolinks.self-3ad9a189e282f93d4e08b6b4af94c9dd70e5aaa8557b7704050a875ed67faf50.js?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/activities.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/bmc.self-f12722346a6061ecaf56dc98db285bfa48139b178054d58a417b431e78e30966.js?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/comments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/homepage.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/ideas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/nav.self-a686b0a21e37e2c4db80cce2bde7347321ecba03d5b99121ad99640c3d7d0e35.js?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/npm.self-f66d504f2cd5bddaaade9c854b02828e5e46d225517ab9feebe1af2615566b1e.js?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/profiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/user_friendships.self-576dc1987d53447ad4bb181f03002b33aeb7dce28a021fd142b1969925c52f42.js?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/stickies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/application.self-2a593a4c3b628cd3c3c774919e545db5e7da1c2b1730b4a6129dbbdfc87ae87c.js?body=1" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/assets/JetPack_Logo_White-c6370810b4386cc0912bbbe9753ce57c9e9e02aa7641682b864e3f149bb40041.png" for ::1 at 2015-05-02 11:41:05 -0500
+
+
+Started GET "/images/thumb_default.jpg" for ::1 at 2015-05-02 11:41:06 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/thumb_default.jpg"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  D:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  D:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  D:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (4.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (55.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (21.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (54.0ms)
+
+
+Started GET "/assets/materialize/font/roboto/Roboto-Bold.woff2" for ::1 at 2015-05-02 11:41:06 -0500
+
+
+Started GET "/assets/materialize/font/roboto/Roboto-Light.woff2" for ::1 at 2015-05-02 11:41:06 -0500
+
+
+Started GET "/assets/materialize/font/roboto/Roboto-Medium.woff2" for ::1 at 2015-05-02 11:41:06 -0500
+
+
+Started GET "/assets/materialize/font/roboto/Roboto-Regular.woff2" for ::1 at 2015-05-02 11:41:06 -0500
+
+
+Started GET "/assets/favicon-cd459fa8e0e4028fed64c9dbc5e438ee6026fc2f1bb4259416984e4fc28ce4f5.ico" for ::1 at 2015-05-02 11:41:06 -0500
+
+
+Started GET "/ideas/showAll" for ::1 at 2015-05-02 11:41:09 -0500
+Processing by IdeasController#showAll as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mIdea Load (1.0ms)[0m  SELECT  "ideas".* FROM "ideas" LIMIT 12 OFFSET 0
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "ideas"[0m
+  Rendered ideas/showAll.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 349ms (Views: 344.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/materialize/bin/materialize.self-ca422d2b0fdd1d813809d4f4b89a1ca9ab280d9cc0bd1231649908a2f0db8870.css?body=1" for ::1 at 2015-05-02 11:41:09 -0500
+
+
+Started GET "/assets/font-awesome.self-2d17540bab3759939e910ca38a695f014e0c777ded3ad7a01c4658b9d3fc980d.css?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/bmc.self-26d3eb33b1b7a5d4aece27b96a6d70f23bee0a296d865e3c3796d38fe9f489af.css?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/activities.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/comments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/homepage.self-283a6bcc3b5b83efbc0037a355e5d1174e23d54e9c71a67468beb8e75df17b55.css?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/comments_style.self-dd85d96ab2368be1fa9797ea579cab195e137d93b98491e8e5737bfe5e559392.css?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/ideas.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/ideas_style.self-cf799bfb726bc886e5ec7edac8249528ab1e66220270a8021a2b5a55661f4b70.css?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/profiles.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/scaffolds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/stickies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/user_friendships.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/application.self-f35fcf3ed7ff2dbdb9b3fb2cb9c24a3073283a57829754b5192ace25306250b1.css?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/jquery.turbolinks.self-176b9819f30444d441e820bbccd3264fe57753aeafd54dec732b0dbc77129a2a.js?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/jquery/dist/jquery.self-0664d02dcbfb008e715c754b00b9af29d6f1796828c03610aee4265bdfc6afff.js?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/js-routes.self-88999122fda2f940991938a066e6e101738a8c70da710d6aad75fc70eb2f727d.js?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/materialize/bin/materialize.self-2147c587a4902cebd11d59d74e7382ac17a832f6544691dd019ea263f0ab7170.js?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/turbolinks.self-3ad9a189e282f93d4e08b6b4af94c9dd70e5aaa8557b7704050a875ed67faf50.js?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/bmc.self-f12722346a6061ecaf56dc98db285bfa48139b178054d58a417b431e78e30966.js?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/activities.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/comments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/homepage.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/ideas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/nav.self-a686b0a21e37e2c4db80cce2bde7347321ecba03d5b99121ad99640c3d7d0e35.js?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/npm.self-f66d504f2cd5bddaaade9c854b02828e5e46d225517ab9feebe1af2615566b1e.js?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/profiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/stickies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/user_friendships.self-576dc1987d53447ad4bb181f03002b33aeb7dce28a021fd142b1969925c52f42.js?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/application.self-2a593a4c3b628cd3c3c774919e545db5e7da1c2b1730b4a6129dbbdfc87ae87c.js?body=1" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/JetPack_Logo_White-c6370810b4386cc0912bbbe9753ce57c9e9e02aa7641682b864e3f149bb40041.png" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/images/thumb_default.jpg" for ::1 at 2015-05-02 11:41:10 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/thumb_default.jpg"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.2) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.1.0) lib/request_store/middleware.rb:8:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  D:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  D:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  D:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (64.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (24.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
+  Rendered D:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (62.1ms)
+
+
+Started GET "/assets/materialize/font/roboto/Roboto-Bold.woff2" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/materialize/font/roboto/Roboto-Regular.woff2" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/materialize/font/roboto/Roboto-Medium.woff2" for ::1 at 2015-05-02 11:41:10 -0500
+
+
+Started GET "/assets/materialize/font/roboto/Roboto-Light.woff2" for ::1 at 2015-05-02 11:41:10 -0500
