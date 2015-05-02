@@ -88,10 +88,11 @@ class IdeasController < ApplicationController
     unless @idea.valid?  
    		  flash[:error] = idea.errors.full_messages.join("<br>").html_safe
    	  else 
+        redirect_to :action => 'showAll'
    		  flash[:success] = "Idea Added!"
     end  
     # This will redirect the add action to the index action, which then routes to the index view.
- 		redirect_to :action => 'newIdea'
+ 		#redirect_to :action => 'newIdea'
   end
 
   def editIdea 
