@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   get 'homepage/index'
-  # get 'welcomes/index'
+  get 'welcomes/index'
 
   resources :stickies
   resources :comments

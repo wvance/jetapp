@@ -5,14 +5,14 @@
     Materialize.updateTextFields = function() {
       var input_selector = 'input[type=text], input[type=password], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=search], textarea';
       $(input_selector).each(function(index, element) {
-        if ($(element).val().length > 0 || $(this).attr('placeholder') !== undefined) {
+        if ($(element).val().length > 0 || $(this).attr('placeholder') !== undefined || $(element)[0].validity.badInput === true) {
           $(this).siblings('label, i').addClass('active');
         }
         else {
           $(this).siblings('label, i').removeClass('active');
         }
       });
-    }
+    };
 
     // Text based inputs
     var input_selector = 'input[type=text], input[type=password], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=search], textarea';
@@ -53,14 +53,15 @@
     });
 
     $(document).on('blur', input_selector, function () {
-      if ($(this).val().length === 0 && $(this).attr('placeholder') === undefined) {
-        $(this).siblings('label, i').removeClass('active');
+      var $inputElement = $(this);
+      if ($inputElement.val().length === 0 && $inputElement[0].validity.badInput !== true && $inputElement.attr('placeholder') === undefined) {
+        $inputElement.siblings('label, i').removeClass('active');
       }
-      validate_field($(this));
+      validate_field($inputElement);
     });
 
     validate_field = function(object) {
-      if (object.val().length === 0) {
+      if (object.val().length === 0 && object[0].validity.badInput === false) {
         if (object.hasClass('validate')) {
           object.removeClass('valid');
           object.removeClass('invalid');
@@ -78,7 +79,7 @@
           }
         }
       }
-    }
+    };
 
 
     // Textarea Auto Resize
@@ -90,9 +91,16 @@
     var text_area_selector = '.materialize-textarea';
 
     function textareaAutoResize($textarea) {
+      // Set fontsize of hiddenDiv
+      var fontSize = $textarea.css('font-size');
+      if (fontSize) {
+        hiddenDiv.css('font-size', fontSize);
+      }
+
       hiddenDiv.text($textarea.val() + '\n');
       var content = hiddenDiv.html().replace(/\n/g, '<br>');
       hiddenDiv.html(content);
+
 
       // When textarea is hidden, width goes crazy.
       // Approximate with half of window size
@@ -240,11 +248,13 @@
       wrapper.addClass($select.attr('class'));
       var options = $('<ul id="select-options-' + uniqueID+'" class="dropdown-content select-dropdown"></ul>');
       var selectOptions = $select.children('option');
+
+      var label;
       if ($select.find('option:selected') !== undefined) {
-        var label = $select.find('option:selected');
+        label = $select.find('option:selected');
       }
       else {
-        var label = options.first();
+        label = options.first();
       }
 
 
@@ -313,36 +323,36 @@
         collection.find('li.active').removeClass('active');
         $(newOption).addClass('active');
         collection.scrollTo(newOption);
-      }
+      };
 
       // Allow user to search by typing
       // this array is cleared after 1 second
-      filterQuery = []
+      filterQuery = [];
 
       onKeyDown = function(event){
         // TAB - switch to another input
         if(event.which == 9){
           $newSelect.trigger('close');
-          return
+          return;
         }
 
         // ARROW DOWN WHEN SELECT IS CLOSED - open select options
         if(event.which == 40 && !options.is(":visible")){
           $newSelect.trigger('open');
-          return
+          return;
         }
 
         // ENTER WHEN SELECT IS CLOSED - submit form
         if(event.which == 13 && !options.is(":visible")){
-          return
+          return;
         }
 
         event.preventDefault();
 
         // CASE WHEN USER TYPE LETTERS
         letter = String.fromCharCode(event.which).toLowerCase();
-
-        if (letter){
+        var nonLetters = [9,13,27,38,40];
+        if (letter && (nonLetters.indexOf(event.which) === -1)){
           filterQuery.push(letter);
 
           string = filterQuery.join("");
@@ -387,11 +397,11 @@
         }
 
         // Automaticaly clean filter query so user can search again by starting letters
-        setTimeout(function(){filterQuery = []}, 1000)
-      }
+        setTimeout(function(){ filterQuery = []; }, 1000);
+      };
 
       $newSelect.on('keydown', onKeyDown);
     });
-  }
+  };
 
 }( jQuery ));
