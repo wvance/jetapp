@@ -1,4 +1,5 @@
 class IdeasController < ApplicationController
+  before_filter :authenticate_user!
   # Each 'def' is an action, inside the ideas_controller. 
   # INDEX IS THE SAME A SHOW
   # CRUD ACTIONS HERE: Create = add, Read = show 

@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'homepage/index'
-  get 'welcomes/index'
-
   resources :stickies
   resources :comments
   resources :activities, only:[:index]
@@ -16,8 +13,8 @@ Rails.application.routes.draw do
   devise_for :users
   
 
-  root 'homepage#index'
-  # root 'welcomes#index'
+  # root 'homepage#index'
+  root 'welcomes#index'
 
   # IDEAS ROUTES
   get 'ideas/showAll',        to: 'ideas#showAll',          :as => :showAll
@@ -35,6 +32,9 @@ Rails.application.routes.draw do
 
   # HOMEPAGE ROUTE
   get 'homepage/index',       to: 'homepage#index',         :as => :index
+
+  
+  get 'welcome',              to: 'welcomes#index',         :as => :welcomeIndex
 
   # get "profiles/showProfile", to: 'profiles#showProfile',   :as => :showProfile
 

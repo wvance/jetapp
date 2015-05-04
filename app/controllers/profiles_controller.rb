@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+	before_filter :authenticate_user!
   def showProfile
   	@user_byName = User.find_by_profileName(params[:id]) 						# RETURNS USER OBJECT: NOTE NOT THE ID
   	@user_comments = Comment.where(:user_id => @user_byName.id)

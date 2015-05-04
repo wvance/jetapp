@@ -1,6 +1,5 @@
-class WelcomesController < ActionController::Base
-
+class WelcomesController < ApplicationController
 	def index
+		@disable_nav = true
 	end
-
 end

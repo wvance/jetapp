@@ -32,15 +32,7 @@ var pollActivity = function(){
 		}
 	});
 }
-
-(function($){
-  $(function(){
-
-   // The rest above this is hidden
-
-   $('.slider').slider();
-
-  }); // end of document ready
-})(jQuery); // end of jQuery name space
-
 // window.pollInterval = window.setInterval(pollActivity, 5000);
+
+
+

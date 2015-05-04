@@ -8,6 +8,8 @@
 	  <%= csrf_meta_tags %>
 	</head>
 	<body>
+
+    <% unless @disable_nav %>
     <div class = "wrapper">
       <div class="navbar-fixed">
         <nav>
@@ -29,12 +31,14 @@
           </div>      
         </nav>
       </div>
+
       <div class="bodyContainer wrapper">
         <div class="row">
           <div class="center">
             <span class="red-text"><%= flash_message %></span>
           </div>
-        </div>
+        </div>   
+    <% end %>
 
     		<%= yield %>
 
