@@ -6,7 +6,6 @@
 	    	<% if ideaItem.picture.present?%>
 	    	<!-- IF THE IDEA HAS A PICTURE -->
 	    		<div id="card" class="card card-picture small showHide hoverDepth <%= ideaCardColor(ideaItem.sector) -%>">
-	        	<%= ideaItem.sector%></p>
 		        <div class="card-image waves-effect waves-block waves-light">
 		          <%= image_tag(ideaItem.picture_url, :class => "activator") %>
 		        </div>
