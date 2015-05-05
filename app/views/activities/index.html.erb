@@ -2,8 +2,9 @@
 <div class="row">
 	<div class="col s10 offset-s1">
 		<div class="card-panel">
+			<h3>Activity</h3>
 			<% if @activities.length == 0 %>
-				No activities at this time.  
+				<h5>No activity yet!  Try creating an idea or adding a freind. </h5>
 			<%end%> 
 
 			<% @activities.each do |activity|%>

@@ -1,7 +1,10 @@
 <div class="row">
   <div class="col s12 m10 offset-m1">
     <div class="card-panel">
-      <h1>Friends</h1>
+      <h3>Friends</h3>
+      <% if @user_friendships.length == 0 %>
+        <h5>No friends yet!  Visit a user's profile to add them as a friend.  </h5>
+      <%end%> 
       <% @user_friendships.each do |friendship| %>
         <% friend = friendship.friend %>
         <div id="<%= dom_id(friendship) %>" class="friend row">
