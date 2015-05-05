@@ -76,13 +76,13 @@
 				<!-- NOTE 'SECTORS' IS FOUND IN THE IDEAS MODEL -->
 				<div class="row">
 					<div class="input-field  field col s6">
-	    			<%= f.select :sector, Idea::SECTORS, {}, {class: 'browser-default'}%>
+		    			<%= f.select :sector, Idea::SECTORS, {}, {class: 'browser-default'}%>
+		  			</div>
 	  			</div>
-  			</div>
 
 				<div class="row">
 					<div class="right">
-					<%= f.submit "Add Idea", class: "btn addIdeaBtn"%>
+					<%= f.submit :value=>"Add Idea", class: "btn addIdeaBtn"%>
 					</div>
 				</div>
 			</div>

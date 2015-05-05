@@ -21,8 +21,8 @@
 		          </span>
 		          <div class="card-author childElement truncate">
 		          	<%= link_to controller: "profiles", action: "showProfile", id: ideaItem.author do %>
-									<%=ideaItem.author%>
-								<%end%>
+						<%=ideaItem.author%>
+					<%end%>
 		          </div>
 		          <div class="card-img-footer showOnHover">
 		          	<% if ideaItem.author == current_user.profileName%>
