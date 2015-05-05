@@ -9,12 +9,17 @@ class ApplicationController < ActionController::Base
   end
 
 protected
-  def authenticate_user!
-    if user_signed_in?
-      super
-    else
-      redirect_to new_user_session_path()
-    end
+  # def authenticate_user!
+  #   if user_signed_in?
+  #     super
+  #   else
+  #     redirect_to new_user_session_path()
+  #   end
+  # end
+  
+  def authenticated_user!
+    store_origin_path
+    authenticate_user!
   end
   
   def configure_permitted_parameters
