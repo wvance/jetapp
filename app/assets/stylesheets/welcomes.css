@@ -1,3 +1,8 @@
-.slider{
-	height:100%;
+.homepageWrapper{
+	color: #d3d3d3;
+	/*background-color:#332c2c;*/
+	height:100vh;
+}
+.login{
+	width:100%;
 }

@@ -1,34 +1,49 @@
-<%= link_to index_path() do%>
-<div class="slider">
-  <ul class="slides">
-    <li>
-      <img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->
-      <div class="caption center-align">
-        <h3>This is our big Tagline!</h3>
-        <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-      </div>
-    </li>
-    <li>
-      <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
-      <div class="caption left-align">
-        <h3>Left Aligned Caption</h3>
-        <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-      </div>
-    </li>
-    <li>
-      <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
-      <div class="caption right-align">
-        <h3>Right Aligned Caption</h3>
-        <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-      </div>
-    </li>
-    <li>
-      <img src="http://lorempixel.com/580/250/nature/4"> <!-- random image -->
-      <div class="caption center-align">
-        <h3>This is our big Tagline!</h3>
-        <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-      </div>
-    </li>
-  </ul>
+<div class="homepageWrapper">
+  <div class="slider">
+    <ul class="slides">
+      <li>
+        <%= image_tag "howdy.jpg" %>
+        <div class="caption right-align">
+          <h3>Welcome to Jetpack!</h3>
+          <h5 class="light grey-text text-lighten-3">Helping your business ideas take flight!</h5>
+        </div>
+      </li>
+      <li>
+        <%= image_tag "tamu.jpg" %>
+        <div class="caption left-align">
+          <h3>Welcome to Jetpack!</h3>
+          <h5 class="light grey-text text-lighten-3">Helping your business ideas take flight!</h5>
+        </div>
+      </li>
+      <li>
+        <%= image_tag "football.jpg" %>
+        <div class="caption right-align">
+          <h3>Welcome to Jetpack!</h3>
+          <h5 class="light grey-text text-lighten-3">Helping your business ideas take flight!</h5>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <%= link_to index_path() do%>
+    <div class="login btn blue lighten-3">
+        login
+    </div>
+  <%end%>
+  <div class="row">
+    <div class="media col s4 center teal-text lighten-3">
+      <h1><i class="fa fa-globe"></i></h1>
+      <h5>Store Ideas Online!</h5>
+      <p>Replace traditional notebooks and launch your ideas to the next level!</p>
+    </div>
+    <div class="media col s4 center indigo-text lighten-3">
+      <h1><i class="fa fa-rocket"></i></h1>
+      <h5>Collaborate & Share</h5>
+      <p>Replace traditional notebooks and launch your ideas to the next level!</p>
+    </div>
+    <div class="media col s4 center deep-orange-text lighten-3">
+      <h1><i class="fa fa-users"></i></h1>
+      <h5>Find Teammates!</h5>
+      <p>Replace traditional notebooks and launch your ideas to the next level!</p>
+    </div>
+  </div>
 </div>
-<%end%>
