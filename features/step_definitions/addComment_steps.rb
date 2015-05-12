@@ -3,6 +3,7 @@ s = Capybara::Session.new(:selenium)
 Given(/^that I have logged in$/) do
 	window_max(s)
 	s.visit path_to(host)
+	s.click_link("login")
 	log_in(s)
 end
 

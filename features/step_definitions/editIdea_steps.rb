@@ -3,6 +3,7 @@ s = Capybara::Session.new(:selenium)
 Given(/^that I am logged into the JetPack application$/) do
   	window_max(s)
 	s.visit path_to(host)
+	s.click_link("login")
 	log_in(s)
 end
 

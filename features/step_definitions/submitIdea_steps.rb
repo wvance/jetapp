@@ -7,6 +7,7 @@ user_p_name = user_first + '_' + user_last
 Given(/^that I am on the home page and have logged in$/) do
 	window_max(s)
 	s.visit path_to(host)
+	s.click_link("login")
 	sign_up(s, user_first, user_last)
 end
 
