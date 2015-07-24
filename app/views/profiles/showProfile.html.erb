@@ -147,20 +147,32 @@
 				<% @user_friendships.each do |friendship| %>
 				  <% friend = friendship.friend %>
 				  <!-- <div id="<%= dom_id(friendship) %>" class="friend"> -->
-				  <div class="col s3 m2 center">
+				  <div class="col s3 m2 center showHide">
 						<%= image_tag(friend.avatar.url(:thumb))%><br>
 			    	<%= friend.profileName %>
 				    <% if @user_byName == current_user %>
 					    <div class="">
-					        <% if friendship.pending? %>
-					          <em>pending</em> <hr><%= link_to "Delete request", edit_user_friendship_path(friendship) %>
-					        <% end %>
-					        <% if friendship.requested? %>
-					          <em>requested</em> <hr><%= link_to "Accept friendship", edit_user_friendship_path(friendship) %>.
-					        <% end %>
-					        <% if friendship.accepted? %>
-					          <em>started <%= friendship.updated_at %></em> <%= link_to "Update friendship", edit_user_friendship_path(friendship) %>.
-					        <% end %>
+				        <% if friendship.pending? %>
+				          <em>Pending</em>
+				          <div class="showOnHover">
+					          <hr>
+					          <%= link_to "Delete request", edit_user_friendship_path(friendship)%>
+				          </div>
+				        <% end %>
+				        <% if friendship.requested? %>
+				          <em>Requested</em>
+				          <div class="showOnHover">
+					          <hr>
+				          	<%= link_to "Accept friendship", edit_user_friendship_path(friendship)%>.
+				          </div>
+				        <% end %>
+				        <% if friendship.accepted? %>
+				          <em>Friend</em>
+				          <div class="showOnHover">
+					          <hr>
+				          	<%= link_to "Update friendship", edit_user_friendship_path(friendship)%>
+				          </div>
+				        <% end %>
 					    </div>
 						<% end %>
 					<!-- </div> -->

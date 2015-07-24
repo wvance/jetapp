@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col s12 m10 offset-m1">
-      <h3>Friends</h3>
-      <% if @user_friendships.length == 0 %>
-        <h5>No friends yet!  Visit a user's profile to add them as a friend.  </h5>
-      <%end%> 
-      <% @user_friendships.each do |friendship| %>
-        <% friend = friendship.friend %>
-        <div class="col s2 center">
+    <h3>Friends</h3>
+    <% if @user_friendships.length == 0 %>
+      <h5>No friends yet!  Visit a user's profile to add them as a friend.  </h5>
+    <%end%> 
+    <% @user_friendships.each do |friendship| %>
+      <% friend = friendship.friend %>
+      <div class="col s2 center showHide">
         <div id="<%= dom_id(friendship) %>" class="friend row">
           <div class="">
       			<%= link_to image_tag(friend.avatar.url(:thumb)), controller: "profiles", action: "showProfile", id: friendship.friend.profileName %>
@@ -14,17 +14,29 @@
           <div class="">
             <strong><%= friend.fullName %></strong><br />
               <% if friendship.pending? %>
-                <em>pending</em> <hr><%= link_to "Delete request", edit_user_friendship_path(friendship) %>
+                <em>Pending</em>
+                <div class="showOnHover">
+                  <hr>
+                  <%= link_to "Delete request", edit_user_friendship_path(friendship)%>
+                </div>
               <% end %>
               <% if friendship.requested? %>
-                <em>requested</em> <hr><%= link_to "Accept friendship", edit_user_friendship_path(friendship) %>.
+                <div class="showOnHover">
+                  <em>Requested</em> 
+                  <hr>
+                  <hr><%= link_to "Accept friendship", edit_user_friendship_path(friendship) %>
+                </div>
               <% end %>
               <% if friendship.accepted? %>
-                <em>started <%= friendship.updated_at %></em> <hr><%= link_to "Update friendship", edit_user_friendship_path(friendship) %>.
+                <em>Friend</em> 
+                <div class="showOnHover">
+                  <hr>
+                  <%= link_to "Update friendship", edit_user_friendship_path(friendship) %>
+                </div>
               <% end %>
           </div>
         </div>
-        </div>
-      <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
