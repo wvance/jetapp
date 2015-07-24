@@ -4,6 +4,7 @@ s = session
 Given(/^I have logged in and I am on the "(.*?)"$/) do |arg1|
 	window_max(s)
 	s.visit path_to(host)
+	s.click_link("login")
 	log_in(session)
 end
 
