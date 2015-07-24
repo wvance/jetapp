@@ -25,14 +25,14 @@
 		          </div>
 		          <div class="card-img-footer showOnHover">
 		          	<% if ideaItem.author == current_user.profileName%>
-			          	<%= link_to delete_path(ideaItem.id), method: :delete, data: { confirm: 'Are you sure?' }, :class=>"waves-effect waves-red btn-flat right smallBtn" do%>
+			          	<%= link_to delete_path(ideaItem.id), method: :delete, data: { confirm: 'Are you sure?', position:"bottom", delay:"10", tooltip:"Delete Idea" }, :class=>"waves-effect waves-red btn-flat tooltipped smallBtn right" do%>
 			        			<i class="fa fa-trash-o"></i>
 			        		<%end%>
 		        		<%end%>
-		        		<%= link_to showBMC_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat right" do%>
+		        		<%= link_to showBMC_path(ideaItem.id), data: {position:"bottom", delay:"10", tooltip:"Show BMC"} ,:class=>"waves-effect waves-red btn-flat tooltipped smallBtn right" do%>
 		    					<i class="fa fa-calendar"></i>
 		    				<%end%>
-			          <%= link_to showIdea_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat right smallBtn" do%>
+			          <%= link_to showIdea_path(ideaItem.id), data: { position:"bottom", delay:"10", tooltip:"Show Idea" },:class=>"waves-effect waves-red btn-flat tooltipped smallBtn right" do%>
 			        		<i class="fa fa-eye"></i>
 			        	<%end%>
 		        	</div>
@@ -67,14 +67,14 @@
 	        		</div>
 	        		<div class="card-footer showOnHover">
 	        			<% if ideaItem.author == current_user.profileName%>
-		        			<%= link_to delete_path(ideaItem.id), method: :delete, data: { confirm: 'Are you sure?' }, :class=>"waves-effect waves-red btn-flat right smallBtn" do%>
+		        			<%= link_to delete_path(ideaItem.id), method: :delete, data: { confirm: 'Are you sure?', position:"bottom", delay:"10", tooltip:"Delete Idea" }, :class=>"waves-effect waves-red btn-flat tooltipped smallBtn right" do%>
 			        			<i class="fa fa-trash-o"></i>
 			        		<%end%>
 		        		<%end%>
-		        		<%= link_to showBMC_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat right" do%>
+		        		<%= link_to showBMC_path(ideaItem.id), data: {position:"bottom", delay:"10", tooltip:"Show BMC"} ,:class=>"waves-effect waves-red btn-flat tooltipped smallBtn right" do%>
 		    					<i class="fa fa-calendar"></i>
 		    				<%end%>
-		        		<%= link_to showIdea_path(ideaItem.id), :class=>"waves-effect waves-red btn-flat right smallBtn" do%>
+		        		<%= link_to showIdea_path(ideaItem.id), data: { position:"bottom", delay:"10", tooltip:"Show Idea" },:class=>"waves-effect waves-red btn-flat tooltipped smallBtn right" do%>
 			        		<i class="fa fa-eye"></i>
 			        	<%end%>
 	          	</div>

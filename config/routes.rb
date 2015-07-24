@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   devise_for :users
   
 
-  # root 'homepage#index'
-  root 'welcomes#index'
+  root 'homepage#index'
+  # root 'welcomes#index'
 
   # IDEAS ROUTES
   get 'ideas/showAll',        to: 'ideas#showAll',          :as => :showAll

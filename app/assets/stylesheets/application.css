@@ -16,21 +16,25 @@
  *= require_self
  */
 
+@import url(http://fonts.googleapis.com/css?family=Raleway:200,300);
+@import url(http://fonts.googleapis.com/css?family=Roboto:300);
 
-/* footer {
- 	position: fixed;
- 	bottom: 0;
- 	width: 100%;
-}*/
 html, body {
 	height: 100%;
+	font-family: 'Roboto'; font-weight: 300;
 	/*background-color:#332c2c ;*/
 }
 nav {
 	width: 100%; 
-	padding: 0px; 
-	/*background-color:#500000;*/
 }
+
+h1, h2, h3, h4{
+	font-family: 'Raleway'; font-weight: 200;
+}
+h5, h6{
+	font-family: 'Raleway'; font-weight: 300;
+}
+
 .avatarThumb{
 	margin-top: 23px;
 }
@@ -40,10 +44,9 @@ nav {
 
 .bodyContainer {
 	min-height: 100%;	
-	margin-top: 50px;
+	margin-top: 0px;
 	height: 100%;
- 	padding: 10px;
-
+	margin-top: 30px;
 }
 
 /*.wrapper{

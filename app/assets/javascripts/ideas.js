@@ -15,3 +15,8 @@ $(function () {
   $('.modal-trigger').leanModal();
 });
 
+
+$(document).ready(function(){
+  $('.tooltipped').tooltip({delay: 50});
+});
+    

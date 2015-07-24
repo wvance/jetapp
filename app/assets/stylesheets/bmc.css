@@ -1,3 +1,7 @@
+.row .smallWidth{
+	padding: 0 0px;
+}
+
 .keyPartners, .valueProposition, .customerSegments{
 	height: 80vh;
 	position: relative;
